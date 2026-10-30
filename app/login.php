@@ -1,5 +1,38 @@
 <?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php";
 
+    $usuarios = readAll(database(), "usuarios");
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if(!isset($_POST['email']) || $_POST['email'] == "" ||
+        !isset($_POST['senha']) || $_POST['senha'] == ""){
+            header('Location: login.php?erro=Espaço vázio');
+            exit;
+        }
+
+        $email = trim($_POST['email']);
+        $senha = $_POST['senha'];
+
+        $loginEncontrado = false;
+
+        foreach($usuarios as $u) {
+
+        if ($email == $u['email'] && $senha == $u['senha']) {
+            $loginEncontrado = true;
+            break;
+        }
+
+        }
+
+        if ($loginEncontrado) {
+        header('Location: homeUsuario.php');
+        exit;
+        } else {
+        header('Location: login.php?erro=Email ou senha incorretos');
+        exit;
+        }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -36,7 +69,15 @@
                 <input type="text" name="email" id="email" placeholder="E-Mail">
 
                 <label for="senha"></label>
-                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <input type="text" name="senha" id="senha" placeholder="Senha">
+
+                <div class="erro">
+                <?php
+                if(isset($_GET['erro']) && $_GET['erro'] != ""){
+                    echo "<p>{$_GET['erro']} </P>";
+                }
+                ?>
+                </div>
 
                 <p>Não possui uma conta? <a href="cadastro.php">Cadastre-se aqui</a></p>
 

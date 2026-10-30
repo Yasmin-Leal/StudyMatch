@@ -200,3 +200,7 @@ img {
     font-family: "Arima", system-ui;
     color: #7d655c;
 }
+
+.erro{
+    color: red;
+}

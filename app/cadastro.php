@@ -90,7 +90,9 @@
             "senha" => $_POST['senha'],
             "data_nascimento" => $_POST['data'],
         ]);
-            }
+        header('Location: login.php');
+        exit;
+        }
 ?>
 
 <!DOCTYPE html>
