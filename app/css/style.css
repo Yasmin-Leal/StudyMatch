@@ -10,8 +10,9 @@ body{
 
 .cabecalho{
     display: flex;
-    width: 1895px;
+    width: 100%;
     height: 150px;
+    flex-shrink: 0;
     background-color: #796761;
     justify-content: left;
     align-items: center;
@@ -134,11 +135,125 @@ nav ul li a{
     font-size: 20px;
 }
 
+.fundo{
+    background-image: url("../imgs/background-perfil.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
 
+.perfilbox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(240, 211, 195, 0.6);
+    min-height: 700px;
+    width: min(800px, 100%);
+    box-sizing: border-box;
+}
+
+.bannerperfil{
+    background-color: #ffd998;
+    width: 100%;
+    height: 250px;
+}
+
+.fotoperfil{
+    margin-top: -200px;
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.editarfoto{
+    margin-top: -80px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-image: url("../imgs/7e57751c-5e8f-434e-9a72-0b0e23de43ec.png");
+    background-size: cover;
+    margin-left: 170px;
+}
+
+.infoperfil{
+    width: 100%;
+}
+
+.infoperfil .form{
+    margin: 50px auto 30px;
+    width: 70%;
+    max-width: none;
+    padding-left: 0;
+}
+
+.infoperfil form{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.infoperfil form br{
+    display: none;
+}
+
+
+.infoperfil .form input{
+    display: block;
+    width: 100%;
+    height: 70px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: "Arima", system-ui;
+}
+
+.infoperfil .form button{
+    background-color: #d9b27d;
+    border-style:hidden;
+    border-radius: 50px;
+    padding: 10px;
+    font-family: "Arima", system-ui;
+    color: #752325;
+    width: 40%;
+    height: 80px;
+    font-size:30px;
+    align-self: center;
+}
+
+#nomeEx,
+#email{
+    width: 100%;
+}
+
+#nomeUs{
+    width: 85%;
+}
+
+#data{
+    width: 35%;
+}
+
+#telefone{
+    width: 60%;
+}
+
+.sequencia{
+    display:
+}
 .rodape{
     display: flex;
-    width: 1895px;
+    width: 100%;
     height: 200px;
+    flex-shrink: 0;
     background-color: #796761;
     justify-content: left;
     align-items: center;
