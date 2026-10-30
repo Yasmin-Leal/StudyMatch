@@ -8,6 +8,10 @@ body{
    background-color: #f0d3c394;
 }
 
+img {
+  display: block;
+}
+
 .cabecalho{
     display: flex;
     width: 100%;
@@ -81,15 +85,16 @@ nav ul li a{
 
 
 .form{
+    display: flex;
     justify-self: right;
     display:block;
     max-width: 935px;
     width: 90%;
     padding-left: 100px;
-
+    align-items: center;
 }
 
-.form h1{
+.form .titu p{
     font-size:50px;
     color: #6b4f36;
     text-align:center;
@@ -106,9 +111,9 @@ nav ul li a{
     background-color: #ffffff;
     border-radius: 40px;
     border-color: #917d79;
-    border-width: 5px;
+    border-width: 4px;
     width: 90%;
-    height: 80px;
+    height: 60px;
     margin-bottom: 30px;
     font-size: 30px;
 
@@ -121,17 +126,20 @@ nav ul li a{
     padding: 10px;
     font-family: "Arima", system-ui;
     color: #752325;
-    width: 40%;
-    height: 80px;
+    width: 300px;
+    height: 60px;
     font-size:30px;
-   
+    display: block;
+    margin: 0 auto
 }
+
 .form ::placeholder{
     font-family: "Arima", system-ui;
     color: #7d655c;
 }
 
 .form p {
+    margin-top: 0px;
     font-size: 20px;
 }
 
@@ -294,4 +302,8 @@ nav ul li a{
 
 .redesSociais nav ul li a{
     text-decoration: none;
+}
+
+.erro{
+    color: red;
 }
