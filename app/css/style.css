@@ -89,10 +89,9 @@ nav ul li a{
     max-width: 935px;
     width: 90%;
     padding-left: 100px;
-
 }
 
-.form h1{
+.form .titu p{
     font-size:50px;
     color: #6b4f36;
     text-align:center;
@@ -109,9 +108,9 @@ nav ul li a{
     background-color: #ffffff;
     border-radius: 40px;
     border-color: #917d79;
-    border-width: 5px;
+    border-width: 4px;
     width: 90%;
-    height: 80px;
+    height: 60px;
     margin-bottom: 30px;
     font-size: 30px;
 
@@ -124,8 +123,8 @@ nav ul li a{
     padding: 10px;
     font-family: "Arima", system-ui;
     color: #752325;
-    width: 40%;
-    height: 80px;
+    width: 300px;
+    height: 60px;
     font-size:30px;
    
 }
@@ -135,6 +134,7 @@ nav ul li a{
 }
 
 .form p {
+    margin-top: 0px;
     font-size: 20px;
 }
 
@@ -183,4 +183,8 @@ nav ul li a{
 
 .redesSociais nav ul li a{
     text-decoration: none;
+}
+
+.erro{
+    color: red;
 }
