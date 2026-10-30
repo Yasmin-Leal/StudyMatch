@@ -170,7 +170,7 @@
                 }
                 ?>
                 </div>
-                <p>Já possui uma conta? <a href="login.php">Faça login aqui.</a></p>
+                <div class="center"><p>Já possui uma conta? <a href="login.php">Faça login aqui.</a></p></div>
                 <button type="submit">Criar Conta</button>
 
                 

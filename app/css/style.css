@@ -84,11 +84,13 @@ nav ul li a{
 
 
 .form{
+    display: flex;
     justify-self: right;
     display:block;
     max-width: 935px;
     width: 90%;
     padding-left: 100px;
+    align-items: center;
 }
 
 .form .titu p{
@@ -126,8 +128,10 @@ nav ul li a{
     width: 300px;
     height: 60px;
     font-size:30px;
-   
+    display: block;
+    margin: 0 auto
 }
+
 .form ::placeholder{
     font-family: "Arima", system-ui;
     color: #7d655c;
@@ -138,6 +142,9 @@ nav ul li a{
     font-size: 20px;
 }
 
+.center{
+    text-align: center;
+}
 
 .rodape{
     display: flex;
