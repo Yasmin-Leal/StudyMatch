@@ -69,7 +69,7 @@
                 <input type="text" name="email" id="email" placeholder="E-Mail">
 
                 <label for="senha"></label>
-                <input type="text" name="senha" id="senha" placeholder="Senha">
+                <input type="password" name="senha" id="senha" placeholder="Senha">
 
                 <div class="erro">
                 <?php
