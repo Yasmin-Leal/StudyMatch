@@ -137,7 +137,7 @@
         <div class="form">
             <div class="titu"><p>Cadastre-se</p></div>
             <form action="" method="post">
-                <input type="text" name="id" hidden>
+                <input type="hidden" name="id">
                 <br>
                 <label for="nomeEx"></label>
                 <input type="text" name="nomeEx" placeholder="Nome de Exibição" id="nomeEx">

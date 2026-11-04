@@ -17,22 +17,20 @@
         $loginEncontrado = false;
 
         foreach($usuarios as $u) {
-
-        if ($email == $u['email'] && $senha == $u['senha']) {
-            $loginEncontrado = true;
-            break;
-        }
-
+            if ($email == $u['email'] && $senha == $u['senha']) {
+                $loginEncontrado = true;
+                break;
+            }
         }
 
         if ($loginEncontrado) {
-        header('Location: homeUsuario.php');
-        exit;
+            header('Location: homeUsuario.php');
+            exit;
         } else {
-        header('Location: login.php?erro=Email ou senha incorretos');
-        exit;
+            header('Location: login.php?erro=Email ou senha incorretos');
+            exit;
         }
-}
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -48,32 +46,30 @@
 <body>
     <div class="cabecalho">
         <div class="img-cabecalho"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>
-    <nav>
-    <ul>
-        <li><a href="materias.php"><p>Matérias</p></a></li>
-        <li><a href="social.php"><p>Social</p></a></li>
-        <li><a href="progresso.php"><p>Progresso</p></a></li>
-    </ul>
-    </nav>
-    <div class="login"><a href="login.php"><div class="loginTitulo"><p>login</p></div></a></div>
+        <nav>
+            <ul>
+                <li><a href="materias.php"><p>Matérias</p></a></li>
+                <li><a href="social.php"><p>Social</p></a></li>
+                <li><a href="progresso.php"><p>Progresso</p></a></li>
+            </ul>
+        </nav>
+        <div class="login"><a href="login.php"><div class="loginTitulo"><p>login</p></div></a></div>
     </div>
     <div class="inicialLogin">
-    <img src="/img-yasmin/login-img.png" alt="">
+        <img src="/img-yasmin/login-img.png" alt="">
         <div class="formLogin">
             <div class="titulo"><p>Login</p></div>
             <form action="" method="post">
-                <input type="text" name="id_usuario" hidden>
+                <input type="hidden" name="id_usuario">
 
-                <label for="email"></label>
                 <input type="text" name="email" id="email" placeholder="E-Mail">
 
-                <label for="senha"></label>
                 <input type="password" name="senha" id="senha" placeholder="Senha">
 
                 <div class="erro">
                 <?php
                 if(isset($_GET['erro']) && $_GET['erro'] != ""){
-                    echo "<p>{$_GET['erro']} </P>";
+                    echo "<p>{$_GET['erro']}</p>";
                 }
                 ?>
                 </div>
@@ -159,16 +155,16 @@
                 <td></td>
                 <td><a href="configuracao.php"><p>Configuração</p></a></td>
             </tr>
-            </table>
-            <div class="redesSociais">
-                <nav>
+        </table>
+        <div class="redesSociais">
+            <nav>
                 <ul>
                     <li><a href=""><img src="/img-yasmin/git.png" alt=""></a></li>
                     <li><a href=""><img src="/img-yasmin/insta.png" alt=""></a></li>
                 </ul>
-                </nav>
-            </div>
-            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+            </nav>
+        </div>
+        <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
     </div>
 </body>
 </html>
