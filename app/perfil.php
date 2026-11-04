@@ -1,4 +1,30 @@
 <?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php"; 
+
+    $user = $_GET['user'];
+
+    $sql = "SELECT * FROM usuarios WHERE nome_usuario = :user";
+    $stmt = database()->prepare($sql);
+    $stmt->bindValue(':user', $user);
+    $stmt->execute();
+
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $id = $_POST['id'];
+        $nome = $_POST['nomeEx'];
+        $email = $_POST['email'];
+        $data = $_POST['data'];
+        $telefone = $_POST['telefone'];
+
+        $consulta = database()->prepare('
+        UPDATE usuarios SET nome = :nome, email = :email, data_nascimento = :data, telefone = :telefone WHERE id = :id;
+        ');
+        $consulta->execute(['nome' => $nome, 'email' => $email, 'data' => $data, 'telefone' => $telefone, 'id' => $id]);
+        header("Location: perfil.php");
+        exit;
+    }
 
 ?>
 <!DOCTYPE html>
@@ -42,21 +68,24 @@
 
                 <div class="infoperfil">
                     <div class="form">
+                        <form action="" method="post">
+                        <input type="hidden" name="id">
+
                         <label for="nomeEx"></label>
-                        <input type="text" name="nomeEx" id="nomeEx" placeholder="Nome de Exibição">
-                        <br>
+                        <input type="text" name="nomeEx" id="nomeEx" value="<?=  $usuario['nome'] ?>">
+
                         <label for="nomeUs"></label>
-                        <input type="text" name="nomeUs" id="nomeUs" placeholder="Nome de Usuário">
-                        <br>
+                        <input type="text" name="nomeUs" id="nomeUs" value="<?=  $usuario['nome_usuario'] ?>">
+
                         <label for="email"></label>
-                        <input type="text" name="email"  id="email" placeholder="E-Mail">
-                        <br>
+                        <input type="text" name="email"  id="email" value="<?=  $usuario['email'] ?>">
+
                         <label for="data"></label>
-                        <input type="date" name="data"  id="data" placeholder="Data de Nasc.">
-                        <br>
+                        <input type="date" name="data"  id="data" value="<?=  $usuario['data_nascimento'] ?>">
+
                         <label for="telefone"></label>
-                        <input type="text" name="telefone"  id="telefone" placeholder="Telefone">
-                        <br>
+                        <input type="text" name="telefone"  id="telefone" placeholder="Telefone" value="<?=  $usuario['telefone'] ?>">
+
                         <button type="submit">Editar Perfil</button>
                         </form>
                     </div>
