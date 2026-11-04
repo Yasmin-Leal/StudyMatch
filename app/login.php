@@ -7,7 +7,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if(!isset($_POST['email']) || $_POST['email'] == "" ||
         !isset($_POST['senha']) || $_POST['senha'] == ""){
-            header('Location: login.php?erro=Espaço vázio');
+            header('Location: login.php?erro=Espaço vazio');
             exit;
         }
 
@@ -40,8 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyMatch</title>
-    <link rel="stylesheet" href="./css-yasmin/style.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">

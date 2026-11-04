@@ -3,6 +3,7 @@
     require_once __DIR__ . "/banco/database.php"; 
 
     $usuarios = readAll(database(), "usuarios");
+    $anos = readAll(database(), "escolaridade");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -12,7 +13,7 @@
         !isset($_POST['ano']) || $_POST['ano'] == "" ||
         !isset($_POST['senha']) || $_POST['senha'] == "" ||
         !isset($_POST['data']) || $_POST['data'] == ""){
-            header('Location: cadastro.php?erro=Espaço vázio');
+            header('Location: cadastro.php?erro=Espaço vazio');
             exit;
         }
 
@@ -102,7 +103,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyMatch</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
@@ -151,8 +152,17 @@
                     <label for="data"></label>
                     <input type="date" name="data" placeholder="Data de Nasc." id="data">
 
-                    <label for="ano"></label>
-                    <input type="text" name="ano" placeholder="Escolaridade" id="ano">
+                    <div class="ano">
+                        <select name="ano">
+                            <option value="">Ano Escolar</option>
+                            <?php foreach($anos as $a): ?>
+                            <option value="<?= $a['ano_escolar'] ?>">
+                            <?= $a['ano_escolar'] ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
                 </div>
                 <br>
                 <label for="telefone"></label>
