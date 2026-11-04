@@ -49,7 +49,7 @@
                         <input type="text" name="email"  id="email" placeholder="E-Mail">
                         <br>
                         <label for="data"></label>
-                        <input type="text" name="data"  id="data" placeholder="Data de Nasc.">
+                        <input type="date" name="data"  id="data" placeholder="Data de Nasc.">
                         <br>
                         <label for="telefone"></label>
                         <input type="text" name="telefone"  id="telefone" placeholder="Telefone">
