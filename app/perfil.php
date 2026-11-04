@@ -27,10 +27,7 @@
                     </a></li>
             </ul>
         </nav>
-        <div class="login"><a href="login.php">
-                <div class="loginTitulo">
-                    <p>login</p>
-                </div>
+        <div class="fotoConta"><a href="perfil.php">
             </a></div>
     </div>
         <div class="fundo">
