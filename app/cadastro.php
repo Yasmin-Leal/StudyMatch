@@ -192,105 +192,90 @@
 
     </div>
     <div class="rodape">
-        <div class="img-rodape"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-rodape"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>
         <table cellpadding="3">
             <tr>
-                <td><a href="pedidos.html">
-                        <p>Matérias</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="bolos.html">
-                        <p>Social</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="suporte.html">
-                        <p>Progresso</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="docinhos-trufas.html">
-                        <p>Suporte</p>
-                    </a></td>
+                <td><a href="materias.php"><p>Matérias</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="social.php"><p>Social</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="progresso.php"><p>Progresso</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="suporte.php"><p>Suporte</p></a></td>
             </tr>
             <tr>
-                <td><a href="kit-festa.html">
-                        <p>Termos</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="tortinhas-cupcakes.html">
-                        <p>Contato</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="">
-                        <p>Customização</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="brownies-cookies.html">
-                        <p>Configuração</p>
-                    </a></td>
+                <td><a href="termos.php"><p>Termos</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="contato.php"><p>Contato</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="customizacao.php"><p>Customização</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="configuracao.php"><p>Configuração</p></a></td>
             </tr>
-        </table>
-        <div class="redesSociais">
-            <nav>
+            </table>
+            <div class="redesSociais">
+                <nav>
                 <ul>
-                    <li><a href=""><img src="imgs/git.png" alt=""></a></li>
-                    <li><a href=""><img src="imgs/insta.png" alt=""></a></li>
+                    <li><a href=""><img src="/img-yasmin/git.png" alt=""></a></li>
+                    <li><a href=""><img src="/img-yasmin/insta.png" alt=""></a></li>
                 </ul>
-            </nav>
-        </div>
+                </nav>
+            </div>
+            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+    </div>
 </body>
-
 </html>
