@@ -7,7 +7,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if(!isset($_POST['email']) || $_POST['email'] == "" ||
         !isset($_POST['senha']) || $_POST['senha'] == ""){
-            header('Location: login.php?erro=Espaço vazio');
+            header("Location: login.php?erro=Espaço vazio");
             exit;
         }
 
@@ -24,10 +24,10 @@
         }
 
         if ($loginEncontrado) {
-            header('Location: homeUsuario.php');
+            header("Location: perfil.php?user={$u['nome_usuario']}");
             exit;
         } else {
-            header('Location: login.php?erro=Email ou senha incorretos');
+            header("Location: login.php?erro=Email ou senha incorretos");
             exit;
         }
     }
