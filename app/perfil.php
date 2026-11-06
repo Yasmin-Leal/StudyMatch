@@ -4,26 +4,74 @@
 
     $user = $_GET['user'];
 
-    $sql = "SELECT * FROM usuarios WHERE nome_usuario = :user";
-    $stmt = database()->prepare($sql);
-    $stmt->bindValue(':user', $user);
-    $stmt->execute();
+    $dadosUser = database()->prepare('
+    SELECT * FROM usuarios WHERE nome_usuario = :user');
+    $dadosUser->execute(['user' => $user]);
 
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    $usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+
+    $usuarios = readAll(database(), "usuarios");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        if(!isset($_POST['nomeEx']) || $_POST['nomeEx'] == "" ||
+        !isset($_POST['email']) || $_POST['email'] == "" ||
+        !isset($_POST['data']) || $_POST['data'] == ""){
+            header('Location: perfil.php?erro=Espaço vazio');
+            exit;
+        }
+
+        foreach($usuarios as $u){
+            if($_POST['email'] != $usuario['email'] && $_POST['email'] == $u['email']){
+                header('Location: perfil.php?erro=Esse email já está cadastrado');
+                exit;
+            }
+            if (strpos($_POST['email'], ' ') !== false) {
+                header('Location: perfil.php?erro=O campo do email não pode conter espaços.');
+                exit;
+            }
+            if (strpos($_POST['email'], '@') === false) {
+                header('Location: perfil.php?erro=Email inválido');
+                exit;
+            }
+
+            //verificações telefone
+            if($_POST['telefone'] != $usuario['telefone'] && $_POST['telefone'] != "" && $_POST['telefone'] == $u['telefone']){
+                header('Location: perfil.php?erro=Esse telefone já está cadastrado');
+                exit;
+            }
+
+            //verificações data de nasc.   
+            date_default_timezone_set('America/Sao_Paulo');
+            $dataAtual = new DateTime();
+            $dataInformada = new DateTime($_POST['data']);
+            $idade = $dataAtual->diff($dataInformada);
+
+            if($dataAtual < $dataInformada){
+                header("Location: perfil.php?erro=Data incorreta");
+                exit;
+            }
+
+            if($idade->y < 9){
+                header("Location: perfil.php?erro=O usuário deve ter no mínimo 9 anos completos");
+                exit;
+            }
+        }
+
         $id = $_POST['id'];
         $nome = $_POST['nomeEx'];
         $email = $_POST['email'];
         $data = $_POST['data'];
         $telefone = $_POST['telefone'];
 
+        
         $consulta = database()->prepare('
-        UPDATE usuarios SET nome = :nome, email = :email, data_nascimento = :data, telefone = :telefone WHERE id = :id;
+        UPDATE usuarios SET nome = :nome, email = :email, data_nascimento = :data_nascimento, telefone = :telefone WHERE id_usuario = :id_usuario;
         ');
-        $consulta->execute(['nome' => $nome, 'email' => $email, 'data' => $data, 'telefone' => $telefone, 'id' => $id]);
-        header("Location: perfil.php");
+        $consulta->execute(['nome' => $nome, 'email' => $email, 'data_nascimento' => $data, 'telefone' => $telefone, 'id_usuario' => $id]);
+        header("Location: perfil.php?user={$nome}");
         exit;
+
     }
 
 ?>
@@ -56,8 +104,7 @@
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php">
-            </a></div>
+        <div class="fotoConta"><a href="perfil.php"><a href="perfil.php?user=<?= $user ?>"></a></div>
     </div>
         <div class="fundo">
             <div class="perfilbox">
@@ -69,13 +116,13 @@
                 <div class="infoperfil">
                     <div class="form">
                         <form action="" method="post">
-                        <input type="hidden" name="id">
+                        <input type="hidden" name="id" value="<?=  $usuario['id_usuario'] ?>">
 
                         <label for="nomeEx"></label>
                         <input type="text" name="nomeEx" id="nomeEx" value="<?=  $usuario['nome'] ?>">
 
                         <label for="nomeUs"></label>
-                        <input type="text" name="nomeUs" id="nomeUs" value="<?=  $usuario['nome_usuario'] ?>">
+                        <input type="text" name="nomeUs" id="nomeUs" value="<?=  $usuario['nome_usuario'] ?>" readonly>
 
                         <label for="email"></label>
                         <input type="text" name="email"  id="email" value="<?=  $usuario['email'] ?>">
@@ -85,6 +132,14 @@
 
                         <label for="telefone"></label>
                         <input type="text" name="telefone"  id="telefone" placeholder="Telefone" value="<?=  $usuario['telefone'] ?>">
+
+                        <div class="erro">
+                        <?php
+                            if(isset($_GET['erro']) && $_GET['erro'] != ""){
+                                echo "<p>{$_GET['erro']} </P>";
+                            }
+                        ?>
+                        </div>
 
                         <button type="submit">Editar Perfil</button>
                         </form>
