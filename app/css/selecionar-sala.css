@@ -210,10 +210,9 @@ nav ul li a{
 
 .rodape{
     display: flex;
-    width: 1895px;
+    flex-wrap: wrap;
     width: 100%;
-    height: 200px;
-    flex-shrink: 0;
+    height: 190px;
     background-color: #796761;
     justify-content: left;
     align-items: center;
@@ -255,4 +254,12 @@ nav ul li a{
 
 .redesSociais nav ul li a{
     text-decoration: none;
+}
+
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
 }
