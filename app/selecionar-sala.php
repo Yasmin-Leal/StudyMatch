@@ -6,6 +6,40 @@
     $areaConhecimento = readAll(database(), "area_conhecimento");
     $materias = readAll(database(), "materias");
 
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $area = $_POST['areaConhecimento'];
+        $materia = $_POST['materias'];
+
+        if(empty($grupos)){
+            header('Location: selecionar-sala.php?erro=Nenhuma sala criada');
+            exit;
+        }
+
+        if(empty($area)){
+            header('Location: selecionar-sala.php?erro=Espaço vazio');
+            exit;
+        }
+        
+        $materiasPorArea = [
+        "Exatas"            => ["Matemática", "Física", "Química"],
+        "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
+        "Ciências Humanas"  => ["História", "Geografia", "Filosofia", "Sociologia"],
+        "Linguagens"        => ["Língua Português", "Língua Estrangeiras", "Literatura"]
+        ];
+
+
+        if (!empty($materia) && !in_array($materia, $materiasPorArea[$area] ?? [], true)){
+            header("Location: selecionar-sala.php?erro=A máteria selecionada não faz parte desse área de conhecimento");
+            exit;
+        }
+
+        if (!empty($materia)) {
+            $grupos = read(database(), "grupos_estudos", $area, $materia);
+        } else {
+            $grupos = read(database(), "grupos_estudos", $area);
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +57,7 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeUser.php"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
@@ -45,7 +79,7 @@
     </div>
     
     <div class="pesquisaSalas">
-        <form>
+        <form action="" method="post">
             <select name="areaConhecimento">
                 <option value="">Área de Conhecimento</option>
                 <?php foreach($areaConhecimento as $a): ?>
@@ -63,6 +97,14 @@
                 <?php endforeach; ?>
             </select>
             <br>
+            <div class="erro">
+                <?php
+                if(isset($_GET['erro']) && $_GET['erro'] != ""){
+                    echo "<p>{$_GET['erro']}</p>";
+                }
+                ?>
+            </div>
+            <button type="submit">Filtrar</button>
         </form>
         <div class="lupa"></div>
     </div>
