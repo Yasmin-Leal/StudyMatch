@@ -263,3 +263,7 @@ nav ul li a{
     font-size: 11px;
     margin-top: 20px;
 }
+
+.erro{
+    color: red;
+}
