@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyMatch</title>
-    <link rel="stylesheet" href="criarsala.css">
+    <link rel="stylesheet" href="css/criarsala.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
@@ -34,43 +34,67 @@
     <div class="bloco1">
     <p>Crie sua própria sala de estudos!</p>
     </div>
-         <img class="seta" src="img-giovana/seta.png" alt="">
+        <!-- <img class="seta" src="img-giovana/seta.png" alt=""> -->
 
-    <div class="principal">
+
+
+
+<div class="principal">
+
+
         <p>Escolha um ambiente:</p>
-        <div class="caixa1"></div>
-        <div class="card">
-        <img src="./img-giovana/espaco1.png" alt="Imagem" width="300">
-        </div>
 
-        <div class="card">
-        <img src="./img-giovana/espaco2.png" alt="Imagem" width="300">
-        </div>
+        <div class="caixa1">
 
-        <div class="card">
-        <img src="./img-giovana/espaco3.png" alt="Imagem" width="300">    
-        </div>
+            <div class="card">
+            <img src="./img-giovana/espaco1.png" alt="Imagem" width="400">
+            </div>
 
+            <div class="card">
+            <img src="./img-giovana/espaco2.png" alt="Imagem" width="400">
+            </div>
+
+            <div class="card">
+            <img src="./img-giovana/espaco3.png" alt="Imagem" width="400">    
+            </div>
+
+        </div>
+  
+
+        <div class="caixa2">
+
+            <div class="card">
+            <img src="img-giovana/espaco4.png" alt="Imagem" width="400">
+            </div>
+
+            <div class="card">
+            <img src="img-giovana/espaco5.png" alt="Imagem" width="400">
+            </div>
+
+            <div class="card">
+            <img src="img-giovana/espaco6.png" alt="Imagem" width="400">
+            </div>
+
+       </div>
+
+    <p>Preencha as informações a seguir:</p>
+
+
+    <div class="form">
+        <form class="form2">
+            <input type="text" placeholder="Nome da sala">
+            <input type="text" placeholder="Nome do usuário"> 
+            <input type="date" placeholder="Data de criação">
+   
+            <input type="password" placeholder="Senha da sala">
     </div>
-
-
-        <div class="card">
-        <img src="img-giovana/espaco4.pn\g" alt="Imagem" width="300">
-        </div>
-
-        <div class="card">
-        <img src="img-giovana/espaco5.png" alt="Imagem" width="300">
-        </div>
-
-        <div class="card">
-        <img src="img-giovana/espaco6.png" alt="Imagem" width="300">
-        </div>
+            <button type="submit" class="button">Criar Sala</button>
+        </form>
 
 
 
-
-
-
+</div>
+       
 
 
 
