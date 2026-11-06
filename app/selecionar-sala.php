@@ -37,9 +37,8 @@
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php">
-            </a></div>
-    </div>
+        <a href="perfil.php?user="><div class="fotoConta"></div>
+    </div></a>
        
     <div class="aviso">
         <p>Selecione uma sala de estudos de seu interesse ou crie uma nova!</p>

@@ -104,8 +104,8 @@
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php"><a href="perfil.php?user=<?= $user ?>"></a></div>
-    </div>
+        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"><a href="perfil.php"></div>
+    </div></a>
         <div class="fundo">
             <div class="perfilbox">
                 
