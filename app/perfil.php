@@ -90,7 +90,7 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeUser.php"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
@@ -104,8 +104,8 @@
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php"><a href="perfil.php?user=<?= $user ?>"></a></div>
-    </div>
+        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"><a href="perfil.php"></div>
+    </div></a>
         <div class="fundo">
             <div class="perfilbox">
                 

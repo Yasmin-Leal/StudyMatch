@@ -1,3 +1,47 @@
+<?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php"; 
+
+    $grupos = readAll(database(), "grupos_estudos");
+    $areaConhecimento = readAll(database(), "area_conhecimento");
+    $materias = readAll(database(), "materias");
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $area = $_POST['areaConhecimento'];
+        $materia = $_POST['materias'];
+
+        if(empty($grupos)){
+            header('Location: selecionar-sala.php?erro=Nenhuma sala criada');
+            exit;
+        }
+
+        if(empty($area)){
+            header('Location: selecionar-sala.php?erro=Espaço vazio');
+            exit;
+        }
+        
+        $materiasPorArea = [
+        "Exatas"            => ["Matemática", "Física", "Química"],
+        "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
+        "Ciências Humanas"  => ["História", "Geografia", "Filosofia", "Sociologia"],
+        "Linguagens"        => ["Língua Português", "Língua Estrangeiras", "Literatura"]
+        ];
+
+
+        if (!empty($materia) && !in_array($materia, $materiasPorArea[$area] ?? [], true)){
+            header("Location: selecionar-sala.php?erro=A máteria selecionada não faz parte desse área de conhecimento");
+            exit;
+        }
+
+        if (!empty($materia)) {
+            $grupos = read(database(), "grupos_estudos", $area, $materia);
+        } else {
+            $grupos = read(database(), "grupos_estudos", $area);
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,7 +57,7 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeUser.php"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
@@ -27,22 +71,40 @@
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php">
-            </a></div>
-    </div>
+        <a href="perfil.php?user="><div class="fotoConta"></div>
+    </div></a>
        
     <div class="aviso">
         <p>Selecione uma sala de estudos de seu interesse ou crie uma nova!</p>
     </div>
     
     <div class="pesquisaSalas">
-        <form>
-            <label for="area"></label>
-            <input type="text" name="area" id="area" placeholder="Área de conhecimento:">
-            <label for="materia"></label>
-            <input type="text" name="materia" id="materia" placeholder="Matéria:">
+        <form action="" method="post">
+            <select name="areaConhecimento">
+                <option value="">Área de Conhecimento</option>
+                <?php foreach($areaConhecimento as $a): ?>
+                <option value="<?= $a['nome_area'] ?>">
+                <?= $a['nome_area'] ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+            <select name="materias">
+                <option value="">Matérias</option>
+                <?php foreach($materias as $m): ?>
+                <option value="<?= $m['nome_materia'] ?>">
+                <?= $m['nome_materia'] ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
             <br>
-            
+            <div class="erro">
+                <?php
+                if(isset($_GET['erro']) && $_GET['erro'] != ""){
+                    echo "<p>{$_GET['erro']}</p>";
+                }
+                ?>
+            </div>
+            <button type="submit">Filtrar</button>
         </form>
         <div class="lupa"></div>
     </div>
@@ -56,170 +118,108 @@
 
     <div class="exibirSalas">
 
-        <div class="boxLocal">
+        <?php foreach($grupos as $g): ?>
+          <div class="boxLocal">
             <div class="imagemLocal">
 
             </div>
 
-            <p>tal-tal-tal</p>
+            <p><?= $g['nome_grupo'] ?>-<?= $g['nome_area'] ?>-<?= $g['nome_materia'] ?></p>
 
             <button type="button">Ver mais informações.</button>
 
-        </div>
-         <div class="boxLocal">
-            <div class="imagemLocal">
-
-            </div>
+        </div>  
+        <?php endforeach; ?>
+        <?php if(empty($grupos)): ?>
+            <p>Nenhum Grupo Aberto</p>
+        <?php endif; ?>
         
-            <p>tal-tal-tal</p>
-
-            <button type="button">Ver mais informações.</button>
-
-        </div>
-         <div class="boxLocal">
-            <div class="imagemLocal">
-                
-
-            </div>
-
-            <p>tal-tal-tal</p>
-
-            <button type="button">Ver mais informações.</button>
-        </div>
     </div>
-
-     <div class="exibirSalas">
-
-        <div class="boxLocal">
-            <div class="imagemLocal">
-
-
-            </div>
-            <p>tal-tal-tal</p>
-
-            <button type="button">Ver mais informações.</button>
-        </div>
-         <div class="boxLocal">
-            <div class="imagemLocal">
-                
-
-            </div>
-            <p>tal-tal-tal</p>
-
-            <button type="button">Ver mais informações.</button>
-        </div>
-         <div class="boxLocal">
-            <div class="imagemLocal">
-                
-
-            </div>
-            <p>tal-tal-tal</p>
-
-            <button type="button">Ver mais informações.</button>
-        </div>
-    </div>
-
     <div class="rodape">
-        <div class="img-rodape"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-rodape"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>
         <table cellpadding="3">
             <tr>
-                <td><a href="pedidos.html">
-                        <p>Matérias</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="bolos.html">
-                        <p>Social</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="suporte.html">
-                        <p>Progresso</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="docinhos-trufas.html">
-                        <p>Suporte</p>
-                    </a></td>
+                <td><a href="materias.php"><p>Matérias</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="social.php"><p>Social</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="progresso.php"><p>Progresso</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="suporte.php"><p>Suporte</p></a></td>
             </tr>
             <tr>
-                <td><a href="kit-festa.html">
-                        <p>Termos</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="tortinhas-cupcakes.html">
-                        <p>Contato</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="">
-                        <p>Customização</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="brownies-cookies.html">
-                        <p>Configuração</p>
-                    </a></td>
+                <td><a href="termos.php"><p>Termos</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="contato.php"><p>Contato</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="customizacao.php"><p>Customização</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="configuracao.php"><p>Configuração</p></a></td>
             </tr>
-        </table>
-        <div class="redesSociais">
-            <nav>
+            </table>
+            <div class="redesSociais">
+                <nav>
                 <ul>
-                    <li><a href=""><img src="imgs/git.png" alt=""></a></li>
-                    <li><a href=""><img src="imgs/insta.png" alt=""></a></li>
+                    <li><a href=""><img src="/img-yasmin/git.png" alt=""></a></li>
+                    <li><a href=""><img src="/img-yasmin/insta.png" alt=""></a></li>
                 </ul>
-            </nav>
-        </div>
+                </nav>
+            </div>
+            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
     </div>
 </body>
-
 </html>
