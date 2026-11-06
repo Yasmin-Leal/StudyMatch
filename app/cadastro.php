@@ -169,7 +169,7 @@
                 <input type="text" name="telefone" placeholder="Telefone" id="telefone">
                 <br>
                 <label for="senha"></label>
-                <input type="text" name="senha" placeholder="Senha" id="senha">
+                <input type="password" name="senha" placeholder="Senha" id="senha">
                 <p>A Senha deve tem máx. 10 e mín. 6 caracteres, contendo:<br>
                     -Letra maiúsculas<br>
                     -Letra minúsculas<br>
