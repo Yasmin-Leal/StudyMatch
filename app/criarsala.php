@@ -13,7 +13,7 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeperfil.php"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
@@ -40,7 +40,8 @@
 
 
 <div class="principal">
-
+    <div class="form">
+        <form class="form2">
 
         <p>Escolha um ambiente:</p>
 
@@ -48,14 +49,17 @@
 
             <div class="card">
             <img src="./img-giovana/espaco1.png" alt="Imagem" width="400">
+            <input type="checkbox" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="./img-giovana/espaco2.png" alt="Imagem" width="400">
+            <input type="checkbox" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
-            <img src="./img-giovana/espaco3.png" alt="Imagem" width="400">    
+            <img src="./img-giovana/espaco3.png" alt="Imagem" width="400">
+            <input type="checkbox" class="checkbox" name="ambiente">
             </div>
 
         </div>
@@ -65,14 +69,17 @@
 
             <div class="card">
             <img src="img-giovana/espaco4.png" alt="Imagem" width="400">
+            <input type="checkbox" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="img-giovana/espaco5.png" alt="Imagem" width="400">
+            <input type="checkbox" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="img-giovana/espaco6.png" alt="Imagem" width="400">
+            <input type="checkbox" class="checkbox" name="ambiente">
             </div>
 
        </div>
@@ -80,8 +87,7 @@
     <p>Preencha as informações a seguir:</p>
 
 
-    <div class="form">
-        <form class="form2">
+    
             <input type="text" placeholder="Nome da sala">
             <input type="text" placeholder="Nome do usuário"> 
             <input type="date" placeholder="Data de criação">
