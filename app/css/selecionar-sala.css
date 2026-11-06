@@ -1,0 +1,258 @@
+body{
+   margin: 0;
+   padding: 0;
+   font-family: "Arima", system-ui;
+   font-optical-sizing: auto;
+   font-weight: weight;
+   font-style: normal;
+   background-color: #f0d3c394;
+}
+
+img {
+  display: block;
+}
+
+.cabecalho{
+    display: flex;
+    width: 1895px;
+    height: 150px;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.cabecalho a{
+    text-decoration: none;
+}
+
+.cabecalho p{
+    color: white;
+    font-size: 30px;
+}
+
+.fotoConta{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.loginTitulo p{
+    color: #796761;
+    font-size: 30px;
+}
+
+nav ul{
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li{
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+.login{
+    display: flex;
+    width: 90px;
+    height: 50px;
+    background-color: #edd4c6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.img-cabecalho a img{
+    list-style: none;
+    margin-right: 800px;
+}
+
+.img-rodape a img{
+    list-style: none;
+    margin-right: 500px;
+}
+
+.center{
+    text-align: center;}
+
+.aviso{
+    background-color:#C7E3C3;
+    height: 150px;
+    width: 800px;
+    display:flex;
+    justify-self: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 70px;
+    border-radius: 30px;
+}
+
+.aviso p{
+    font-size: 30px;
+    margin: 10px;
+    margin-top: 25px;
+    
+}
+
+.pesquisaSalas{
+    display: flex;
+    justify-self: center;
+    
+}
+
+.pesquisaSalas input{
+    margin-left: 30px;
+    height: 50px;
+    width: 350px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    border-radius: 50px;
+    border-color: #E9B3B4;
+    font-family: "Arima", system-ui;
+    font-size:20px;
+    
+}
+
+/*.pesquisaSalas .lupa{
+    background-image: url("../imgs/lupa.png");
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    display: inline;
+    margin-left: 70px;
+    margin-top: 6px;
+}*/
+
+
+
+.criarSala{
+    justify-self: center;
+    display: flex;
+    width:400px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+
+.criarSala button{
+    background-color: #e8b2b4;
+    color: #644c4e;
+    border-radius: 35px;
+    border-style: hidden;
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+    font-family: "Arima", system-ui;
+    
+}
+
+.criarSala .plus{
+    background-image: url("../imgs/plus.png");
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    display: inline;
+    margin-left: -380px;
+    margin-top: 6px;
+}
+
+
+.exibirSalas{
+    justify-content:center;
+    display:flex;
+    margin-bottom: 70px;
+}
+
+.boxLocal{
+    width: 600px;
+    height: 600px;
+    background-color: #eec8bc;
+    border-radius: 40px;
+    margin: 20px;
+    justify-content: center;
+    
+
+}
+
+.imagemLocal{
+    height: 400px;
+    width: 530px;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    justify-self: center;
+    margin-top: 20px;
+}
+
+.boxLocal p{
+    justify-self: center;
+    font-size: 30px;
+}
+
+.boxLocal button{
+    display: flex;
+    justify-self: center;
+    font-size: 22px;
+    background-color: #A4DBA8;
+    border-radius: 30px;
+    font-family: "Arima", system-ui;
+    border-style: hidden;
+    padding: 10px;
+    width: 350px;
+    justify-content: center;
+   
+}
+
+
+.rodape{
+    display: flex;
+    width: 1895px;
+    width: 100%;
+    height: 200px;
+    flex-shrink: 0;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+
+.rodape table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape table tr td a p{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.rodape table tr td a{
+    text-decoration: none;
+}
+
+.espacamentoRodape{
+    width: 5px;
+    height: 100px;
+    background-color: white;
+}
+
+.redesSociais{
+    display: flex;
+    padding-left: 0;
+    margin-left: 250px;
+}
+
+.redesSociais nav ul li{
+    list-style: none;
+    margin-right: 50px;
+}
+
+.redesSociais nav ul li a{
+    text-decoration: none;
+}
