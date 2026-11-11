@@ -1,4 +1,16 @@
+<?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php"; 
 
+    $user = $_GET['user'];
+
+    $dadosUser = database()->prepare('
+    SELECT * FROM usuarios WHERE nome_usuario = :user');
+    $dadosUser->execute(['user' => $user]);
+
+    $usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -14,21 +26,21 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.php">
+                <li><a href="">
                         <p>Matérias</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="">
                         <p>Social</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="">
                         <p>Progresso</p>
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php"><a href="perfil.php?user=<?= $user ?>"></a></div>
+        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
     </div>
 
     <div class="banner">
@@ -39,7 +51,7 @@
         
     </div>
     <div class="saudacao">
-        <p>Aproveite,(placeholder)!</p></div>
+        <p>Aproveite,<br><?= $usuario['nome'] ?>!</p></div>
 
     <div class="caixaMetas">
         <div class="fotoUserGrande"></div>
@@ -63,7 +75,7 @@
         </div>
         <div class="areaCalendario"></div>
     </div>
-    <div class="nomeUser"><p>(placeholder)</p></div>
+    <div class="nomeUser"><p><?= $usuario['nome'] ?></p></div>
 
     <div class="tituloMaterias"><p>Matérias</p></div>
 
@@ -118,26 +130,6 @@
 
         </div>
     </div>
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="rodape">
         <div class="img-rodape"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
         <table cellpadding="3">
