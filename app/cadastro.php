@@ -3,6 +3,7 @@
     require_once __DIR__ . "/banco/database.php"; 
 
     $usuarios = readAll(database(), "usuarios");
+    $anos = readAll(database(), "escolaridade");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -12,7 +13,7 @@
         !isset($_POST['ano']) || $_POST['ano'] == "" ||
         !isset($_POST['senha']) || $_POST['senha'] == "" ||
         !isset($_POST['data']) || $_POST['data'] == ""){
-            header('Location: cadastro.php?erro=Espaço vázio');
+            header('Location: cadastro.php?erro=Espaço vazio');
             exit;
         }
 
@@ -90,7 +91,9 @@
             "senha" => $_POST['senha'],
             "data_nascimento" => $_POST['data'],
         ]);
-            }
+        header('Location: login.php');
+        exit;
+        }
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +103,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyMatch</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
@@ -134,7 +137,7 @@
         <div class="form">
             <div class="titu"><p>Cadastre-se</p></div>
             <form action="" method="post">
-                <input type="text" name="id" hidden>
+                <input type="hidden" name="id">
                 <br>
                 <label for="nomeEx"></label>
                 <input type="text" name="nomeEx" placeholder="Nome de Exibição" id="nomeEx">
@@ -149,15 +152,24 @@
                     <label for="data"></label>
                     <input type="date" name="data" placeholder="Data de Nasc." id="data">
 
-                    <label for="ano"></label>
-                    <input type="text" name="ano" placeholder="Escolaridade" id="ano">
+                    <div class="ano">
+                        <select name="ano">
+                            <option value="">Ano Escolar</option>
+                            <?php foreach($anos as $a): ?>
+                            <option value="<?= $a['ano_escolar'] ?>">
+                            <?= $a['ano_escolar'] ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
                 </div>
                 <br>
                 <label for="telefone"></label>
                 <input type="text" name="telefone" placeholder="Telefone" id="telefone">
                 <br>
                 <label for="senha"></label>
-                <input type="text" name="senha" placeholder="Senha" id="senha">
+                <input type="password" name="senha" placeholder="Senha" id="senha">
                 <p>A Senha deve tem máx. 10 e mín. 6 caracteres, contendo:<br>
                     -Letra maiúsculas<br>
                     -Letra minúsculas<br>
@@ -180,105 +192,90 @@
 
     </div>
     <div class="rodape">
-        <div class="img-rodape"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-rodape"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>
         <table cellpadding="3">
             <tr>
-                <td><a href="pedidos.html">
-                        <p>Matérias</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="bolos.html">
-                        <p>Social</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="suporte.html">
-                        <p>Progresso</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="docinhos-trufas.html">
-                        <p>Suporte</p>
-                    </a></td>
+                <td><a href="materias.php"><p>Matérias</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="social.php"><p>Social</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="progresso.php"><p>Progresso</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="suporte.php"><p>Suporte</p></a></td>
             </tr>
             <tr>
-                <td><a href="kit-festa.html">
-                        <p>Termos</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="tortinhas-cupcakes.html">
-                        <p>Contato</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="">
-                        <p>Customização</p>
-                    </a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href=""></a></td>
-                <td><a href="brownies-cookies.html">
-                        <p>Configuração</p>
-                    </a></td>
+                <td><a href="termos.php"><p>Termos</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="contato.php"><p>Contato</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="customizacao.php"><p>Customização</p></a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="configuracao.php"><p>Configuração</p></a></td>
             </tr>
-        </table>
-        <div class="redesSociais">
-            <nav>
+            </table>
+            <div class="redesSociais">
+                <nav>
                 <ul>
-                    <li><a href=""><img src="imgs/git.png" alt=""></a></li>
-                    <li><a href=""><img src="imgs/insta.png" alt=""></a></li>
+                    <li><a href=""><img src="/img-yasmin/git.png" alt=""></a></li>
+                    <li><a href=""><img src="/img-yasmin/insta.png" alt=""></a></li>
                 </ul>
-            </nav>
-        </div>
+                </nav>
+            </div>
+            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+    </div>
 </body>
-
 </html>

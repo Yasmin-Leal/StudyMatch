@@ -1,5 +1,36 @@
 <?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php";
 
+    $usuarios = readAll(database(), "usuarios");
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if(!isset($_POST['email']) || $_POST['email'] == "" ||
+        !isset($_POST['senha']) || $_POST['senha'] == ""){
+            header("Location: login.php?erro=Espaço vazio");
+            exit;
+        }
+
+        $email = trim($_POST['email']);
+        $senha = $_POST['senha'];
+
+        $loginEncontrado = false;
+
+        foreach($usuarios as $u) {
+            if ($email == $u['email'] && $senha == $u['senha']) {
+                $loginEncontrado = true;
+                break;
+            }
+        }
+
+        if ($loginEncontrado) {
+            header("Location: homeperfil.php?user={$u['nome_usuario']}");
+            exit;
+        } else {
+            header("Location: login.php?erro=Email ou senha incorretos");
+            exit;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -7,8 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyMatch</title>
-    <link rel="stylesheet" href="./css-yasmin/style.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
@@ -16,27 +46,33 @@
 <body>
     <div class="cabecalho">
         <div class="img-cabecalho"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>
-    <nav>
-    <ul>
-        <li><a href="materias.php"><p>Matérias</p></a></li>
-        <li><a href="social.php"><p>Social</p></a></li>
-        <li><a href="progresso.php"><p>Progresso</p></a></li>
-    </ul>
-    </nav>
-    <div class="login"><a href="login.php"><div class="loginTitulo"><p>login</p></div></a></div>
+        <nav>
+            <ul>
+                <li><a href="materias.php"><p>Matérias</p></a></li>
+                <li><a href="social.php"><p>Social</p></a></li>
+                <li><a href="progresso.php"><p>Progresso</p></a></li>
+            </ul>
+        </nav>
+        <div class="login"><a href="login.php"><div class="loginTitulo"><p>login</p></div></a></div>
     </div>
     <div class="inicialLogin">
-    <img src="/img-yasmin/login-img.png" alt="">
+        <img src="/img-yasmin/login-img.png" alt="">
         <div class="formLogin">
             <div class="titulo"><p>Login</p></div>
             <form action="" method="post">
-                <input type="text" name="id_usuario" hidden>
+                <input type="hidden" name="id_usuario">
 
-                <label for="email"></label>
                 <input type="text" name="email" id="email" placeholder="E-Mail">
 
-                <label for="senha"></label>
                 <input type="password" name="senha" id="senha" placeholder="Senha">
+
+                <div class="erro">
+                <?php
+                if(isset($_GET['erro']) && $_GET['erro'] != ""){
+                    echo "<p>{$_GET['erro']}</p>";
+                }
+                ?>
+                </div>
 
                 <p>Não possui uma conta? <a href="cadastro.php">Cadastre-se aqui</a></p>
 
@@ -119,16 +155,16 @@
                 <td></td>
                 <td><a href="configuracao.php"><p>Configuração</p></a></td>
             </tr>
-            </table>
-            <div class="redesSociais">
-                <nav>
+        </table>
+        <div class="redesSociais">
+            <nav>
                 <ul>
                     <li><a href=""><img src="/img-yasmin/git.png" alt=""></a></li>
                     <li><a href=""><img src="/img-yasmin/insta.png" alt=""></a></li>
                 </ul>
-                </nav>
-            </div>
-            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+            </nav>
+        </div>
+        <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
     </div>
 </body>
 </html>

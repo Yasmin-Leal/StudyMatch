@@ -1,0 +1,386 @@
+body{
+   margin: 0;
+   padding: 0;
+   font-family: "Arima", system-ui;
+   font-optical-sizing: auto;
+   font-weight: weight;
+   font-style: normal;
+   background-color: #f0d3c394;
+}
+
+img {
+  display: block;
+}
+
+.cabecalho{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    flex-shrink: 0;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.cabecalho a{
+    text-decoration: none;
+}
+
+.cabecalho p{
+    color: white;
+    font-size: 30px;
+}
+
+.loginTitulo p{
+    color: #796761;
+    font-size: 30px;
+}
+
+nav ul{
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li{
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+.login{
+    display: flex;
+    width: 90px;
+    height: 50px;
+    background-color: #edd4c6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.img-cabecalho a img{
+    list-style: none;
+    margin-right: 800px;
+}
+
+.img-rodape a img{
+    list-style: none;
+    margin-right: 500px;
+}
+.areaForm{
+    justify-content:center;
+    display:flex;
+    align-items: center;
+
+}
+
+.img-login{
+    width: 950px;
+}
+
+
+.form{
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form form > input:not([type="hidden"]){
+    display: block;
+    width: 100%;
+    height: 65px;
+    margin: 0 0 25px 0;
+    padding: 0 25px;
+    background-color: #ffffff;
+    border: 4px solid #917d79;
+    border-radius: 40px;
+    font-family: "Arima", system-ui;
+    font-size: 24px;
+    color: #555;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form .titu p{
+    font-size: 50px;
+    color: #6b4f36;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.display-flex{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin: 0 0 25px 0;
+    box-sizing: border-box;
+}
+
+.display-flex input[type="date"]{
+    flex: 1;
+    min-width: 0;
+    height: 65px;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #ffffff;
+    border: 4px solid #917d79;
+    border-radius: 40px;
+    font-family: "Arima", system-ui;
+    font-size: 22px;
+    color: #7d655c;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form .display-flex input{
+    width: 190px;
+    height: 65px;
+    margin: 0;
+    padding: 0 12px;
+    font-size: 22px;
+    box-sizing: border-box;
+}
+
+.form input{
+    background-color: #ffffff;
+    border-radius: 40px;
+    border-color: #917d79;
+    border-width: 4px;
+    width: 90%;
+    height: 60px;
+    margin-bottom: 30px;
+    font-size: 30px;
+
+}
+
+.form button{
+    background-color: #e9b0b2;
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: "Arima", system-ui;
+    color: #752325;
+    width: 300px;
+    height: 60px;
+    font-size:30px;
+    display: block;
+    margin: 0 auto
+}
+
+.form ::placeholder{
+    font-family: "Arima", system-ui;
+    color: #7d655c;
+    padding: 12px 16px 14px;
+}
+
+
+.form p {
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.fundo{
+    background-image: url("../imgs/background-perfil.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.perfilbox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(240, 211, 195, 0.6);
+    min-height: 700px;
+    width: min(800px, 100%);
+    box-sizing: border-box;
+}
+
+.bannerperfil{
+    background-color: #ffd998;
+    width: 100%;
+    height: 250px;
+}
+
+.fotoperfil{
+    margin-top: -200px;
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.editarfoto{
+    margin-top: -80px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-image: url("../imgs/7e57751c-5e8f-434e-9a72-0b0e23de43ec.png");
+    background-size: cover;
+    margin-left: 170px;
+}
+
+.infoperfil{
+    width: 100%;
+}
+
+.infoperfil .form{
+    margin: 50px auto 30px;
+    width: 70%;
+    max-width: none;
+    padding-left: 0;
+}
+
+.infoperfil form{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.infoperfil form br{
+    display: none;
+}
+
+
+.infoperfil .form input{
+    display: block;
+    width: 100%;
+    height: 70px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: "Arima", system-ui;
+}
+
+.infoperfil .form button{
+    background-color: #d9b27d;
+    border-style:hidden;
+    border-radius: 50px;
+    padding: 10px;
+    font-family: "Arima", system-ui;
+    color: #752325;
+    width: 40%;
+    height: 80px;
+    font-size:30px;
+    align-self: center;
+}
+
+#nomeEx,
+#email{
+    width: 100%;
+}
+
+#nomeUs{
+    width: 85%;
+}
+
+#data{
+    width: 35%;
+}
+
+#telefone{
+    width: 60%;
+}
+
+.sequencia{
+    display:
+}
+.rodape{
+    display: flex;
+<<<<<<< HEAD:app/css/style.css
+    width: 100%;
+    height: 200px;
+    flex-shrink: 0;
+=======
+    flex-wrap: wrap;
+    width: 100%;
+    height: 190px;
+>>>>>>> 2555887b3a6781a2b5b3f3c99aa9e5fb2324982a:app/css/cadastro.css
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.rodape table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape table tr td a p{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.rodape table tr td a{
+    text-decoration: none;
+}
+
+.espacamentoRodape{
+    width: 5px;
+    height: 100px;
+    background-color: white;
+}
+
+.redesSociais{
+    display: flex;
+    padding-left: 0;
+    margin-left: 250px;
+}
+
+.redesSociais nav ul li{
+    list-style: none;
+    margin-right: 50px;
+}
+
+.redesSociais nav ul li a{
+    text-decoration: none;
+}
+
+.erro{
+    color: red;
+}
+
+.ano{
+    flex: 1;
+    min-width: 0;
+}
+
+.ano select{
+    width: 100%;
+    height: 65px;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #ffffff;
+    border: 4px solid #917d79;
+    border-radius: 40px;
+    font-family: "Arima", system-ui;
+    font-size: 22px;
+    color: #7d655c;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
+}

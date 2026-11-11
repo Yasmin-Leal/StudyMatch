@@ -16,7 +16,6 @@ img {
     display: flex;
     width: 100%;
     height: 150px;
-    flex-shrink: 0;
     background-color: #796761;
     justify-content: left;
     align-items: center;
@@ -29,6 +28,13 @@ img {
 .cabecalho p{
     color: white;
     font-size: 30px;
+}
+
+.fotoConta{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
 }
 
 .loginTitulo p{
@@ -66,82 +72,21 @@ nav ul li a{
     margin-right: 800px;
 }
 
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
+}
+
 .img-rodape a img{
     list-style: none;
     margin-right: 500px;
 }
-.areaForm{
-    justify-content:center;
-    display:flex;
-    align-items: center;
 
-}
-
-.img-login{
-    width: 950px;
-   
-
-}
-
-
-.form{
-    display: flex;
-    justify-self: right;
-    display:block;
-    max-width: 935px;
-    width: 90%;
-    padding-left: 100px;
-    align-items: center;
-}
-
-.form .titu p{
-    font-size:50px;
-    color: #6b4f36;
-    text-align:center;
-}
-
-.display-flex{
-    display:flex;
-    justify-content:flex-start;
-    padding-right: 15px;
-    margin-right: 60px;
-}
-
-.form input{
-    background-color: #ffffff;
-    border-radius: 40px;
-    border-color: #917d79;
-    border-width: 4px;
-    width: 90%;
-    height: 60px;
-    margin-bottom: 30px;
-    font-size: 30px;
-
-}
-
-.form button{
-    background-color: #e9b0b2;
-    border-style:hidden;
-    border-radius: 20px;
-    padding: 10px;
-    font-family: "Arima", system-ui;
-    color: #752325;
-    width: 300px;
-    height: 60px;
-    font-size:30px;
-    display: block;
-    margin: 0 auto
-}
-
-.form ::placeholder{
-    font-family: "Arima", system-ui;
-    color: #7d655c;
-}
-
-.form p {
-    margin-top: 0px;
-    font-size: 20px;
-}
+.center{
+    text-align: center;}
 
 .fundo{
     background-image: url("../imgs/background-perfil.png");
@@ -219,10 +164,18 @@ nav ul li a{
     width: 100%;
     height: 70px;
     margin: 0;
+    margin-bottom: 20px;
     box-sizing: border-box;
     font-size: 24px;
     font-family: "Arima", system-ui;
+    border-radius: 50px;
+    border-width: 4px;
+    border-color: #927c78;
+    padding-left: 30px;
+
 }
+
+
 
 .infoperfil .form button{
     background-color: #d9b27d;
@@ -243,29 +196,28 @@ nav ul li a{
 }
 
 #nomeUs{
-    width: 85%;
+    width: 100%;
+    
 }
 
 #data{
-    width: 35%;
+    width: 45%;
 }
 
 #telefone{
     width: 60%;
 }
 
-.sequencia{
-    display:
-}
 .rodape{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 200px;
-    flex-shrink: 0;
+    height: 190px;
     background-color: #796761;
     justify-content: left;
     align-items: center;
 }
+
 
 .rodape table{
     display: flex;
@@ -302,6 +254,14 @@ nav ul li a{
 
 .redesSociais nav ul li a{
     text-decoration: none;
+}
+
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
 }
 
 .erro{
