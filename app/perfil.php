@@ -90,7 +90,7 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeUser.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
