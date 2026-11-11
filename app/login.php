@@ -24,7 +24,7 @@
         }
 
         if ($loginEncontrado) {
-            header("Location: perfil.php?user={$u['nome_usuario']}");
+            header("Location: homeperfil.php?user={$u['nome_usuario']}");
             exit;
         } else {
             header("Location: login.php?erro=Email ou senha incorretos");
