@@ -2,6 +2,8 @@
     require_once __DIR__ . "/banco/crud.php"; 
     require_once __DIR__ . "/banco/database.php"; 
 
+    $user = $_GET['user'];
+
     $grupos = readAll(database(), "grupos_estudos");
     $areaConhecimento = readAll(database(), "area_conhecimento");
     $materias = readAll(database(), "materias");
@@ -57,7 +59,7 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeUser.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
@@ -110,7 +112,7 @@
     </div>
 
     <div class="criarSala">
-    <button type="submit">Criar uma sala de estudos</button>
+    <a href="criarsala.php?user=<?= $user ?>"><button type="submit">Criar uma sala de estudos</button></a>
     <div class="plus"></div>
     
     </div>

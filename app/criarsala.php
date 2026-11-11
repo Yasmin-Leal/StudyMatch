@@ -1,3 +1,21 @@
+<?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php"; 
+
+    $user = $_GET['user'];
+    $materias = readAll(database(), "materias");
+    $area = readAll(database(), "area_conhecimento");
+
+    $dadosUser = database()->prepare('
+    SELECT * FROM usuarios WHERE nome_usuario = :user');
+    $dadosUser->execute(['user' => $user]);
+
+    $usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -35,8 +53,6 @@
     <p>Crie sua própria sala de estudos!</p>
     </div>
         <!-- <img class="seta" src="img-giovana/seta.png" alt=""> -->
-
-
 
 
 <div class="principal">
@@ -91,6 +107,22 @@
             <input type="text" placeholder="Nome da sala">
             <input type="text" placeholder="Nome do usuário"> 
             <input type="date" placeholder="Data de criação">
+            <select name="area">
+                <option value="">Área de conhecimento</option>
+                <?php foreach($area as $a): ?>
+                    <option value="<?= $a['nome_area'] ?>">
+                    <?= $a['nome_area'] ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+            <select name="materias">
+                <option value="">Matérias</option>
+                <?php foreach($materias as $m): ?>
+                <option value="<?= $m['nome_materia'] ?>">
+                <?= $m['nome_materia'] ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
    
             <input type="password" placeholder="Senha da sala">
     </div>
