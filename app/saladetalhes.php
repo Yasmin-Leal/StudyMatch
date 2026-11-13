@@ -53,8 +53,7 @@
                 <p>Matéria: nome_materia</p>
                 <p>Criador(a): nome_usuario</p>
                 <p>Data de criação: data_criacao</p>
-                <p>Estado: ativo ou inativo</p>
-                <p>Quantidade de alunos: 3</p>
+                <p>Quantidade máxima de alunos: quantidade_alunos</p>
                 </div>
             </div>
         </div>
