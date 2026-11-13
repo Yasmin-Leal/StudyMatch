@@ -93,8 +93,8 @@
         <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.php">
-                        <p>Matérias</p>
+                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+                        <p>Grupos de Estudo</p>
                     </a></li>
                 <li><a href="login.php">
                         <p>Social</p>
