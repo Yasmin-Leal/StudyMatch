@@ -69,7 +69,7 @@ nav ul li a{
 
 .img-cabecalho a img{
     list-style: none;
-    margin-right: 800px;
+    margin-right: 700px;
 }
 
 .direitos {
@@ -291,7 +291,7 @@ nav ul li a{
 
 .principal {
     background-color: #f0d3c3c2;
-    height: 1600px ;
+    height: 1550px ;
     width: 1600px ;
     display: block;
     justify-content: center;
@@ -328,17 +328,20 @@ nav ul li a{
     padding: 30px;
     margin-bottom: 30px;
     margin-right: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card img{
     border-radius: 25px;
+    margin-bottom: 10px;
 }
 
 .form{
     display: flex;
     justify-content: center;
-    width: 100%;
-    max-width: 650px;
+    width: 400px;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
@@ -351,7 +354,7 @@ nav ul li a{
 
 .form form > input:not([type="hidden"]){
     display: flex;
-    width: 100%;
+    width: 400px;
     height: 65px;
     margin: 0 0 25px 0;
     padding: 0 25px;
@@ -370,6 +373,7 @@ nav ul li a{
     margin-left: 730px;
     margin-top: 30px;
     border-radius: 30px;
+    border: 2px solid #edd4c6;
     width: 140px;
     height: 40px;
     background-color: #e7b3b5;
@@ -377,6 +381,59 @@ nav ul li a{
     font-size: 20px;
 }
 
+.form input.checkbox {
+    appearance: none;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #796761;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
 
+.form input.checkbox:checked {
+    background: #796761;
+}
 
+.status{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+.status label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 22px;
+}
+
+.status input {
+    width: 30px;
+    height: 30px;
+    accent-color: #796761;
+    cursor: pointer;
+}
+
+.campos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px 20px;
+    width: 100%;
+}
+
+.campos input,
+.campos select {
+    width: 28%;
+    height: 65px;
+    padding: 10px 20px;
+    border: 4px solid #917d79;
+    border-radius: 40px;
+    background-color: white;
+    font-family: "Arima", system-ui;
+    font-size: 20px;
+    box-sizing: border-box;
+}

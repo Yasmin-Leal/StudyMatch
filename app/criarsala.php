@@ -31,11 +31,11 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeperfil.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.php">
-                        <p>Matérias</p>
+                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+                        <p>Grupos de Estudo</p>
                     </a></li>
                 <li><a href="login.php">
                         <p>Social</p>
@@ -52,7 +52,6 @@
     <div class="bloco1">
     <p>Crie sua própria sala de estudos!</p>
     </div>
-        <!-- <img class="seta" src="img-giovana/seta.png" alt=""> -->
 
 
 <div class="principal">
@@ -65,17 +64,17 @@
 
             <div class="card">
             <img src="./img-giovana/espaco1.png" alt="Imagem" width="400">
-            <input type="checkbox" class="checkbox" name="ambiente">
+            <input type="radio" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="./img-giovana/espaco2.png" alt="Imagem" width="400">
-            <input type="checkbox" class="checkbox" name="ambiente">
+            <input type="radio" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="./img-giovana/espaco3.png" alt="Imagem" width="400">
-            <input type="checkbox" class="checkbox" name="ambiente">
+            <input type="radio" class="checkbox" name="ambiente">
             </div>
 
         </div>
@@ -85,28 +84,28 @@
 
             <div class="card">
             <img src="img-giovana/espaco4.png" alt="Imagem" width="400">
-            <input type="checkbox" class="checkbox" name="ambiente">
+            <input type="radio" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="img-giovana/espaco5.png" alt="Imagem" width="400">
-            <input type="checkbox" class="checkbox" name="ambiente">
+            <input type="radio" class="checkbox" name="ambiente">
             </div>
 
             <div class="card">
             <img src="img-giovana/espaco6.png" alt="Imagem" width="400">
-            <input type="checkbox" class="checkbox" name="ambiente">
+            <input type="radio" class="checkbox" name="ambiente">
             </div>
 
        </div>
 
     <p>Preencha as informações a seguir:</p>
 
-
+        <div class="campos">
     
             <input type="text" placeholder="Nome da sala">
-            <input type="text" placeholder="Nome do usuário"> 
-            <input type="date" placeholder="Data de criação">
+            <input type="text" value="<?=  $usuario['nome_usuario'] ?>" readonly> 
+            <input type="date" name="data" value="<?= date('Y-m-d') ?>" readonly>
             <select name="area">
                 <option value="">Área de conhecimento</option>
                 <?php foreach($area as $a): ?>
@@ -123,9 +122,15 @@
                 </option>
                 <?php endforeach; ?>
             </select>
-   
-            <input type="password" placeholder="Senha da sala">
+        </div>
+            <div class="status">
+            <label><input type="radio" class="checkbox" name="status" value="privado">Privado</label>
+            <label><input type="radio" class="checkbox" name="status" value="publico">Público</label>
+            </div>
+            <div class="campos">
+            <input type="password" placeholder="Senha da sala (Privado)"></div>
     </div>
+
             <button type="submit" class="button">Criar Sala</button>
         </form>
 
@@ -224,3 +229,4 @@
         <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
     </div>
 </body>
+</html>
