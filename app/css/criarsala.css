@@ -1,4 +1,10 @@
+* {
+    font-family: "Arima", sans-serif;
+}
 body{
+   margin: 0;
+   padding: 0;
+   font-family: "Arima", sans-serif;
    margin: 0;
    padding: 0;
    font-family: "Arima", system-ui;
@@ -423,6 +429,13 @@ nav ul li a{
     justify-content: center;
     gap: 35px 20px;
     width: 100%;
+}
+
+.campos select,
+.campos select option {
+    font-family: "Arima", sans-serif;
+    font-size: 22px;
+    color: #7d655c;
 }
 
 .campos input,

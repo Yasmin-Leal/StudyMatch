@@ -45,16 +45,25 @@
 </head>
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
                         <p>Grupos de Estudo</p>
-                <li><a href="social.php"><p>Social</p></a></li>
-                <li><a href="progresso.php"><p>Progresso</p></a></li>
+                    </a></li>
+                <li><a href="login.php">
+                        <p>Social</p>
+                    </a></li>
+                <li><a href="login.php">
+                        <p>Progresso</p>
+                    </a></li>
             </ul>
         </nav>
-        <div class="login"><a href="login.php"><div class="loginTitulo"><p>login</p></div></a></div>
+        <div class="login"><a href="login.php">
+                <div class="loginTitulo">
+                    <p>login</p>
+                </div>
+            </a></div>
     </div>
     <div class="inicialLogin">
         <img src="/img-yasmin/login-img.png" alt="">

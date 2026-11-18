@@ -4,6 +4,7 @@
     require_once __DIR__ . "/locais.php";
 
     $user = $_GET['user'] ?? $_POST['user'] ?? '';
+    
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
@@ -28,7 +29,7 @@
         "Exatas"            => ["Matemática", "Física", "Química"],
         "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
         "Ciências Humanas"  => ["História", "Geografia", "Filosofia", "Sociologia"],
-        "Linguagens"        => ["Língua Português", "Língua Estrangeiras", "Literatura"]
+        "Linguagens"        => ["Língua Português", "Línguas Estrangeiras", "Literatura"]
         ];
 
         if(!isset($_POST['ambiente']) || $_POST['ambiente'] == "" ||
@@ -70,7 +71,7 @@
             "id_imagem" => $ambiente,
             "criador" => $criador,
         ]);
-        header("selecionar-sala.php?user=<?= $user ?>");
+        header("Location: selecionar-sala.php?user=" . urlencode($user));
         exit;
     }
 
@@ -88,7 +89,7 @@
     <link rel="stylesheet" href="css/criarsala.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -99,10 +100,10 @@
                 <li><a href="selecionar-sala.php?user=<?= $user ?>">
                         <p>Grupos de Estudo</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="social.php">
                         <p>Social</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="progresso.php">
                         <p>Progresso</p>
                     </a></li>
             </ul>
@@ -170,13 +171,13 @@
             <input type="text" name="criador" value="<?= htmlspecialchars($usuario['nome_usuario'] ?? '') ?>" readonly> 
             <input type="date" name="data" value="<?= date('Y-m-d') ?>" readonly>
             <select name="area">
-                <option value="">Área de conhecimento</option>
-                <?php foreach($area as $a): ?>
-                    <option value="<?= $a['nome_area'] ?>">
-                    <?= $a['nome_area'] ?>
-                </option>
-                <?php endforeach; ?>
-            </select>
+    <option value="">Área de conhecimento</option>
+    <?php foreach($area as $a): ?>
+        <option value="<?= htmlspecialchars($a['nome_area'], ENT_QUOTES, 'UTF-8') ?>">
+            <?= htmlspecialchars($a['nome_area'], ENT_QUOTES, 'UTF-8') ?>
+        </option>
+    <?php endforeach; ?>
+</select>
             <select name="materias">
                 <option value="">Matérias</option>
                 <?php foreach($materias as $m): ?>
@@ -186,6 +187,8 @@
                 <?php endforeach; ?>
             </select>
         </div>
+        
+        
             <div class="status">
             <label><input type="radio" class="checkbox" name="status" value="privado">Privado</label>
             <label><input type="radio" class="checkbox" name="status" value="publico">Público</label>

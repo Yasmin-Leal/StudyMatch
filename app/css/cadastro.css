@@ -1,9 +1,12 @@
+* {
+    font-family: "Arima", sans-serif;
+}
 body{
    margin: 0;
    padding: 0;
-   font-family: "Arima", system-ui;
+   font-family: "Arima", sans-serif;
    font-optical-sizing: auto;
-   font-weight: weight;
+   font-weight: 400;
    font-style: normal;
    background-color: #f0d3c394;
 }

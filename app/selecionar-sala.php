@@ -10,8 +10,8 @@
     $materias = readAll(database(), "materias");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $area = $_POST['areaConhecimento'];
-        $materia = $_POST['materias'];
+        $area = $_POST['areaConhecimento'] ?? '';
+        $materia = $_POST['materias'] ?? '';
 
         if(empty($grupos)){
             header("Location: selecionar-sala.php?user=" . urlencode($user) . "&erro=" . urlencode("Nenhuma sala criada"));
@@ -27,7 +27,7 @@
         "Exatas"            => ["Matemática", "Física", "Química"],
         "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
         "Ciências Humanas"  => ["História", "Geografia", "Filosofia", "Sociologia"],
-        "Linguagens"        => ["Língua Português", "Língua Estrangeiras", "Literatura"]
+        "Linguagens"        => ["Língua Português", "Línguas Estrangeiras", "Literatura"]
         ];
 
 
@@ -37,9 +37,19 @@
         }
 
         if (!empty($materia)) {
-            $grupos = read(database(), "grupos_estudos", $area, $materia);
+            $grupos = readAll(
+            database(),
+            "grupos_estudos",
+            "nome_area = ? AND nome_materia = ?",
+            [$area, $materia]
+        );
         } else {
-            $grupos = read(database(), "grupos_estudos", $area);
+            $grupos = readAll(
+            database(),
+            "grupos_estudos",
+            "nome_area = ?",
+            [$area]
+        );
         }
     }
 
@@ -66,15 +76,16 @@
                 <li><a href="selecionar-sala.php?user=<?= $user ?>">
                         <p>Grupos de Estudo</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="social.php">
                         <p>Social</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="progresso.php">
                         <p>Progresso</p>
                     </a></li>
             </ul>
         </nav>
         <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
+        </div>
     </div>
        
     <div class="aviso">
@@ -117,26 +128,28 @@
     <div class="plus"></div>
     
     </div>
-    
-
-    <div class="exibirSalas">
-
+        <div class="exibirSalas">
         <?php foreach($grupos as $g): ?>
-        <div class="boxLocal">
-            <div class="imagemLocal">
-                <img src="<?= $locais[$g['id_imagem']]?>" alt="">
-            </div>
-
-            <p><?= $g['nome_grupo'] ?>-<?= $g['nome_area'] ?>-<?= $g['nome_materia'] ?></p>
-
-            <button type="button">Ver mais informações.</button>
-
-        </div>  
+            <form action="saladetalhes.php?user=<?= urlencode($user) ?>" method="post" class="formSala">
+                <input type="hidden" name="id" value="<?= $g['id_grupo'] ?>">
+                <div class="boxLocal">
+                    <div class="imagemLocal">
+                        <img src="<?= $locais[$g['id_imagem']] ?>" alt="">
+                    </div>
+                    <p>
+                        <?= $g['nome_grupo'] ?> -
+                        <?= $g['nome_area'] ?> -
+                        <?= $g['nome_materia'] ?>
+                    </p>
+                    <button type="submit">
+                        Ver mais informações.
+                    </button>
+                </div>
+            </form>
         <?php endforeach; ?>
         <?php if(empty($grupos)): ?>
             <p>Nenhum Grupo Aberto</p>
         <?php endif; ?>
-        
     </div>
     <div class="rodape">
         <div class="img-rodape"><a href="homelogin.php"><img src="/img-yasmin/logo.png" alt=""></a></div>

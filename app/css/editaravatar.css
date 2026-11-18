@@ -1,0 +1,281 @@
+body{
+   margin: 0;
+   padding: 0;
+   font-family: "Arima", system-ui;
+   font-optical-sizing: auto;
+   font-weight: weight;
+   font-style: normal;
+   background-color: #f0d3c394;
+}
+
+img {
+  display: block;
+}
+
+.cabecalho{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    flex-shrink: 0;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.cabecalho a{
+    text-decoration: none;
+}
+
+.cabecalho p{
+    color: white;
+    font-size: 30px;
+}
+
+.fotoConta{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.loginTitulo p{
+    color: #796761;
+    font-size: 30px;
+}
+
+nav ul{
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li{
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+.login{
+    display: flex;
+    width: 90px;
+    height: 50px;
+    background-color: #edd4c6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.img-cabecalho a img{
+    list-style: none;
+    margin-right: 700px;
+}
+
+.img-rodape a img{
+    list-style: none;
+    margin-right: 500px;
+}
+
+
+.rodape{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 190px;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.rodape table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape table tr td a p{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.rodape table tr td a{
+    text-decoration: none;
+}
+
+.espacamentoRodape{
+    width: 5px;
+    height: 100px;
+    background-color: white;
+}
+
+.redesSociais{
+    display: flex;
+    padding-left: 0;
+    margin-left: 250px;
+}
+
+.redesSociais nav ul li{
+    list-style: none;
+    margin-right: 50px;
+}
+
+.redesSociais nav ul li a{
+    text-decoration: none;
+}
+
+.erro{
+    color: red;
+}
+
+
+
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+.editando{
+    width: 800px;
+    height: 150px;
+    display: flex;
+    justify-self: center;
+    background-color: rgb(240,201,200);
+    border-radius: 50px;
+    margin: 20px;
+    justify-content: center;
+    
+}
+
+.editando p{
+    font-size: 60px;
+    color: #434135;
+    margin-top: 30px;
+}
+
+.caixaMaior{
+    width: 85%;
+    height: 1000px;
+    background-color: #f1d2cc;
+    display:flex;
+    justify-self: center;
+    justify-content: center;
+
+}
+
+.caixaFundoAvatar{
+    width: 700px;
+    height: 900px;
+    background-color: #e6c2ba;
+    border-radius: 50px;
+    margin-top: 50px;
+    margin-right: 10px;
+    justify-content: center;
+
+}
+
+.caixaAcessorios{
+    width: 700px;
+    height: 900px;
+    background-color: #ffeae6;
+    border-radius: 50px;
+    margin-top: 50px;
+    margin-left: 10px;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+.salvar button{
+    width: 300px;
+    height: 70px;
+    border-radius: 30px;
+    margin-top: -10px;
+    margin-left: 200px;
+    background-color:  #daf5d0;
+    border-style: hidden;
+    font-size: 40px;
+    font-family: "Arima", system-ui;
+
+}
+
+.fundoAvatar{
+    width:650px;
+    height: 850px;
+    background-image: url("../imgs/imagem_650x860.png");
+    background-repeat: no-repeat;
+    justify-self: center;
+    border-radius: 50px;
+    margin-top: 25px;
+}
+
+.avatar{
+    background-repeat: no-repeat;
+    justify-self: center;
+    
+}
+
+.boxAcc{
+    width: 230px;
+    height: 190px;
+    border-radius: 60px;
+    background-color: #E0AF59;
+    display: inline-block;
+    justify-content: center;
+    margin: 10px;
+    
+
+}
+
+.acessoriosTitulo{
+    width: 300px;
+    height: 50px;
+    background-color: #daf5d0;
+    border-radius: 50px;
+    justify-self: center;
+    margin-top: -90px;
+
+}
+
+.acessoriosTitulo p{
+    font-size: 40px;
+    color: #444336;
+    
+}
+
+.acessorio{
+    margin-top: 20px;
+    justify-self: center;
+    background-size:contain;
+
+}
+
+.opcoesPerso{
+     background: #ffeae6;
+    padding: 10px;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+
+}
+
+.personagens{
+    width: 300px;
+    height: 450px;
+    background-color:#E0AF59;
+    border-radius: 40px;
+    margin: 5px;
+
+}
+
+
+
+
