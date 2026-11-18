@@ -9,6 +9,10 @@
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
+    echo "<pre>";
+var_dump($area);
+var_dump($materias);
+echo "</pre>";
 
     $dadosUser = database()->prepare('
     SELECT * FROM usuarios WHERE nome_usuario = :user');
@@ -195,6 +199,8 @@
                 <?php endforeach; ?>
             </select>
         </div>
+        
+        
             <div class="status">
             <label><input type="radio" class="checkbox" name="status" value="privado">Privado</label>
             <label><input type="radio" class="checkbox" name="status" value="publico">Público</label>
