@@ -1,6 +1,9 @@
 <?php
     require_once __DIR__ . "/banco/crud.php"; 
-    require_once __DIR__ . "/banco/database.php"; 
+    require_once __DIR__ . "/banco/database.php";
+    require_once __DIR__ . "/locais.php";
+
+    $user = $_GET['user'];
 
     $grupos = readAll(database(), "grupos_estudos");
     $areaConhecimento = readAll(database(), "area_conhecimento");
@@ -11,12 +14,12 @@
         $materia = $_POST['materias'];
 
         if(empty($grupos)){
-            header('Location: selecionar-sala.php?erro=Nenhuma sala criada');
+            header("Location: selecionar-sala.php?user=" . urlencode($user) . "&erro=" . urlencode("Nenhuma sala criada"));
             exit;
         }
 
         if(empty($area)){
-            header('Location: selecionar-sala.php?erro=Espaço vazio');
+            header("Location: selecionar-sala.php?user=" . urlencode($user) . "&erro=" . urlencode("Espaço vazio"));
             exit;
         }
         
@@ -29,7 +32,7 @@
 
 
         if (!empty($materia) && !in_array($materia, $materiasPorArea[$area] ?? [], true)){
-            header("Location: selecionar-sala.php?erro=A máteria selecionada não faz parte desse área de conhecimento");
+            header("Location: selecionar-sala.php?user=" . urlencode($user) . "&erro=" . urlencode("A máteria selecionada não faz parte dessa área de conhecimento"));
             exit;
         }
 
@@ -57,11 +60,11 @@
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeUser.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.php">
-                        <p>Matérias</p>
+                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+                        <p>Grupos de Estudo</p>
                     </a></li>
                 <li><a href="login.php">
                         <p>Social</p>
@@ -71,15 +74,15 @@
                     </a></li>
             </ul>
         </nav>
-        <a href="perfil.php?user="><div class="fotoConta"></div>
-    </div></a>
+        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
+    </div>
        
     <div class="aviso">
         <p>Selecione uma sala de estudos de seu interesse ou crie uma nova!</p>
     </div>
     
     <div class="pesquisaSalas">
-        <form action="" method="post">
+        <form action="selecionar-sala.php?user=<?= $user ?>" method="post">
             <select name="areaConhecimento">
                 <option value="">Área de Conhecimento</option>
                 <?php foreach($areaConhecimento as $a): ?>
@@ -110,7 +113,7 @@
     </div>
 
     <div class="criarSala">
-    <button type="submit">Criar uma sala de estudos</button>
+    <a href="criarsala.php?user=<?= $user ?>"><button type="submit">Criar uma sala de estudos</button></a>
     <div class="plus"></div>
     
     </div>
@@ -119,9 +122,9 @@
     <div class="exibirSalas">
 
         <?php foreach($grupos as $g): ?>
-          <div class="boxLocal">
+        <div class="boxLocal">
             <div class="imagemLocal">
-
+                <img src="<?= $locais[$g['id_imagem']]?>" alt="">
             </div>
 
             <p><?= $g['nome_grupo'] ?>-<?= $g['nome_area'] ?>-<?= $g['nome_materia'] ?></p>

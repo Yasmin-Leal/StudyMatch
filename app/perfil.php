@@ -69,7 +69,7 @@
         UPDATE usuarios SET nome = :nome, email = :email, data_nascimento = :data_nascimento, telefone = :telefone WHERE id_usuario = :id_usuario;
         ');
         $consulta->execute(['nome' => $nome, 'email' => $email, 'data_nascimento' => $data, 'telefone' => $telefone, 'id_usuario' => $id]);
-        header("Location: perfil.php?user={$nome}");
+        header("Location: perfil.php?user={$user}");
         exit;
 
     }
@@ -93,8 +93,8 @@
         <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.php">
-                        <p>Matérias</p>
+                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+                        <p>Grupos de Estudo</p>
                     </a></li>
                 <li><a href="login.php">
                         <p>Social</p>
@@ -104,7 +104,7 @@
                     </a></li>
             </ul>
         </nav>
-        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"><a href="perfil.php"></div>
+        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div>
     </div></a>
         <div class="fundo">
             <div class="perfilbox">
@@ -116,6 +116,7 @@
                 <div class="infoperfil">
                     <div class="form">
                         <form action="" method="post">
+
                         <input type="hidden" name="id" value="<?=  $usuario['id_usuario'] ?>">
 
                         <label for="nomeEx"></label>
@@ -140,7 +141,6 @@
                             }
                         ?>
                         </div>
-
                         <button type="submit">Editar Perfil</button>
                         </form>
                     </div>

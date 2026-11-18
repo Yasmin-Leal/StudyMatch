@@ -115,7 +115,7 @@
         <nav>
             <ul>
                 <li><a href="login.php">
-                        <p>Matérias</p>
+                        <p>Grupos de Estudo</p>
                     </a></li>
                 <li><a href="login.php">
                         <p>Social</p>
