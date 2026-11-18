@@ -2,6 +2,20 @@
     header('Content-Type: text/html; charset=UTF-8');
 
     require_once __DIR__ . "/banco/crud.php"; 
+    $pdo = database();
+
+$resultado = $pdo->query("
+    SELECT
+        DATABASE() AS banco,
+        @@hostname AS servidor,
+        @@port AS porta,
+        @@character_set_connection AS conexao,
+        @@character_set_results AS resultados
+")->fetch(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+var_dump($resultado);
+echo "</pre>";
     require_once __DIR__ . "/banco/database.php"; 
     require_once __DIR__ . "/locais.php";
 
@@ -9,13 +23,7 @@
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
-$teste = database()->query("
-    SELECT nome_materia, HEX(nome_materia) AS hexadecimal
-    FROM materias
-    WHERE id_materia = 1
-");
 
-var_dump($teste->fetch(PDO::FETCH_ASSOC));
     $dadosUser = database()->prepare('
     SELECT * FROM usuarios WHERE nome_usuario = :user');
     $dadosUser->execute(['user' => $user]);
