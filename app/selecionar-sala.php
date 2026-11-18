@@ -95,7 +95,7 @@
     <div class="pesquisaSalas">
         <form action="selecionar-sala.php?user=<?= $user ?>" method="post">
             <select name="areaConhecimento">
-                <option value="">Área de Conhecimento</option>
+                <option value="">| Área de Conhecimento</option>
                 <?php foreach($areaConhecimento as $a): ?>
                 <option value="<?= $a['nome_area'] ?>">
                 <?= $a['nome_area'] ?>
@@ -103,7 +103,7 @@
                 <?php endforeach; ?>
             </select>
             <select name="materias">
-                <option value="">Matérias</option>
+                <option value="">| Matérias</option>
                 <?php foreach($materias as $m): ?>
                 <option value="<?= $m['nome_materia'] ?>">
                 <?= $m['nome_materia'] ?>
