@@ -179,13 +179,13 @@
             <input type="text" name="criador" value="<?= htmlspecialchars($usuario['nome_usuario'] ?? '') ?>" readonly> 
             <input type="date" name="data" value="<?= date('Y-m-d') ?>" readonly>
             <select name="area">
-                <option value="">Área de conhecimento</option>
-                <?php foreach($area as $a): ?>
-                    <option value="<?= $a['nome_area'] ?>">
-                    <?= $a['nome_area'] ?>
-                </option>
-                <?php endforeach; ?>
-            </select>
+    <option value="">Área de conhecimento</option>
+    <?php foreach($area as $a): ?>
+        <option value="<?= htmlspecialchars($a['nome_area'], ENT_QUOTES, 'UTF-8') ?>">
+            <?= htmlspecialchars($a['nome_area'], ENT_QUOTES, 'UTF-8') ?>
+        </option>
+    <?php endforeach; ?>
+</select>
             <select name="materias">
                 <option value="">Matérias</option>
                 <?php foreach($materias as $m): ?>
