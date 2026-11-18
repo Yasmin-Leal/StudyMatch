@@ -20,6 +20,17 @@ $resultado = $pdo->query("
 echo "<pre>";
 var_dump($resultado);
 echo "</pre>";
+$teste = $pdo->query("
+    SELECT
+        nome_materia,
+        HEX(nome_materia) AS hexadecimal
+    FROM materias
+    WHERE id_materia = 1
+")->fetch(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+var_dump($teste);
+echo "</pre>";
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
