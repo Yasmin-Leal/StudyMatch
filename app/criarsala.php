@@ -1,36 +1,10 @@
 <?php
-    header('Content-Type: text/html; charset=UTF-8');
-
     require_once __DIR__ . "/banco/crud.php"; 
     require_once __DIR__ . "/banco/database.php"; 
     require_once __DIR__ . "/locais.php";
 
     $user = $_GET['user'] ?? $_POST['user'] ?? '';
-    $pdo = database();
-
-$resultado = $pdo->query("
-    SELECT
-        DATABASE() AS banco,
-        @@hostname AS servidor,
-        @@port AS porta,
-        @@character_set_connection AS conexao,
-        @@character_set_results AS resultados
-")->fetch(PDO::FETCH_ASSOC);
-
-echo "<pre>";
-var_dump($resultado);
-echo "</pre>";
-$teste = $pdo->query("
-    SELECT
-        nome_materia,
-        HEX(nome_materia) AS hexadecimal
-    FROM materias
-    WHERE id_materia = 1
-")->fetch(PDO::FETCH_ASSOC);
-
-echo "<pre>";
-var_dump($teste);
-echo "</pre>";
+    
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
@@ -119,13 +93,6 @@ echo "</pre>";
 </head>
 
 <body>
-    <div style="font-family: 'Arima'; font-size: 30px;">
-    Teste: á é í ó ú | ã õ | ç | â ê ô
-</div>
-
-<div style="font-family: Arial; font-size: 30px;">
-    Teste: á é í ó ú | ã õ | ç | â ê ô
-</div>
     <div class="cabecalho">
         <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>

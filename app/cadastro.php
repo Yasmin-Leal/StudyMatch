@@ -1,6 +1,4 @@
 <?php
-    header('Content-Type: text/html; charset=UTF-8');
-    
     require_once __DIR__ . "/banco/crud.php"; 
     require_once __DIR__ . "/banco/database.php"; 
 
