@@ -431,6 +431,13 @@ nav ul li a{
     width: 100%;
 }
 
+.campos select,
+.campos select option {
+    font-family: "Arima", sans-serif;
+    font-size: 22px;
+    color: #7d655c;
+}
+
 .campos input,
 .campos select {
     width: 28%;
