@@ -9,11 +9,13 @@
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
-    echo "<pre>";
-var_dump($area);
-var_dump($materias);
-echo "</pre>";
+$teste = database()->query("
+    SELECT nome_materia, HEX(nome_materia) AS hexadecimal
+    FROM materias
+    WHERE id_materia = 1
+");
 
+var_dump($teste->fetch(PDO::FETCH_ASSOC));
     $dadosUser = database()->prepare('
     SELECT * FROM usuarios WHERE nome_usuario = :user');
     $dadosUser->execute(['user' => $user]);
