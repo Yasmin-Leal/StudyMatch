@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -38,11 +42,7 @@
        
     </div>
 
-    <div class="sugestoes">
-        <div class="usuario"><p>P0pC0rn</p></div>
-        <div class="usuario"><p>~^MIisa^~</p></div>
-        <div class="usuario"><p>Cozy_ZzZ</p></div>
-    </div>
+    
 
 
 

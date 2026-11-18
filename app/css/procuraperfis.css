@@ -309,7 +309,7 @@ nav ul li a{
     background-color: #deaf5e;
 }
 
-.sugestoes{
+.usuarios{
     display: flex;
     justify-content: center;
     gap: 80px;
