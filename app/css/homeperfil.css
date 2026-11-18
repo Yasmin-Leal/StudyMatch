@@ -206,7 +206,7 @@ nav ul li a{
 .areaCalendario{
     height: 500px;
     width: 500px;
-    background-color: white;
+    
     margin-left: 70px;
 }
 
@@ -515,4 +515,60 @@ nav ul li a{
 
 .erro{
     color: red;
+}
+
+.calendario {
+
+  width: 400px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #ffe9e7;
+  font-family: "Arima", system-ui;
+  margin-left: 40px;
+}
+
+.mes {
+  text-align: center;
+  color: #5b4636;
+}
+
+.dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.dias span {
+  padding: 8px 0;
+  border-radius: 8px;
+  background: #e7e7ab;
+}
+
+.lembrete-form {
+  margin-top: 16px;
+}
+
+.lembrete-form input{
+    font-family: "Arima", system-ui;
+    box-sizing: border-box;
+     width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+     border-radius: 50px;
+  border-color:#e7bbb3
+
+}
+.lembrete-form button {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  font-family: "Arima", system-ui;
+  background-color: #ececae;
+  border-radius: 50px;
+  border-style: hidden;
+  font-size: 20px;
+  
+
 }
