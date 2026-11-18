@@ -42,30 +42,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
     </head>
     <body>
-
-        <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeperfil.php"><img src="imgs/logo.png" alt=""></a></div>
+    <div class="cabecalho">
+        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.php">
-                        <p>Matérias</p>
+                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+                        <p>Grupos de Estudo</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="social.php">
                         <p>Social</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="progresso.php">
                         <p>Progresso</p>
                     </a></li>
             </ul>
         </nav>
-        <div class="fotoConta"><a href="perfil.php">
-            </a></div>
+        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
+        </div>
     </div>
-
-
-
-
-
 
         <div class="titulo">
         <p>Você acessou o <?= $grupo['nome_grupo'] ?>!</p>
