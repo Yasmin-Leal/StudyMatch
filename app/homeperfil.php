@@ -32,17 +32,10 @@
                 <li><a href="selecionar-sala.php?user=<?= $user ?>">
                         <p>Grupos de Estudo</p>
                     </a></li>
-<<<<<<< Updated upstream
-                <li><a href="social.php">
-                        <p>Social</p>
-                    </a></li>
-                <li><a href="progresso.php">
-=======
                 <li><a href="procuraperfis.php">
                         <p>Social</p>
                     </a></li>
                 <li><a href="progesso.php">
->>>>>>> Stashed changes
                         <p>Progresso</p>
                     </a></li>
             </ul>
