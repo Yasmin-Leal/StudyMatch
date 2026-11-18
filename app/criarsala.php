@@ -94,6 +94,13 @@
 </head>
 
 <body>
+    <div style="font-family: 'Arima'; font-size: 30px;">
+    Teste: á é í ó ú | ã õ | ç | â ê ô
+</div>
+
+<div style="font-family: Arial; font-size: 30px;">
+    Teste: á é í ó ú | ã õ | ç | â ê ô
+</div>
     <div class="cabecalho">
         <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
