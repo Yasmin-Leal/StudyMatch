@@ -1,4 +1,6 @@
 <?php
+    header('Content-Type: text/html; charset=UTF-8');
+    
     require_once __DIR__ . "/banco/crud.php"; 
     require_once __DIR__ . "/banco/database.php"; 
 
@@ -106,7 +108,7 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
