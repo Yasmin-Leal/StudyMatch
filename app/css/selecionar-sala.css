@@ -151,6 +151,8 @@ nav ul li a{
     font-size: 20px;
     font-family: "Arima", system-ui;
     margin-right: 90px;
+  
+    
     
 }
 
@@ -160,8 +162,9 @@ nav ul li a{
     height: 50px;
     width: 50px;
     display: inline;
-    margin-left: -310px;
+    margin-left: -320px;
     margin-top: 6px;
+    
 }
 
 .rodape{
@@ -291,3 +294,28 @@ nav ul li a{
     padding: 3px 8px;
     cursor: pointer;
 }
+
+.pesquisaSalas select {
+    width: 400px;
+    height: 70px;
+    border-radius: 40px;
+    border-color: #EEC4C3;
+    font-family: "Arima", system-ui;
+    border-width: 3px;
+    font-size: 25px;
+    color:#644c4e;
+}
+
+.pesquisaSalas button{
+    width: 200px;
+    height: 50px;
+    background-color: #bef3c1;
+    border-radius: 40px;
+    justify-items: center;
+    border-style: hidden;
+    font-family: "Arima", system-ui;
+    font-size: 20px;
+     display: block;
+    margin: 0 auto;
+}
+
