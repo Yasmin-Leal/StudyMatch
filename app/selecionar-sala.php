@@ -76,15 +76,16 @@
                 <li><a href="selecionar-sala.php?user=<?= $user ?>">
                         <p>Grupos de Estudo</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="social.php">
                         <p>Social</p>
                     </a></li>
-                <li><a href="login.php">
+                <li><a href="progresso.php">
                         <p>Progresso</p>
                     </a></li>
             </ul>
         </nav>
         <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
+        </div>
     </div>
        
     <div class="aviso">

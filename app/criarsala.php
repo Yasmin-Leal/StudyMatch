@@ -102,7 +102,7 @@
                 <li><a href="social.php">
                         <p>Social</p>
                     </a></li>
-                <li><a href="progesso.php">
+                <li><a href="progresso.php">
                         <p>Progresso</p>
                     </a></li>
             </ul>

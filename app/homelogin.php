@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeperfil.php"><img src="imgs/logo.png" alt=""></a></div>
+        <div class="img-cabecalho"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
         <nav>
             <ul>
                 <li><a href="login.php">
@@ -25,7 +25,7 @@
                     </a></li>
             </ul>
         </nav>
-       <div class="login"><a href="login.php">
+        <div class="login"><a href="login.php">
                 <div class="loginTitulo">
                     <p>login</p>
                 </div>
