@@ -2,6 +2,10 @@
     header('Content-Type: text/html; charset=UTF-8');
 
     require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php"; 
+    require_once __DIR__ . "/locais.php";
+
+    $user = $_GET['user'] ?? $_POST['user'] ?? '';
     $pdo = database();
 
 $resultado = $pdo->query("
@@ -16,10 +20,6 @@ $resultado = $pdo->query("
 echo "<pre>";
 var_dump($resultado);
 echo "</pre>";
-    require_once __DIR__ . "/banco/database.php"; 
-    require_once __DIR__ . "/locais.php";
-
-    $user = $_GET['user'] ?? $_POST['user'] ?? '';
     $materias = readAll(database(), "materias");
     $area = readAll(database(), "area_conhecimento");
     $grupo = readAll(database(), "grupos_estudos");
