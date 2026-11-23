@@ -1,4 +1,7 @@
+<?php
+    require_once __DIR__ . "/locais.php";
 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,43 +43,44 @@
         <div class="caixaFundoAvatar">
             <div class="fundoAvatar">
                 <div class="avatar">
-                    <img src="../app/imgs/dog-removebg-preview.png" width=780px>
+                    <img src="<?= $personagens['1']?>" width=680px>
                 </div>
             </div>
-            <div class="salvar"><button type="submit">Salvar</button></div>
+            <form action="" method="post">
+            <div class="salvar"><button type="submit">Salvar</button></div></form>
         </div>
         <div class="caixaAcessorios">
             <div class="acessoriosTitulo"><p>Acessórios</p></div>
             <div class="boxAcc">
-                <div class="acessorio"><img src="../app/imgs/gorro.png" width=220px></div>
+                <div class="acessorio"><img src="<?= $acessorios['1']?>" width=220px></div>
 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['2']?>" width=220px></div>
 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['3']?>" width=220px></div>
 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['4']?>" width=220px></div>
 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['5']?>" width=220px></div>
 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['6']?>" width=220px></div>
 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['7']?>" width=220px></div>
                 
             </div>
             <div class="boxAcc">
-                <div class="acessorio"></div>
+                <div class="acessorio"><img src="<?= $acessorios['8']?>" width=220px></div>
 
             </div>
         </div>
@@ -85,23 +89,23 @@
     <div class="caixaMaior">
         <div class="opcoesPerso">
             <div class="personagens">
-                <img src="../app/imgs/bunny-removebg-preview.png" width="300" >
+                <img src="<?= $personagens['1']?>" width="300" >
                 
             </div>
             <div class="personagens">
-                
+                <img src="<?= $personagens['2']?>" width="280" >
             </div>
             <div class="personagens">
-                
+                <img src="<?= $personagens['3']?>" width="300" >
             </div>
             <div class="personagens">
-                
+                <img src="<?= $personagens['4']?>" width="300" >
             </div>
             <div class="personagens">
-                
+                <img src="<?= $personagens['5']?>" width="300" >
             </div>
             <div class="personagens">
-                
+                <img src="<?= $personagens['6']?>" width="300" >
             </div>
         </div>
 
