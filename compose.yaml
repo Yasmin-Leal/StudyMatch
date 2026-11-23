@@ -14,9 +14,8 @@ services:
       db:
         condition: service_healthy
     expose:
-"80"
+      - "80"
     restart: unless-stopped
-
 
   db:
     build:
@@ -27,12 +26,8 @@ services:
       MYSQL_USER: ${DB_USERNAME:-integrador}
       MYSQL_PASSWORD: ${DB_PASSWORD:?Informe DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Informe DB_ROOT_PASSWORD}
-      LANG: C.UTF-8
     volumes:
-db_data:/var/lib/mysql
-    command:
---character-set-server=utf8mb4
---collation-server=utf8mb4_unicode_ci
+      - db_data:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
       interval: 10s
@@ -40,7 +35,6 @@ db_data:/var/lib/mysql
       start_period: 60s
       retries: 10
     restart: unless-stopped
-
 
 volumes:
   db_data:
