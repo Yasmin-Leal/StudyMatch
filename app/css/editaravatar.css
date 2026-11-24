@@ -213,11 +213,14 @@ nav ul li a{
     justify-self: center;
     border-radius: 50px;
     margin-top: 25px;
+    display: grid;
+    place-items: center;
 }
 
 .avatar{
     background-repeat: no-repeat;
-    justify-self: center;
+    display: grid;
+    place-items: center;
     
 }
 
@@ -257,13 +260,14 @@ nav ul li a{
 }
 
 .opcoesPerso{
-     background: #ffeae6;
+    background: #ffeae6;
     padding: 10px;
     border-radius: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-bottom: 40px;
+    place-items: center;
 
 }
 
@@ -273,6 +277,8 @@ nav ul li a{
     background-color:#E0AF59;
     border-radius: 40px;
     margin: 5px;
+    display: grid;
+    place-items: center;
 
 }
 
