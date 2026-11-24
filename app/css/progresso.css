@@ -1,17 +1,35 @@
-body{
-    background-color:#f6eeea;
-    margin: 0;
-   padding: 0;
-   font-family: "Arima", system-ui;
-   font-optical-sizing: auto;
-   font-weight: weight;
-   font-style: normal;
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
+
+:root {
+  --marrom: #987f7b;
+  --creme: #f7e6d8;
+  --texto: #75583f;
+  --rosa: #e9adb1;
+  --branco: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Lora', Georgia, serif;
+  color: var(--texto);
+  background: #f6eeea;
+}
+
+.pagina {
+  width: 100%;
+  min-height: 100vh;
+  border: 2px solid #a23dff;
+  display: flex;
+  flex-direction: column;
 }
 
 .cabecalho{
     display: flex;
     width: 100%;
-    height: 140px;
+    height: 150px;
     background-color: #796761;
     justify-content: left;
     align-items: center;
@@ -25,7 +43,30 @@ body{
     color: white;
     font-size: 30px;
 }
-img-cabecalho a img{
+
+.fotoConta{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+nav ul{
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li{
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+.img-cabecalho a img{
     list-style: none;
     margin-right: 700px;
 }
@@ -33,10 +74,6 @@ img-cabecalho a img{
 .img-rodape a img{
     list-style: none;
     margin-right: 500px;
-}
-
-img {
-    display: block;
 }
 
 .rodape{
@@ -48,6 +85,7 @@ img {
     justify-content: left;
     align-items: center;
 }
+
 
 .rodape table{
     display: flex;
@@ -86,41 +124,185 @@ img {
     text-decoration: none;
 }
 
-
-nav ul{
-    display: flex;
-    padding-left: 0;
-    margin-top: 25px;
-}
-
-nav ul li{
-    list-style: none;
-    margin-right: 130px;
-}
-
-nav ul li a{
-    text-decoration: none;
-}
-
-.card{
-    
-    background-color: #edd4c6;
-    width: 900px;
-    height: 500px;
-    padding: 350px;
-    margin: 100px;
-    margin-left:150px;
-    border-radius: 15px;
-   
-}
-
-.atividade{
-    position: absolute;
+.direitos {
+    width: 100%;
     text-align: center;
-    font-size: 70px;
-    color: #6b4e32;
-   
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
+}
 
-    margin-left: 550px;
-   
+@media (max-width: 760px) {
+  .cabecalho { height: auto; min-height: 100px; flex-basis: auto; flex-wrap: wrap; gap: 12px; padding: 12px 18px; }
+  .marca { width: 95px; }
+  .menu { gap: 15px; flex-wrap: wrap; justify-content: flex-end; }
+  .menu a { font-size: 16px; }
+  .menu .login-link { font-size: 14px; padding: 7px 13px; }
+  .conteudo { grid-template-columns: 1fr; }
+  .imagem-estudo { height: 280px; }
+  .painel-login { padding: 28px 24px 36px; }
+  .formulario input { height: 58px; font-size: 18px; }
+  .cadastro { font-size: 14px; margin-bottom: 22px; }
+  .formulario button { font-size: 23px; min-height: 60px; }
+  .rodape { flex-wrap: wrap; justify-content: center; padding: 20px 14px 34px; gap: 16px; }
+  .marca-rodape { width: 90px; }
+  .links-rodape { flex-basis: 100%; order: 3; flex-wrap: wrap; }
+  .links-rodape div { padding: 8px 12px; border-right-width: 1px; }
+  .links-rodape a { font-size: 14px; }
+  .redes-sociais { gap: 12px; }
+  .redes-sociais a { width: 42px; height: 42px; }
+  .redes-sociais svg { width: 30px; height: 30px; }
+}
+/* Container Principal */
+.card-principal{
+    background-color: #ECD6C7;
+    width: 1000px;
+    height: 900px;
+    border-radius: 16px;
+    padding: 36px 42px;
+    margin-left: 290px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+p{
+    font-size: 20px;
+}
+
+h1{
+    font-size: 28px;
+    font-weight: 400;
+    margin-left: 125px;
+    margin-bottom: 14px;
+    color: #7A5C43;
+}
+
+
+h2 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: #7A5C43;
+    
+}
+
+
+.secao-top {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 32px;
+}
+
+.avatar {
+    width: 145px;
+    height: 145px;
+    background-color: #F7EFEA;
+    border-radius: 50%;
+    flex-shrink: 0; /* Impede o círculo de amassar */
+}
+
+.atividade {
+    flex: 1;
+}
+
+.atividade-box {
+    background-color: #DFC1AE;
+    border-radius: 28px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.tempo {
+    background-color: #FCF9F2;
+    border-radius: 24px;
+    height: 76px;
+    width: 195px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.materias {
+    background-color: #EBD8C8;
+    border-radius: 20px;
+    height: 88px;
+    flex: 1;
+}
+
+.metas {
+    padding-left: 48px; 
+}
+
+.metas-container {
+    height: 500px;
+    background-color: #DFC1AE;
+    border-radius: 32px;
+    padding: 20px 24px 36px 24px;
+}
+
+.progresso-barra {
+    background-color: #EBD8C8;
+    border-radius: 20px;
+    height: 58px;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: flex-end; /*end = final, posiciona no final da caixa*/
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.progresso-indicator {
+    background-color: #FCF9F2;
+    width: 98px;
+    height: 36px;
+    border-radius: 18px;
+}
+
+
+.grade-dias {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.day-card {
+    background-color: #EBD8C8;
+    border-radius: 22px;
+    height: 300px;
+    padding: 16px 8px 12px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-nome {
+    font-size: 1.05rem;
+}
+
+.day-pill {
+    background-color: #FCF9F2;
+    border-radius: 16px;
+    width: 100%;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 0.85rem;
+}
+
+/* Ícones de Relógio */
+.clock-icon {
+    width: 16px;
+    height: 16px;
+    color: #7A5C43;
+    flex-shrink: 0;
+}
+
+.clock-icon.large {
+    width: 34px;
+    height: 34px;
 }
