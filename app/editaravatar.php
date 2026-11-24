@@ -43,7 +43,7 @@
         <div class="caixaFundoAvatar">
             <div class="fundoAvatar">
                 <div class="avatar">
-                    <img src="<?= $personagens['1']?>" width=680px>
+                    <img src="<?= $personagens['5']?>" width="500px">
                 </div>
             </div>
             <form action="" method="post">
