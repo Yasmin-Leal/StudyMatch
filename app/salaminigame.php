@@ -1,4 +1,17 @@
+<?php
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php"; 
+    require_once __DIR__ . "/locais.php";
 
+    //$user = $_GET['user'];
+    //$nomeGrupo = $_GET['grupo'];
+
+    //$dadosgrupo = database()->prepare('
+    //SELECT * FROM grupos_estudos WHERE criador = :user nome_grupo = :grupo');
+    //$dadosgrupo->execute(['user' => $user, 'grupo' => $nomeGrupo]);
+
+    //$grupo = $dadosgrupo->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -33,7 +46,7 @@
     </div>
        <div class="titulosSala">
         
-        <div class="materia"><p>Placeholder</p></div>
+        <div class="materia"><p></p></div>
         
         <div class="tempo"><p>Placeholder</p></div>
        
@@ -98,7 +111,7 @@
             data-name="username"
             data-talk="Estudando...Tempo na sala: 01:02:32"
           >
-            <img src="imgs/cat-removebg-preview.png"  />
+            <img src="imgs/Esquilo.png"  />
           </div>
           <div class="book b1">📗</div>
           <div class="book b2">📘</div>

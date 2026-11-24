@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
 
 :root {
   --marrom: #987f7b;
@@ -13,9 +13,13 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Lora', Georgia, serif;
+  font-family: "Arima", system-ui;
   color: var(--texto);
   background: #f6eeea;
+}
+
+img {
+  display: block;
 }
 
 .pagina {
@@ -75,6 +79,9 @@ nav ul li a{
     list-style: none;
     margin-right: 500px;
 }
+
+.center{
+    text-align: center;}
 
 .rodape{
     display: flex;
