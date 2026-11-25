@@ -48,7 +48,33 @@
         
         <div class="materia"><p></p></div>
         
-        <div class="tempo"><p>Placeholder</p></div>
+        <div class="tempo"><div class="css-stopwatch" role="img" aria-label="CSS timer counting from zero to five minutes">
+  <div class="css-stopwatch__window">
+    <div class="css-stopwatch__column css-stopwatch__minutes-tens">
+      <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+    </div>
+  </div>
+  <div class="css-stopwatch__window">
+    <div class="css-stopwatch__column css-stopwatch__minutes-ones">
+      <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+      <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+    </div>
+  </div>
+
+  <span class="css-stopwatch__colon">:</span>
+
+  <div class="css-stopwatch__window">
+    <div class="css-stopwatch__column css-stopwatch__seconds-tens">
+      <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+    </div>
+  </div>
+  <div class="css-stopwatch__window">
+    <div class="css-stopwatch__column css-stopwatch__seconds-ones">
+      <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+      <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+    </div>
+  </div>
+</div></div>
        
         
         </div>
@@ -299,7 +325,7 @@
     </script>
     <div class="boxConteudo">
       <p>Conteúdo</p>
-      <h1>x/x</h1>
+      <h1>+</h1>
 
       <div class="conteudos"><img src="imgs/conteudoEX.png"> <img src="imgs/conteudoEX.png"></div>
 
@@ -331,6 +357,8 @@
 </div>
       </div>
     </div>
+
+  <div class="prof"><img src="imgs/prof yas.png"></div>
 
 
 

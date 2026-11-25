@@ -1046,11 +1046,11 @@ nav ul li a{
 }
 
 .boxConteudo h1{
-  font-size: 40px;
+  font-size: 60px;
   color: white;
-  margin-right: 60px;
+  margin-right: 40px;
   justify-self: flex-end;
-  margin-top: -100px;
+  margin-top: -120px;
 }
 
 .conteudos{
@@ -1073,6 +1073,7 @@ nav ul li a{
   width: 85%;
   justify-content: center;
   justify-self: center;
+  margin-bottom: 50px;
 }
 
 .notas{
@@ -1081,6 +1082,7 @@ nav ul li a{
   background-color:#A08870;
   border-radius: 50px;
   margin-top: 50px;
+  margin-bottom: 50px;
   
   
 }
@@ -1093,13 +1095,15 @@ nav ul li a{
   border-radius: 50px;
   margin-top: 50px;
   
+  
 }
 
 .notas p{
   font-size: 40px;
   color: white;
   margin-left: 60px;
-  margin-top: -2px;
+  margin-top: -1px;
+  margin-bottom: 70px;
   
 }
 
@@ -1108,7 +1112,7 @@ nav ul li a{
   height: 650px;
   border-radius: 50px;
   margin-top: -60px;
-  margin-left: 6px;
+  margin-left: 10px;
   font-size: 20px;
   background-color:#645545;
   color: white;
@@ -1129,21 +1133,21 @@ nav ul li a{
 .chat-placeholder {
   width: 600px;
   height: 750px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
+ 
+  border-radius: 50px;
   overflow: hidden;
   font-family: "Arima", system-ui;
-  background: rgba(226, 214, 201, 0.726);
+  background: #9f8972;
 }
 
 .chat-header {
   padding: 12px 16px;
-  background: #796860;
+  background: #dfcfc5;
   font-weight: bold;
 }
 
 .chat-messages {
-  min-height: 180px;
+  min-height: 200px;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -1156,7 +1160,11 @@ nav ul li a{
   max-width: 80%;
   padding: 9px 12px;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 20px;
+  flex: 1;
+  overflow-y: auto;  
+  text-align: center;
+  justify-self: center;
  
   
 }
@@ -1172,23 +1180,128 @@ nav ul li a{
 }
 
 .chat-input {
+  margin-top: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 12px;
   border-top: 1px solid #ddd;
-  color: #3b3b3b;
-  font-size: 14px;
-  margin-top: auto;
+  color: #ffffff;
+  font-size: 20px;
+  flex: 1;
+ 
   
 }
 
 .chat-input button {
   border: 0;
   background: none;
-  color: #242323;
+  color: #ffffff;
   font-size: 18px;
   cursor: default;
   
 }
+.css-stopwatch {
+  --digit-height: 1.2em;
+  display: inline-flex;
+  align-items: flex-start;
+  font: 4rem / var(--digit-height) system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-family: "Arima", system-ui;
+}
 
+.css-stopwatch__window {
+  height: var(--digit-height);
+  overflow: hidden;
+}
+
+.css-stopwatch__column {
+  display: flex;
+  flex-direction: column;
+  animation-timing-function: steps(1, end);
+  animation-iteration-count: infinite;
+}
+
+.css-stopwatch__column span {
+  display: block;
+  height: var(--digit-height);
+}
+
+.css-stopwatch__colon {
+  line-height: var(--digit-height);
+}
+
+/* Ones of seconds: change every second */
+.css-stopwatch__seconds-ones {
+  animation-name: css-stopwatch-seconds-ones;
+  animation-duration: 10s;
+}
+
+/* Tens of seconds: change every 10 seconds */
+.css-stopwatch__seconds-tens {
+  animation-name: css-stopwatch-seconds-tens;
+  animation-duration: 60s;
+}
+
+/* Ones of minutes: change every minute */
+.css-stopwatch__minutes-ones {
+  animation-name: css-stopwatch-minutes-ones;
+  animation-duration: 300s;
+}
+
+/* Tens of minutes: change at 0, 1, 2, 3, and 4 minutes */
+.css-stopwatch__minutes-tens {
+  animation-name: css-stopwatch-minutes-tens;
+  animation-duration: 300s;
+}
+
+@keyframes css-stopwatch-seconds-ones {
+  0% { transform: translateY(0); }
+  10% { transform: translateY(calc(-1 * var(--digit-height))); }
+  20% { transform: translateY(calc(-2 * var(--digit-height))); }
+  30% { transform: translateY(calc(-3 * var(--digit-height))); }
+  40% { transform: translateY(calc(-4 * var(--digit-height))); }
+  50% { transform: translateY(calc(-5 * var(--digit-height))); }
+  60% { transform: translateY(calc(-6 * var(--digit-height))); }
+  70% { transform: translateY(calc(-7 * var(--digit-height))); }
+  80% { transform: translateY(calc(-8 * var(--digit-height))); }
+  90% { transform: translateY(calc(-9 * var(--digit-height))); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes css-stopwatch-seconds-tens {
+  0% { transform: translateY(0); }
+  16.6667% { transform: translateY(calc(-1 * var(--digit-height))); }
+  33.3333% { transform: translateY(calc(-2 * var(--digit-height))); }
+  50% { transform: translateY(calc(-3 * var(--digit-height))); }
+  66.6667% { transform: translateY(calc(-4 * var(--digit-height))); }
+  83.3333% { transform: translateY(calc(-5 * var(--digit-height))); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes css-stopwatch-minutes-ones {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(calc(-1 * var(--digit-height))); }
+  40% { transform: translateY(calc(-2 * var(--digit-height))); }
+  60% { transform: translateY(calc(-3 * var(--digit-height))); }
+  80% { transform: translateY(calc(-4 * var(--digit-height))); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes css-stopwatch-minutes-tens {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.prof{
+  width: 250px;
+  height: 300px;
+  display: flex;
+  justify-self: flex-end;
+  margin-top: -300px;
+
+}
+
+.prof img{
+  object-fit: contain;
+}
