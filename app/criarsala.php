@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         "Exatas" => ["Matemática", "Física", "Química"],
         "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
         "Ciências Humanas" => ["História", "Geografia", "Filosofia", "Sociologia"],
-        "Linguagens" => ["Língua Português", "Línguas Estrangeiras", "Literatura"]
+        "Linguagens" => ["Língua Portuguesa", "Línguas Estrangeiras", "Literatura"]
     ];
 
 
@@ -165,9 +165,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     ]);
 
-
-    header("Location: salaminigame.php?user=" . urlencode($user) . "&grupo=" . urlencode($nome_sala));
+    if($areaSelecionada == "Exatas"){
+    header("Location: salaexatas.php?user=" . urlencode($user) . "&grupo=" . urlencode($nome_sala));
     exit;
+    }
+    if($areaSelecionada == "Ciências Naturais"){
+    header("Location: salanaturais.php?user=" . urlencode($user) . "&grupo=" . urlencode($nome_sala));
+    exit;
+    }
+    if($areaSelecionada == "Ciências Humanas"){
+    header("Location: salahumanas.php?user=" . urlencode($user) . "&grupo=" . urlencode($nome_sala));
+    exit;
+    }
+    if($areaSelecionada == "Linguagens"){
+    header("Location: salalinguagens.php?user=" . urlencode($user) . "&grupo=" . urlencode($nome_sala));
+    exit;
+    }
 }
 
 ?>

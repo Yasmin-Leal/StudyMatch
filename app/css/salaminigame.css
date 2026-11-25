@@ -1,63 +1,115 @@
-body{
-   margin: 0;
-   padding: 0;
-   font-family: "Arima", system-ui;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
-   background-color: #f0d3c394;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f0d3c394;
 }
 
 img {
-  display: block;
+    display: block;
 }
 
-.cabecalho{
+/* CABEÇALHO */
+
+.cabecalho {
     display: flex;
     width: 100%;
     height: 150px;
+    padding: 0 30px;
     background-color: #796761;
-    justify-content: left;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.cabecalho a{
+.cabecalho a {
     text-decoration: none;
 }
 
-.cabecalho p{
-    color: white;
-    font-size: 30px;
+/* LOGO */
+
+.img-cabecalho {
+    margin: 0;
+    flex-shrink: 0;
 }
 
-.fotoConta{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: #ffffff;
+.img-cabecalho img {
+    width: 150px;
+    height: auto;
+    margin: 0;
 }
 
-.loginTitulo p{
-    color: #796761;
-    font-size: 30px;
+/* MENU */
+
+.cabecalho nav {
+    flex: 1;
 }
 
-nav ul{
+.cabecalho nav ul {
     display: flex;
-    padding-left: 0;
-    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
 }
 
-nav ul li{
+.cabecalho nav ul li {
     list-style: none;
-    margin-right: 130px;
+    margin: 0;
 }
 
-nav ul li a{
+.cabecalho nav ul li a {
     text-decoration: none;
 }
 
-.login{
+.cabecalho nav ul li p {
+    color: white;
+    font-size: 25px;
+    margin: 0;
+}
+
+/* AVATAR */
+
+.cabecalho > a {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.fotoConta {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.personagemCabecalho {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.acessorioCabecalho {
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.login {
     display: flex;
     width: 90px;
     height: 50px;
@@ -67,10 +119,7 @@ nav ul li a{
     border-radius: 20px;
 }
 
-.img-cabecalho a img{
-    list-style: none;
-    margin-right: 700px;
-}
+/* RODAPÉ */
 
 .direitos {
     width: 100%;
@@ -80,13 +129,12 @@ nav ul li a{
     margin-top: 20px;
 }
 
-.img-rodape a img{
+.img-rodape a img {
     list-style: none;
     margin-right: 500px;
 }
 
-
-.rodape{
+.rodape {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -96,902 +144,1002 @@ nav ul li a{
     align-items: center;
 }
 
-
-.rodape table{
+.rodape table {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rodape table tr td a p{
+.rodape table tr td a p {
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.rodape table tr td a{
+.rodape table tr td a {
     text-decoration: none;
 }
 
-.espacamentoRodape{
+.espacamentoRodape {
     width: 5px;
     height: 100px;
     background-color: white;
 }
 
-.redesSociais{
+.redesSociais {
     display: flex;
     padding-left: 0;
     margin-left: 250px;
 }
 
-.redesSociais nav ul li{
+.redesSociais nav ul li {
     list-style: none;
     margin-right: 50px;
 }
 
-.redesSociais nav ul li a{
+.redesSociais nav ul li a {
     text-decoration: none;
 }
 
-.direitos {
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.733);
-    font-size: 11px;
-    margin-top: 20px;
-}
-
-.erro{
+.erro {
     color: red;
 }
 
-/* All rules are scoped to .vila-game to protect the host website styles. */
+/* MINIGAME */
+
 .vila-game {
-  width: min(1900px, 100%);
-  margin-top: -80px;
-  color: #51463d;
-  font-family: ui-rounded, system-ui, "Arima";
-  isolation: isolate;
+    width: min(1900px, 100%);
+    margin-top: -80px;
+    color: #51463d;
+    font-family: ui-rounded, system-ui, "Arima";
+    isolation: isolate;
 }
+
 .vila-game,
 .vila-game * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .vila-game header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin: 0 4px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 0 4px 12px;
 }
+
 .vila-game h1 {
-  margin: 0;
-  font-size: clamp(1.25rem, 4vw, 1.8rem);
-  color: #594f3d;
+    margin: 0;
+    font-size: clamp(1.25rem, 4vw, 1.8rem);
+    color: #594f3d;
 }
+
 .vila-game header p {
-  margin: 4px 0 0;
-  color: #8c806d;
-  font-size: 0.94rem;
-  
+    margin: 4px 0 0;
+    color: #8c806d;
+    font-size: 0.94rem;
 }
+
 .vila-game .badge {
-  background: #fffaf0;
-  border: 1px solid #eadcc3;
-  border-radius: 99px;
-  padding: 7px 12px;
-  color: #79694f;
-  font-size: 0.85rem;
-  white-space: nowrap;
+    background: #fffaf0;
+    border: 1px solid #eadcc3;
+    border-radius: 99px;
+    padding: 7px 12px;
+    color: #79694f;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
+
 .vila-game #scene {
-  position: relative;
-  width: 100%;
-  height: clamp(430px, 66vw, 590px);
-  overflow: hidden;
-  border: 4px solid #dfceb0;
-  border-radius: 24px;
-  background: #a9ce86;
-  box-shadow: 0 16px 36px #51412a20;
-  isolation: isolate;
-  touch-action: none;
-  user-select: none;
+    position: relative;
+    width: 100%;
+    height: clamp(430px, 66vw, 590px);
+    overflow: hidden;
+    border: 4px solid #dfceb0;
+    border-radius: 24px;
+    background: #a9ce86;
+    box-shadow: 0 16px 36px #51412a20;
+    isolation: isolate;
+    touch-action: none;
+    user-select: none;
 }
+
 .vila-game .grass {
-  position: absolute;
-  inset: 0;
-  background-color: #a9ce86;
-  background-image:
-    radial-gradient(#91b972 1.5px, transparent 1.5px),
-    radial-gradient(#c1dc94 1.4px, transparent 1.4px);
-  background-size:
-    34px 34px,
-    47px 47px;
-  background-position:
-    0 0,
-    16px 23px;
+    position: absolute;
+    inset: 0;
+    background-color: #a9ce86;
+    background-image:
+        radial-gradient(#91b972 1.5px, transparent 1.5px),
+        radial-gradient(#c1dc94 1.4px, transparent 1.4px);
+    background-size: 34px 34px, 47px 47px;
+    background-position: 0 0, 16px 23px;
 }
+
 .vila-game .path {
-  position: absolute;
-  z-index: 1;
-  background: #d7bd8c;
-  box-shadow: inset 0 0 0 3px #c5aa79;
+    position: absolute;
+    z-index: 1;
+    background: #d7bd8c;
+    box-shadow: inset 0 0 0 3px #c5aa79;
 }
+
 .vila-game .path.h {
-  height: 74px;
-  left: 0;
-  right: 0;
-  top: 60%;
+    height: 74px;
+    left: 0;
+    right: 0;
+    top: 60%;
 }
+
 .vila-game .path.v {
-  width: 90px;
-  top: 0;
-  bottom: 0;
-  left: 48%;
+    width: 90px;
+    top: 0;
+    bottom: 0;
+    left: 48%;
 }
+
 .vila-game .path.cross {
-  width: 230px;
-  height: 125px;
-  left: calc(48% - 70px);
-  top: calc(60% - 24px);
-  border-radius: 48%;
+    width: 230px;
+    height: 125px;
+    left: calc(48% - 70px);
+    top: calc(60% - 24px);
+    border-radius: 48%;
 }
+
 .vila-game .house {
-  position: absolute;
-  z-index: 2;
-  left: 6%;
-  top: 8%;
-  width: 205px;
-  height: 145px;
-  border-radius: 10px 10px 17px 17px;
-  background: #fff0ca;
-  border: 4px solid #bf8c64;
-  box-shadow: 0 8px 0 #8b6848;
+    position: absolute;
+    z-index: 2;
+    left: 6%;
+    top: 8%;
+    width: 205px;
+    height: 145px;
+    border-radius: 10px 10px 17px 17px;
+    background: #fff0ca;
+    border: 4px solid #bf8c64;
+    box-shadow: 0 8px 0 #8b6848;
 }
+
 .vila-game .roof {
-  position: absolute;
-  left: -17px;
-  right: -17px;
-  top: -36px;
-  height: 60px;
-  background: #cf816b;
-  border: 4px solid #a96355;
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  filter: drop-shadow(0 4px 0 #8b6848);
+    position: absolute;
+    left: -17px;
+    right: -17px;
+    top: -36px;
+    height: 60px;
+    background: #cf816b;
+    border: 4px solid #a96355;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    filter: drop-shadow(0 4px 0 #8b6848);
 }
+
 .vila-game .window {
-  position: absolute;
-  left: 21px;
-  top: 40px;
-  width: 44px;
-  height: 45px;
-  border: 4px solid #bd8965;
-  border-radius: 9px;
-  background: #b6e2e6;
-  box-shadow: inset 0 0 0 3px #f9f0d6;
+    position: absolute;
+    left: 21px;
+    top: 40px;
+    width: 44px;
+    height: 45px;
+    border: 4px solid #bd8965;
+    border-radius: 9px;
+    background: #b6e2e6;
+    box-shadow: inset 0 0 0 3px #f9f0d6;
 }
+
 .vila-game .door {
-  position: absolute;
-  right: 27px;
-  bottom: 0;
-  width: 47px;
-  height: 76px;
-  background: #ae7654;
-  border: 4px solid #895c43;
-  border-bottom: 0;
-  border-radius: 18px 18px 0 0;
+    position: absolute;
+    right: 27px;
+    bottom: 0;
+    width: 47px;
+    height: 76px;
+    background: #ae7654;
+    border: 4px solid #895c43;
+    border-bottom: 0;
+    border-radius: 18px 18px 0 0;
 }
+
 .vila-game .sign {
-  position: absolute;
-  left: 22px;
-  bottom: 20px;
-  font-size: 12px;
-  color: #705843;
-  background: #fff8e4;
-  padding: 3px 6px;
-  border-radius: 5px;
+    position: absolute;
+    left: 22px;
+    bottom: 20px;
+    font-size: 12px;
+    color: #705843;
+    background: #fff8e4;
+    padding: 3px 6px;
+    border-radius: 5px;
 }
+
 .vila-game .tree {
-  position: absolute;
-  z-index: 3;
-  font-size: 58px;
-  filter: drop-shadow(0 5px 1px #627c4733);
+    position: absolute;
+    z-index: 3;
+    font-size: 58px;
+    filter: drop-shadow(0 5px 1px #627c4733);
 }
+
 .vila-game .t1 {
-  left: 4%;
-  top: 44%;
+    left: 4%;
+    top: 44%;
 }
+
 .vila-game .t2 {
-  left: 28%;
-  top: 8%;
+    left: 28%;
+    top: 8%;
 }
+
 .vila-game .t3 {
-  right: 7%;
-  top: 8%;
+    right: 7%;
+    top: 8%;
 }
+
 .vila-game .t4 {
-  right: 7%;
-  bottom: 10%;
+    right: 7%;
+    bottom: 10%;
 }
+
 .vila-game .bush {
-  position: absolute;
-  z-index: 2;
-  font-size: 28px;
+    position: absolute;
+    z-index: 2;
+    font-size: 28px;
 }
+
 .vila-game .b1 {
-  left: 25%;
-  bottom: 10%;
+    left: 25%;
+    bottom: 10%;
 }
+
 .vila-game .b2 {
-  right: 22%;
-  top: 57%;
+    right: 22%;
+    top: 57%;
 }
+
 .vila-game .shell {
-  position: absolute;
-  z-index: 3;
-  font-size: 21px;
+    position: absolute;
+    z-index: 3;
+    font-size: 21px;
 }
+
 .vila-game .s1 {
-  left: 20%;
-  top: 76%;
+    left: 20%;
+    top: 76%;
 }
+
 .vila-game .s2 {
-  right: 31%;
-  top: 19%;
+    right: 31%;
+    top: 19%;
 }
+
 .vila-game .s3 {
-  left: 57%;
-  bottom: 7%;
+    left: 57%;
+    bottom: 7%;
 }
-/* Detalhes da vila: água, cerca, canteiros, caminho de pedras e mobiliário. */
+
+/* DETALHES DA VILA */
 
 .vila-game .pond {
-  position: absolute;
-  z-index: 2;
-  left: 34%;
-  top: 38%;
-  width: 132px;
-  height: 77px;
-  border: 6px solid #89ad69;
-  border-radius: 52% 48% 44% 56%;
-  background: linear-gradient(145deg, #a8e0dd, #70c3c9);
-  box-shadow:
-    inset 0 0 0 3px #d1e9cb,
-    0 5px 0 #71925d;
+    position: absolute;
+    z-index: 2;
+    left: 34%;
+    top: 38%;
+    width: 132px;
+    height: 77px;
+    border: 6px solid #89ad69;
+    border-radius: 52% 48% 44% 56%;
+    background: linear-gradient(145deg, #a8e0dd, #70c3c9);
+    box-shadow: inset 0 0 0 3px #d1e9cb, 0 5px 0 #71925d;
 }
+
 .vila-game .pond:before,
 .vila-game .pond:after {
-  content: "";
-  position: absolute;
-  height: 4px;
-  border-radius: 50%;
-  background: #e3ffedaa;
+    content: "";
+    position: absolute;
+    height: 4px;
+    border-radius: 50%;
+    background: #e3ffedaa;
 }
+
 .vila-game .pond:before {
-  width: 38px;
-  left: 24px;
-  top: 22px;
+    width: 38px;
+    left: 24px;
+    top: 22px;
 }
+
 .vila-game .pond:after {
-  width: 23px;
-  right: 17px;
-  bottom: 19px;
+    width: 23px;
+    right: 17px;
+    bottom: 19px;
 }
+
 .vila-game .pond-lily {
-  position: absolute;
-  left: 76px;
-  top: 19px;
-  font-size: 20px;
+    position: absolute;
+    left: 76px;
+    top: 19px;
+    font-size: 20px;
 }
+
 .vila-game .fence {
-  position: absolute;
-  z-index: 3;
-  left: 31%;
-  top: 20%;
-  width: 20%;
-  height: 27px;
-  border-top: 7px solid #ead7ae;
-  border-bottom: 7px solid #ead7ae;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0 16px,
-    #ead7ae 16px 22px,
-    transparent 22px 35px
-  );
-  filter: drop-shadow(0 2px 1px #81644844);
+    position: absolute;
+    z-index: 3;
+    left: 31%;
+    top: 20%;
+    width: 20%;
+    height: 27px;
+    border-top: 7px solid #ead7ae;
+    border-bottom: 7px solid #ead7ae;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0 16px,
+        #ead7ae 16px 22px,
+        transparent 22px 35px
+    );
+    filter: drop-shadow(0 2px 1px #81644844);
 }
+
 .vila-game .fence.lower {
-  left: 4%;
-  top: 83%;
-  width: 28%;
-  transform: scale(0.85);
-  transform-origin: left center;
+    left: 4%;
+    top: 83%;
+    width: 28%;
+    transform: scale(0.85);
+    transform-origin: left center;
 }
+
 .vila-game .lamp {
-  position: absolute;
-  z-index: 4;
-  right: 7%;
-  top: 45%;
-  font-size: 42px;
-  filter: drop-shadow(0 0 9px #ffed9c);
+    position: absolute;
+    z-index: 4;
+    right: 7%;
+    top: 45%;
+    font-size: 42px;
+    filter: drop-shadow(0 0 9px #ffed9c);
 }
+
 .vila-game .mailbox {
-  position: absolute;
-  z-index: 4;
-  left: 25%;
-  top: 33%;
-  font-size: 31px;
-  filter: drop-shadow(0 3px 2px #51412a33);
+    position: absolute;
+    z-index: 4;
+    left: 25%;
+    top: 33%;
+    font-size: 31px;
+    filter: drop-shadow(0 3px 2px #51412a33);
 }
+
 .vila-game .bench {
-  position: absolute;
-  z-index: 4;
-  left: 30%;
-  top: 70%;
-  width: 77px;
-  height: 21px;
-  border: 4px solid #986a48;
-  border-radius: 7px;
-  background: #c08c5d;
-  box-shadow: 0 10px 0 -2px #79583f;
+    position: absolute;
+    z-index: 4;
+    left: 30%;
+    top: 70%;
+    width: 77px;
+    height: 21px;
+    border: 4px solid #986a48;
+    border-radius: 7px;
+    background: #c08c5d;
+    box-shadow: 0 10px 0 -2px #79583f;
 }
+
 .vila-game .bench:before,
 .vila-game .bench:after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  height: 18px;
-  width: 7px;
-  background: #805b40;
+    content: "";
+    position: absolute;
+    top: 14px;
+    height: 18px;
+    width: 7px;
+    background: #805b40;
 }
+
 .vila-game .bench:before {
-  left: 7px;
+    left: 7px;
 }
+
 .vila-game .bench:after {
-  right: 7px;
+    right: 7px;
 }
+
 .vila-game .flowerbed {
-  position: absolute;
-  z-index: 3;
-  right: 5%;
-  top: 72%;
-  font-size: 24px;
-  letter-spacing: 2px;
-  filter: drop-shadow(0 3px 1px #5d7d4733);
+    position: absolute;
+    z-index: 3;
+    right: 5%;
+    top: 72%;
+    font-size: 24px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 3px 1px #5d7d4733);
 }
+
 .vila-game .stones {
-  position: absolute;
-  z-index: 2;
-  left: 43%;
-  top: 59%;
-  display: flex;
-  gap: 13px;
-  transform: rotate(-18deg);
+    position: absolute;
+    z-index: 2;
+    left: 43%;
+    top: 59%;
+    display: flex;
+    gap: 13px;
+    transform: rotate(-18deg);
 }
+
 .vila-game .stones i {
-  display: block;
-  width: 17px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ead8b4;
-  box-shadow: inset 0 -2px #c7b28f;
+    display: block;
+    width: 17px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ead8b4;
+    box-shadow: inset 0 -2px #c7b28f;
 }
+
 .vila-game .house .window:before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #f7efd4;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #f7efd4;
 }
+
 .vila-game .house .window:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  top: 18px;
-  height: 3px;
-  background: #f7efd4;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 18px;
+    height: 3px;
+    background: #f7efd4;
 }
+
 .vila-game .house .door:after {
-  content: "";
-  position: absolute;
-  right: 6px;
-  top: 37px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #f4d27c;
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 37px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f4d27c;
 }
+
 .vila-game .house .porch {
-  position: absolute;
-  left: 114px;
-  bottom: -7px;
-  width: 78px;
-  height: 11px;
-  border-radius: 5px;
-  background: #bd9369;
-  border: 2px solid #956c4f;
+    position: absolute;
+    left: 114px;
+    bottom: -7px;
+    width: 78px;
+    height: 11px;
+    border-radius: 5px;
+    background: #bd9369;
+    border: 2px solid #956c4f;
 }
+
 .vila-game .house .chimney {
-  position: absolute;
-  z-index: -1;
-  right: 29px;
-  top: -62px;
-  width: 25px;
-  height: 42px;
-  background: #b96f5e;
-  border: 4px solid #9c5d50;
-  border-bottom: 0;
-  border-radius: 5px 5px 0 0;
+    position: absolute;
+    z-index: -1;
+    right: 29px;
+    top: -62px;
+    width: 25px;
+    height: 42px;
+    background: #b96f5e;
+    border: 4px solid #9c5d50;
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
 }
-/* Cantinho de estudos: os sprites ficam atrás da mesa; livros e tampo à frente dão a pose sentada. */
+
+/* CANTINHO DE ESTUDOS */
 
 .vila-game .study-zone {
-  position: absolute;
-  z-index: 5;
-  left: 56%;
-  top: 25%;
-  width: 300px;
-  height: 205px;
+    position: absolute;
+    z-index: 5;
+    left: 56%;
+    top: 25%;
+    width: 300px;
+    height: 205px;
 }
+
 .vila-game .study-rug {
-  position: absolute;
-  left: 12px;
-  right: 0;
-  bottom: 2px;
-  height: 92px;
-  border-radius: 48%;
-  background: #dcbf8e;
-  opacity: 0.78;
+    position: absolute;
+    left: 12px;
+    right: 0;
+    bottom: 2px;
+    height: 92px;
+    border-radius: 48%;
+    background: #dcbf8e;
+    opacity: 0.78;
 }
+
 .vila-game .student {
-  position: absolute;
-  z-index: 2;
-  width: 64px;
-  height: 115px;
-  top: 4px;
+    position: absolute;
+    z-index: 2;
+    width: 64px;
+    height: 115px;
+    top: 4px;
 }
+
 .vila-game .student img {
-  height: 115px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 2px #51412a30);
+    height: 115px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 2px #51412a30);
 }
+
 .vila-game .student.one {
-  left: 46px;
+    left: 46px;
 }
+
 .vila-game .student.two {
-  left: 106px;
+    left: 106px;
 }
+
 .vila-game .student.three {
-  left: 206px;
+    left: 206px;
 }
+
 .vila-game .student.two img {
-  filter: hue-rotate(24deg) saturate(0.82) drop-shadow(0 4px 2px #51412a30);
+    filter: hue-rotate(24deg) saturate(0.82) drop-shadow(0 4px 2px #51412a30);
 }
+
 .vila-game .student.three img {
-  filter: hue-rotate(-22deg) saturate(0.9) drop-shadow(0 4px 2px #51412a30);
+    filter: hue-rotate(-22deg) saturate(0.9) drop-shadow(0 4px 2px #51412a30);
 }
+
 .vila-game .study-table {
-  position: absolute;
-  z-index: 4;
-  left: 20px;
-  top: 88px;
-  width: 260px;
-  height: 60px;
-  border: 5px solid #916541;
-  border-radius: 13px;
-  background: #bd8657;
-  box-shadow: 0 9px 0 #80593e;
+    position: absolute;
+    z-index: 4;
+    left: 20px;
+    top: 88px;
+    width: 260px;
+    height: 60px;
+    border: 5px solid #916541;
+    border-radius: 13px;
+    background: #bd8657;
+    box-shadow: 0 9px 0 #80593e;
 }
+
 .vila-game .study-table:before {
-  content: "";
-  position: absolute;
-  left: 17px;
-  right: 17px;
-  bottom: -47px;
-  height: 47px;
-  border-left: 12px solid #966744;
-  border-right: 12px solid #966744;
+    content: "";
+    position: absolute;
+    left: 17px;
+    right: 17px;
+    bottom: -47px;
+    height: 47px;
+    border-left: 12px solid #966744;
+    border-right: 12px solid #966744;
 }
+
 .vila-game .book {
-  position: absolute;
-  z-index: 5;
-  top: 69px;
-  font-size: 24px;
-  filter: drop-shadow(0 2px 0 #80593e);
+    position: absolute;
+    z-index: 5;
+    top: 69px;
+    font-size: 24px;
+    filter: drop-shadow(0 2px 0 #80593e);
 }
+
 .vila-game .book.b1 {
-  left: 53px;
+    left: 53px;
 }
+
 .vila-game .book.b2 {
-  left: 132px;
+    left: 132px;
 }
+
 .vila-game .book.b3 {
-  left: 216px;
+    left: 216px;
 }
+
 .vila-game .pencil {
-  position: absolute;
-  z-index: 5;
-  top: 77px;
-  left: 98px;
-  font-size: 18px;
+    position: absolute;
+    z-index: 5;
+    top: 77px;
+    left: 98px;
+    font-size: 18px;
 }
+
 .vila-game .table-invite {
-  position: absolute;
-  left: 53px;
-  top: 155px;
-  width: 200px;
-  text-align: center;
-  font-size: 12px;
-  color: #705843;
-  background: #fff8e4d9;
-  padding: 4px 8px;
-  border-radius: 10px;
+    position: absolute;
+    left: 53px;
+    top: 155px;
+    width: 200px;
+    text-align: center;
+    font-size: 12px;
+    color: #705843;
+    background: #fff8e4d9;
+    padding: 4px 8px;
+    border-radius: 10px;
 }
+
 .vila-game .seat {
-  position: absolute;
-  z-index: 3;
-  left: -4px;
-  top: 104px;
-  width: 48px;
-  height: 49px;
-  border-radius: 11px;
-  background: #dda878;
-  border: 4px solid #ae7951;
-  box-shadow: 0 6px 0 #8d6546;
+    position: absolute;
+    z-index: 3;
+    left: -4px;
+    top: 104px;
+    width: 48px;
+    height: 49px;
+    border-radius: 11px;
+    background: #dda878;
+    border: 4px solid #ae7951;
+    box-shadow: 0 6px 0 #8d6546;
 }
+
 .vila-game .seat:before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  right: 3px;
-  top: -17px;
-  height: 22px;
-  border-radius: 9px 9px 3px 3px;
-  background: #e9bd91;
-  border: 3px solid #ae7951;
+    content: "";
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: -17px;
+    height: 22px;
+    border-radius: 9px 9px 3px 3px;
+    background: #e9bd91;
+    border: 3px solid #ae7951;
 }
+
 .vila-game .seat.sat {
-  background: #bd8a63;
+    background: #bd8a63;
 }
+
 .vila-game .person {
-  position: absolute;
-  z-index: 7;
-  width: 100px;
-  height: 115px;
-  display: grid;
-  place-items: center;
-  line-height: 1;
-  filter: drop-shadow(0 4px 1px #54422a30);
-  transition:
-    left 0.1s linear,
-    top 0.1s linear;
-  transform-origin: center bottom;
-}
-.vila-game .hero-sprite {
-  height: 120px;
-  width: auto;
-  max-width: 85px;
-  object-fit: contain;
-  pointer-events: none;
-  filter: drop-shadow(0 4px 2px #51412a35);
-}
-.vila-game #hero {
-  z-index: 9;
-}
-.vila-game .npc {
-  cursor: pointer;
-}
-.vila-game .bubble {
-  position: absolute;
-  z-index: 15;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  width: min(520px, calc(100% - 26px));
-  background: #fffaf0;
-  border: 2px solid #ead9b8;
-  border-radius: 17px;
-  padding: 13px 16px;
-  box-shadow: 0 8px 18px #59452c20;
-  display: none;
-}
-.vila-game .bubble.show {
-  display: block;
-  animation: vila-game-pop 0.18s ease-out;
-}
-.vila-game .bubble strong {
-  display: block;
-  color: #795d43;
-  margin-bottom: 4px;
-  font-family: ui-rounded, system-ui, "Arima";
-}
-.vila-game .bubble p {
-  margin: 0;
-  line-height: 1.4;
-  color: #685b4e;
-  font-family: ui-rounded, system-ui, "Arima";
-}
-.vila-game .bubble small {
-  display: block;
-  text-align: right;
-  margin-top: 6px;
-  color: #9b896e;
-}
-@keyframes vila-game-pop {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 8px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-.vila-game .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin: 12px 4px 0;
-  color: #847662;
-  font-size: 0.9rem;
-  font-family: ui-rounded, system-ui, "Arima";
-}
-.vila-game .footer button {
-  border: 1px solid #dfcba9;
-  border-radius: 12px;
-  padding: 9px 12px;
-  background: #fffaf0;
-  color: #645541;
-  font: inherit;
-  cursor: pointer;
-  font-family: ui-rounded, system-ui, "Arima";
-}
-.vila-game .pad {
-  display: none;
-  grid-template-columns: repeat(3, 42px);
-  grid-template-rows: repeat(2, 38px);
-  gap: 4px;
-}
-.vila-game .pad button {
-  border: 1px solid #dfcba9;
-  border-radius: 10px;
-  background: #fffaf0;
-  color: #645541;
-  font-size: 17px;
-  touch-action: none;
-}
-.vila-game .pad [data-d="up"] {
-  grid-column: 2;
-}
-.vila-game .pad [data-d="left"] {
-  grid-column: 1;
-  grid-row: 2;
-}
-.vila-game .pad [data-d="down"] {
-  grid-column: 2;
-  grid-row: 2;
-}
-.vila-game .pad [data-d="right"] {
-  grid-column: 3;
-  grid-row: 2;
-}
-.vila-game .help {
-  max-width: 68%;
-  line-height: 1.5;
-}
-@media (max-width: 650px) {
-  .vila-game .badge {
-    font-size: 0.73rem;
-    padding: 6px 9px;
-  }
-  .vila-game .house {
-    transform: scale(0.72);
-    transform-origin: top left;
-    left: 2%;
-  }
-  .vila-game .study-zone {
-    transform: scale(0.76);
-    transform-origin: top right;
-    left: auto;
-    right: 1%;
-    top: 28%;
-  }
-  .vila-game .tree {
-    font-size: 49px;
-  }
-  .vila-game .pad {
+    position: absolute;
+    z-index: 7;
+    width: 100px;
+    height: 115px;
     display: grid;
-  }
-  .vila-game .footer {
-    align-items: center;
-    
-  }
-  .vila-game .help {
-    max-width: calc(100% - 145px);
-    font-size: 0.77rem;
-    
-  }
-  .vila-game .path.v {
-    left: 46%;
-  }
-  .vila-game .path.cross {
-    left: calc(46% - 73px);
-  }
-  .vila-game #scene {
-    height: 500px;
-  }
+    place-items: center;
+    line-height: 1;
+    filter: drop-shadow(0 4px 1px #54422a30);
+    transition: left 0.1s linear, top 0.1s linear;
+    transform-origin: center bottom;
 }
+
+.vila-game .hero-sprite {
+    height: 120px;
+    width: auto;
+    max-width: 85px;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 2px #51412a35);
+}
+
+.vila-game #hero {
+    z-index: 9;
+}
+
+.vila-game .npc {
+    cursor: pointer;
+}
+
+.vila-game .bubble {
+    position: absolute;
+    z-index: 15;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    width: min(520px, calc(100% - 26px));
+    background: #fffaf0;
+    border: 2px solid #ead9b8;
+    border-radius: 17px;
+    padding: 13px 16px;
+    box-shadow: 0 8px 18px #59452c20;
+    display: none;
+}
+
+.vila-game .bubble.show {
+    display: block;
+    animation: vila-game-pop 0.18s ease-out;
+}
+
+.vila-game .bubble strong {
+    display: block;
+    color: #795d43;
+    margin-bottom: 4px;
+    font-family: ui-rounded, system-ui, "Arima";
+}
+
+.vila-game .bubble p {
+    margin: 0;
+    line-height: 1.4;
+    color: #685b4e;
+    font-family: ui-rounded, system-ui, "Arima";
+}
+
+.vila-game .bubble small {
+    display: block;
+    text-align: right;
+    margin-top: 6px;
+    color: #9b896e;
+}
+
+@keyframes vila-game-pop {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.vila-game .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 4px 0;
+    color: #847662;
+    font-size: 0.9rem;
+    font-family: ui-rounded, system-ui, "Arima";
+}
+
+.vila-game .footer button {
+    border: 1px solid #dfcba9;
+    border-radius: 12px;
+    padding: 9px 12px;
+    background: #fffaf0;
+    color: #645541;
+    font: inherit;
+    cursor: pointer;
+    font-family: ui-rounded, system-ui, "Arima";
+}
+
+.vila-game .pad {
+    display: none;
+    grid-template-columns: repeat(3, 42px);
+    grid-template-rows: repeat(2, 38px);
+    gap: 4px;
+}
+
+.vila-game .pad button {
+    border: 1px solid #dfcba9;
+    border-radius: 10px;
+    background: #fffaf0;
+    color: #645541;
+    font-size: 17px;
+    touch-action: none;
+}
+
+.vila-game .pad [data-d="up"] {
+    grid-column: 2;
+}
+
+.vila-game .pad [data-d="left"] {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.vila-game .pad [data-d="down"] {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.vila-game .pad [data-d="right"] {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.vila-game .help {
+    max-width: 68%;
+    line-height: 1.5;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+    .vila-game .badge {
+        font-size: 0.73rem;
+        padding: 6px 9px;
+    }
+
+    .vila-game .house {
+        transform: scale(0.72);
+        transform-origin: top left;
+        left: 2%;
+    }
+
+    .vila-game .study-zone {
+        transform: scale(0.76);
+        transform-origin: top right;
+        left: auto;
+        right: 1%;
+        top: 28%;
+    }
+
+    .vila-game .tree {
+        font-size: 49px;
+    }
+
+    .vila-game .pad {
+        display: grid;
+    }
+
+    .vila-game .footer {
+        align-items: center;
+    }
+
+    .vila-game .help {
+        max-width: calc(100% - 145px);
+        font-size: 0.77rem;
+    }
+
+    .vila-game .path.v {
+        left: 46%;
+    }
+
+    .vila-game .path.cross {
+        left: calc(46% - 73px);
+    }
+
+    .vila-game #scene {
+        height: 500px;
+    }
+}
+
+/* REDUÇÃO DE MOVIMENTO */
+
 @media (prefers-reduced-motion: reduce) {
 }
 
-/* Acabamento diorama 3D: volumes arredondados, luz superior e sombras projetadas. */
+/* ACABAMENTO 3D */
 
 .vila-game #scene {
-  perspective: 1100px;
-  background: #95bb75;
-  border-color: #cdb68f;
-  box-shadow:
-    inset 0 0 0 3px #f8eccf,
-    0 18px 0 #b9a17a,
-    0 26px 38px #51412a25;
-}
-.vila-game .grass {
-  background-color: #a7cb81;
-  background-image:
-    radial-gradient(ellipse at center, #cce49a 0 2px, transparent 3px),
-    radial-gradient(ellipse at center, #86ad69 0 2px, transparent 3px),
-    linear-gradient(135deg, #ffffff12, #526c3212);
-  background-size:
-    37px 31px,
-    47px 39px,
-    100% 100%;
-  background-position:
-    0 0,
-    18px 15px,
-    0 0;
-}
-.vila-game .path {
-  background: linear-gradient(145deg, #e7d1a2, #d0b782 72%, #c3a875);
-  box-shadow:
-    inset 0 4px 0 #f3dfb7,
-    inset 0 -5px 0 #b79b6b,
-    0 7px 0 #a8895b,
-    0 10px 8px #65794b55;
-}
-.vila-game .path.cross {
-  box-shadow:
-    inset 0 4px 0 #f3dfb7,
-    inset 0 -5px 0 #b79b6b,
-    0 7px 0 #a8895b,
-    0 10px 8px #65794b55;
-}
-.vila-game .house {
-  background: linear-gradient(110deg, #fff4d7, #f4dcae);
-  border: 4px solid #b97f58;
-  box-shadow:
-    inset 7px 0 #ffffff55,
-    inset -6px 0 #d6b886,
-    0 8px 0 #8b6848,
-    0 14px 18px #4d613855;
-  transform: translateZ(16px);
-}
-.vila-game .roof {
-  background: linear-gradient(135deg, #e19379, #c86e60 62%, #a95850);
-  border-color: #a45d50;
-  box-shadow:
-    inset 0 7px #f2ad8d,
-    0 8px 0 #95584c,
-    0 12px 8px #57412d44;
-}
-.vila-game .door {
-  background: linear-gradient(90deg, #c18a61, #a46b4b 65%, #8d5c43);
-  box-shadow:
-    inset 5px 0 #dfae7d,
-    0 3px 0 #744a39;
-}
-.vila-game .window {
-  background: linear-gradient(135deg, #d4f5f4, #81c5d0);
-  box-shadow:
-    inset 5px 4px #ffffff88,
-    inset -4px -4px #5c9ca7,
-    0 3px 0 #9f7658;
-}
-.vila-game .tree {
-  filter: drop-shadow(4px 8px 0 #67864a55) drop-shadow(0 5px 2px #43573755);
-  text-shadow: 1px 2px #fff4;
-}
-.vila-game .bush,
-.vila-game .flowerbed {
-  filter: drop-shadow(2px 5px 0 #607c4b66);
-}
-.vila-game .pond {
-  background: linear-gradient(145deg, #c1f2e9 5%, #72c9d1 50%, #429ba9);
-  box-shadow:
-    inset 0 6px 0 #e5fff4,
-    inset 0 -6px 0 #4d969a,
-    0 8px 0 #728e57,
-    0 11px 7px #4d623e55;
-}
-.vila-game .fence {
-  filter: drop-shadow(0 4px 0 #a98a60) drop-shadow(0 7px 3px #50664555);
-}
-.vila-game .study-zone {
-  filter: drop-shadow(0 9px 7px #4d623b55);
-}
-.vila-game .study-rug {
-  background: radial-gradient(ellipse, #e7cf9f, #c2a879);
-  box-shadow: 0 7px 0 #a48b63;
-}
-.vila-game .study-table {
-  background: linear-gradient(180deg, #d6a16c 0%, #bc8050 56%, #a86f47 57%, #99643e);
-  border-color: #855a3b;
-  box-shadow:
-    inset 0 5px #f1c28d,
-    0 9px 0 #795238,
-    0 13px 6px #53432f55;
-}
-.vila-game .study-table:before {
-  border-left-color: #a16f48;
-  border-right-color: #a16f48;
-  filter: drop-shadow(2px 0 #734d36);
-}
-.vila-game .seat {
-  background: linear-gradient(135deg, #f0c392, #cd9564 65%, #ae7951);
-  box-shadow:
-    inset 0 4px #ffe0b8,
-    0 6px 0 #805b40,
-    0 9px 5px #56402e44;
-}
-.vila-game .bench {
-  background: linear-gradient(#e1b77f, #b77e50);
-  box-shadow:
-    inset 0 4px #f4d19a,
-    0 10px 0 -2px #79583f,
-    0 13px 5px #57432d55;
-}
-.vila-game .person {
-  filter: drop-shadow(2px 5px 2px #4e543d66);
-}
-.vila-game .hero-sprite,
-.vila-game .student img {
-  filter: drop-shadow(3px 7px 2px #43533e55);
-}
-.vila-game .student.two img {
-  filter: hue-rotate(24deg) saturate(0.82) drop-shadow(3px 7px 2px #43533e55);
-}
-.vila-game .student.three img {
-  filter: hue-rotate(-22deg) saturate(0.9) drop-shadow(3px 7px 2px #43533e55);
-}
-.vila-game .lamp,
-.vila-game .mailbox {
-  filter: drop-shadow(2px 5px 2px #46573c66);
-}
-@media (max-width: 650px) {
-  .vila-game .house {
-    transform: scale(0.72) translateZ(16px);
-  }
+    perspective: 1100px;
+    background: #95bb75;
+    border-color: #cdb68f;
+    box-shadow:
+        inset 0 0 0 3px #f8eccf,
+        0 18px 0 #b9a17a,
+        0 26px 38px #51412a25;
 }
 
-.titulosSala{
+.vila-game .grass {
+    background-color: #a7cb81;
+    background-image:
+        radial-gradient(ellipse at center, #cce49a 0 2px, transparent 3px),
+        radial-gradient(ellipse at center, #86ad69 0 2px, transparent 3px),
+        linear-gradient(135deg, #ffffff12, #526c3212);
+    background-size: 37px 31px, 47px 39px, 100% 100%;
+    background-position: 0 0, 18px 15px, 0 0;
+}
+
+.vila-game .path {
+    background: linear-gradient(145deg, #e7d1a2, #d0b782 72%, #c3a875);
+    box-shadow:
+        inset 0 4px 0 #f3dfb7,
+        inset 0 -5px 0 #b79b6b,
+        0 7px 0 #a8895b,
+        0 10px 8px #65794b55;
+}
+
+.vila-game .path.cross {
+    box-shadow:
+        inset 0 4px 0 #f3dfb7,
+        inset 0 -5px 0 #b79b6b,
+        0 7px 0 #a8895b,
+        0 10px 8px #65794b55;
+}
+
+.vila-game .house {
+    background: linear-gradient(110deg, #fff4d7, #f4dcae);
+    border: 4px solid #b97f58;
+    box-shadow:
+        inset 7px 0 #ffffff55,
+        inset -6px 0 #d6b886,
+        0 8px 0 #8b6848,
+        0 14px 18px #4d613855;
+    transform: translateZ(16px);
+}
+
+.vila-game .roof {
+    background: linear-gradient(135deg, #e19379, #c86e60 62%, #a95850);
+    border-color: #a45d50;
+    box-shadow:
+        inset 0 7px #f2ad8d,
+        0 8px 0 #95584c,
+        0 12px 8px #57412d44;
+}
+
+.vila-game .door {
+    background: linear-gradient(90deg, #c18a61, #a46b4b 65%, #8d5c43);
+    box-shadow:
+        inset 5px 0 #dfae7d,
+        0 3px 0 #744a39;
+}
+
+.vila-game .window {
+    background: linear-gradient(135deg, #d4f5f4, #81c5d0);
+    box-shadow:
+        inset 5px 4px #ffffff88,
+        inset -4px -4px #5c9ca7,
+        0 3px 0 #9f7658;
+}
+
+.vila-game .tree {
+    filter: drop-shadow(4px 8px 0 #67864a55) drop-shadow(0 5px 2px #43573755);
+    text-shadow: 1px 2px #fff4;
+}
+
+.vila-game .bush,
+.vila-game .flowerbed {
+    filter: drop-shadow(2px 5px 0 #607c4b66);
+}
+
+.vila-game .pond {
+    background: linear-gradient(145deg, #c1f2e9 5%, #72c9d1 50%, #429ba9);
+    box-shadow:
+        inset 0 6px 0 #e5fff4,
+        inset 0 -6px 0 #4d969a,
+        0 8px 0 #728e57,
+        0 11px 7px #4d623e55;
+}
+
+.vila-game .fence {
+    filter: drop-shadow(0 4px 0 #a98a60) drop-shadow(0 7px 3px #50664555);
+}
+
+.vila-game .study-zone {
+    filter: drop-shadow(0 9px 7px #4d623b55);
+}
+
+.vila-game .study-rug {
+    background: radial-gradient(ellipse, #e7cf9f, #c2a879);
+    box-shadow: 0 7px 0 #a48b63;
+}
+
+.vila-game .study-table {
+    background: linear-gradient(180deg, #d6a16c 0%, #bc8050 56%, #a86f47 57%, #99643e);
+    border-color: #855a3b;
+    box-shadow:
+        inset 0 5px #f1c28d,
+        0 9px 0 #795238,
+        0 13px 6px #53432f55;
+}
+
+.vila-game .study-table:before {
+    border-left-color: #a16f48;
+    border-right-color: #a16f48;
+    filter: drop-shadow(2px 0 #734d36);
+}
+
+.vila-game .seat {
+    background: linear-gradient(135deg, #f0c392, #cd9564 65%, #ae7951);
+    box-shadow:
+        inset 0 4px #ffe0b8,
+        0 6px 0 #805b40,
+        0 9px 5px #56402e44;
+}
+
+.vila-game .bench {
+    background: linear-gradient(#e1b77f, #b77e50);
+    box-shadow:
+        inset 0 4px #f4d19a,
+        0 10px 0 -2px #79583f,
+        0 13px 5px #57432d55;
+}
+
+.vila-game .person {
+    filter: drop-shadow(2px 5px 2px #4e543d66);
+}
+
+.vila-game .hero-sprite,
+.vila-game .student img {
+    filter: drop-shadow(3px 7px 2px #43533e55);
+}
+
+.vila-game .student.two img {
+    filter: hue-rotate(24deg) saturate(0.82) drop-shadow(3px 7px 2px #43533e55);
+}
+
+.vila-game .student.three img {
+    filter: hue-rotate(-22deg) saturate(0.9) drop-shadow(3px 7px 2px #43533e55);
+}
+
+.vila-game .lamp,
+.vila-game .mailbox {
+    filter: drop-shadow(2px 5px 2px #46573c66);
+}
+
+@media (max-width: 650px) {
+    .vila-game .house {
+        transform: scale(0.72) translateZ(16px);
+    }
+}
+
+/* TÍTULOS DA SALA */
+
+.titulosSala {
     display: flex;
     justify-content: center;
     gap: 24px;
     z-index: 999;
-    
 }
 
-
-
-.titulosSala .materia{
+.titulosSala .materia {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1001,12 +1149,12 @@ nav ul li a{
     border-radius: 50px;
     z-index: 998;
     text-align: center;
-    margin-right:0px;
+    margin-right: 0;
     font-size: 30px;
-    color:#615351
+    color: #615351;
 }
 
-.titulosSala .tempo{
+.titulosSala .tempo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1016,292 +1164,278 @@ nav ul li a{
     border-radius: 50px;
     z-index: 998;
     text-align: center;
-    margin-left:500px;
+    margin-left: 500px;
     font-size: 30px;
-    color:#615351
+    color: #615351;
 }
-
-
 
 .titulosSala .materia p,
-.titulosSala .tempo p{
+.titulosSala .tempo p {
     margin: 0;
 }
 
+/* CONTEÚDO */
 
-.boxConteudo{
-  width: 85%;
-  height: 500px;
-  background-color:#A08870;
-  justify-self: center;
-  border-radius: 50px;
-
-
+.boxConteudo {
+    width: 85%;
+    height: 500px;
+    background-color: #A08870;
+    justify-self: center;
+    border-radius: 50px;
 }
 
-.boxConteudo p{
-  font-size: 40px;
-  color: white;
-  margin-left: 60px;
+.boxConteudo p {
+    font-size: 40px;
+    color: white;
+    margin-left: 60px;
 }
 
-.boxConteudo h1{
-  font-size: 60px;
-  color: white;
-  margin-right: 40px;
-  justify-self: flex-end;
-  margin-top: -120px;
+.boxConteudo h1 {
+    font-size: 60px;
+    color: white;
+    margin-right: 40px;
+    justify-self: flex-end;
+    margin-top: -120px;
 }
 
-.conteudos{
-  display: flex;
-  width: 100%;
-  height: 400px;
+.conteudos {
+    display: flex;
+    width: 100%;
+    height: 400px;
 }
 
-.conteudos img{
-  width: auto;
-  height: 400px;
-  margin-left: 30px;
-  margin-top: -30px;
-
+.conteudos img {
+    width: auto;
+    height: 400px;
+    margin-left: 30px;
+    margin-top: -30px;
 }
 
-.notasEchat{
-  display: flex;
-  height: 800px;
-  width: 85%;
-  justify-content: center;
-  justify-self: center;
-  margin-bottom: 50px;
+/* NOTAS E CHAT */
+
+.notasEchat {
+    display: flex;
+    height: 800px;
+    width: 85%;
+    justify-content: center;
+    justify-self: center;
+    margin-bottom: 50px;
 }
 
-.notas{
-  width: 600px;
-  height: 750px;
-  background-color:#A08870;
-  border-radius: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  
-  
+.notas {
+    width: 600px;
+    height: 750px;
+    background-color: #A08870;
+    border-radius: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.chat{
-  width: 600px;
-  height: 750px;
-  background-color:#A08870;
-  margin-left:300px;
-  border-radius: 50px;
-  margin-top: 50px;
-  
-  
+.chat {
+    width: 600px;
+    height: 750px;
+    background-color: #A08870;
+    margin-left: 300px;
+    border-radius: 50px;
+    margin-top: 50px;
 }
 
-.notas p{
-  font-size: 40px;
-  color: white;
-  margin-left: 60px;
-  margin-top: -1px;
-  margin-bottom: 70px;
-  
+.notas p {
+    font-size: 40px;
+    color: white;
+    margin-left: 60px;
+    margin-top: -1px;
+    margin-bottom: 70px;
 }
 
-.notas textarea{
-  width: 580px;
-  height: 650px;
-  border-radius: 50px;
-  margin-top: -60px;
-  margin-left: 10px;
-  font-size: 20px;
-  background-color:#645545;
-  color: white;
-  line-height: 36px;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 35px,
-    #cbd8e8 35px,
-    #cbd8e8 36px
-  );
-  
-  
-
-
+.notas textarea {
+    width: 580px;
+    height: 650px;
+    border-radius: 50px;
+    margin-top: -60px;
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: #645545;
+    color: white;
+    line-height: 36px;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 35px,
+        #cbd8e8 35px,
+        #cbd8e8 36px
+    );
 }
+
+/* CHAT */
 
 .chat-placeholder {
-  width: 600px;
-  height: 750px;
- 
-  border-radius: 50px;
-  overflow: hidden;
-  font-family: "Arima", system-ui;
-  background: #9f8972;
+    width: 600px;
+    height: 750px;
+    border-radius: 50px;
+    overflow: hidden;
+    font-family: "Arima", system-ui;
+    background: #9f8972;
 }
 
 .chat-header {
-  padding: 12px 16px;
-  background: #dfcfc5;
-  font-weight: bold;
+    padding: 12px 16px;
+    background: #dfcfc5;
+    font-weight: bold;
 }
 
 .chat-messages {
-  min-height: 200px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  
+    min-height: 200px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
 }
 
 .message {
-  max-width: 80%;
-  padding: 9px 12px;
-  border-radius: 12px;
-  font-size: 20px;
-  flex: 1;
-  overflow-y: auto;  
-  text-align: center;
-  justify-self: center;
- 
-  
+    max-width: 80%;
+    padding: 9px 12px;
+    border-radius: 12px;
+    font-size: 20px;
+    flex: 1;
+    overflow-y: auto;
+    text-align: center;
+    justify-self: center;
 }
 
 .received {
-  align-self: flex-start;
-  background: #d4e7ba;
+    align-self: flex-start;
+    background: #d4e7ba;
 }
 
 .sent {
-  align-self: flex-end;
-  background: #ffe2f9;
+    align-self: flex-end;
+    background: #ffe2f9;
 }
 
 .chat-input {
-  margin-top: 350px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  border-top: 1px solid #ddd;
-  color: #ffffff;
-  font-size: 20px;
-  flex: 1;
- 
-  
+    margin-top: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-top: 1px solid #ddd;
+    color: #ffffff;
+    font-size: 20px;
+    flex: 1;
 }
 
 .chat-input button {
-  border: 0;
-  background: none;
-  color: #ffffff;
-  font-size: 18px;
-  cursor: default;
-  
+    border: 0;
+    background: none;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: default;
 }
+
+/* CRONÔMETRO */
+
 .css-stopwatch {
-  --digit-height: 1.2em;
-  display: inline-flex;
-  align-items: flex-start;
-  font: 4rem / var(--digit-height) system-ui, sans-serif;
-  font-variant-numeric: tabular-nums;
-  font-family: "Arima", system-ui;
+    --digit-height: 1.2em;
+    display: inline-flex;
+    align-items: flex-start;
+    font: 4rem / var(--digit-height) system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-family: "Arima", system-ui;
 }
 
 .css-stopwatch__window {
-  height: var(--digit-height);
-  overflow: hidden;
+    height: var(--digit-height);
+    overflow: hidden;
 }
 
 .css-stopwatch__column {
-  display: flex;
-  flex-direction: column;
-  animation-timing-function: steps(1, end);
-  animation-iteration-count: infinite;
+    display: flex;
+    flex-direction: column;
+    animation-timing-function: steps(1, end);
+    animation-iteration-count: infinite;
 }
 
 .css-stopwatch__column span {
-  display: block;
-  height: var(--digit-height);
+    display: block;
+    height: var(--digit-height);
 }
 
 .css-stopwatch__colon {
-  line-height: var(--digit-height);
+    line-height: var(--digit-height);
 }
 
-/* Ones of seconds: change every second */
+/* SEGUNDOS */
+
 .css-stopwatch__seconds-ones {
-  animation-name: css-stopwatch-seconds-ones;
-  animation-duration: 10s;
+    animation-name: css-stopwatch-seconds-ones;
+    animation-duration: 10s;
 }
 
-/* Tens of seconds: change every 10 seconds */
 .css-stopwatch__seconds-tens {
-  animation-name: css-stopwatch-seconds-tens;
-  animation-duration: 60s;
+    animation-name: css-stopwatch-seconds-tens;
+    animation-duration: 60s;
 }
 
-/* Ones of minutes: change every minute */
 .css-stopwatch__minutes-ones {
-  animation-name: css-stopwatch-minutes-ones;
-  animation-duration: 300s;
+    animation-name: css-stopwatch-minutes-ones;
+    animation-duration: 300s;
 }
 
-/* Tens of minutes: change at 0, 1, 2, 3, and 4 minutes */
 .css-stopwatch__minutes-tens {
-  animation-name: css-stopwatch-minutes-tens;
-  animation-duration: 300s;
+    animation-name: css-stopwatch-minutes-tens;
+    animation-duration: 300s;
 }
 
 @keyframes css-stopwatch-seconds-ones {
-  0% { transform: translateY(0); }
-  10% { transform: translateY(calc(-1 * var(--digit-height))); }
-  20% { transform: translateY(calc(-2 * var(--digit-height))); }
-  30% { transform: translateY(calc(-3 * var(--digit-height))); }
-  40% { transform: translateY(calc(-4 * var(--digit-height))); }
-  50% { transform: translateY(calc(-5 * var(--digit-height))); }
-  60% { transform: translateY(calc(-6 * var(--digit-height))); }
-  70% { transform: translateY(calc(-7 * var(--digit-height))); }
-  80% { transform: translateY(calc(-8 * var(--digit-height))); }
-  90% { transform: translateY(calc(-9 * var(--digit-height))); }
-  100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
+    10% { transform: translateY(calc(-1 * var(--digit-height))); }
+    20% { transform: translateY(calc(-2 * var(--digit-height))); }
+    30% { transform: translateY(calc(-3 * var(--digit-height))); }
+    40% { transform: translateY(calc(-4 * var(--digit-height))); }
+    50% { transform: translateY(calc(-5 * var(--digit-height))); }
+    60% { transform: translateY(calc(-6 * var(--digit-height))); }
+    70% { transform: translateY(calc(-7 * var(--digit-height))); }
+    80% { transform: translateY(calc(-8 * var(--digit-height))); }
+    90% { transform: translateY(calc(-9 * var(--digit-height))); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes css-stopwatch-seconds-tens {
-  0% { transform: translateY(0); }
-  16.6667% { transform: translateY(calc(-1 * var(--digit-height))); }
-  33.3333% { transform: translateY(calc(-2 * var(--digit-height))); }
-  50% { transform: translateY(calc(-3 * var(--digit-height))); }
-  66.6667% { transform: translateY(calc(-4 * var(--digit-height))); }
-  83.3333% { transform: translateY(calc(-5 * var(--digit-height))); }
-  100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
+    16.6667% { transform: translateY(calc(-1 * var(--digit-height))); }
+    33.3333% { transform: translateY(calc(-2 * var(--digit-height))); }
+    50% { transform: translateY(calc(-3 * var(--digit-height))); }
+    66.6667% { transform: translateY(calc(-4 * var(--digit-height))); }
+    83.3333% { transform: translateY(calc(-5 * var(--digit-height))); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes css-stopwatch-minutes-ones {
-  0% { transform: translateY(0); }
-  20% { transform: translateY(calc(-1 * var(--digit-height))); }
-  40% { transform: translateY(calc(-2 * var(--digit-height))); }
-  60% { transform: translateY(calc(-3 * var(--digit-height))); }
-  80% { transform: translateY(calc(-4 * var(--digit-height))); }
-  100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
+    20% { transform: translateY(calc(-1 * var(--digit-height))); }
+    40% { transform: translateY(calc(-2 * var(--digit-height))); }
+    60% { transform: translateY(calc(-3 * var(--digit-height))); }
+    80% { transform: translateY(calc(-4 * var(--digit-height))); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes css-stopwatch-minutes-tens {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(0); }
 }
 
-.prof{
-  width: 250px;
-  height: 300px;
-  display: flex;
-  justify-self: flex-end;
-  margin-top: -300px;
+/* PROFESSOR */
 
+.prof {
+    width: 250px;
+    height: 300px;
+    display: flex;
+    justify-self: flex-end;
+    margin-top: -300px;
 }
 
-.prof img{
-  object-fit: contain;
+.prof img {
+    object-fit: contain;
 }
