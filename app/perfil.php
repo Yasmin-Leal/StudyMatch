@@ -1,90 +1,172 @@
 <?php
-    require_once __DIR__ . "/banco/crud.php"; 
-    require_once __DIR__ . "/banco/database.php"; 
 
-    $user = $_GET['user'];
+require_once __DIR__ . "/banco/crud.php";
+require_once __DIR__ . "/banco/database.php";
+require_once __DIR__ . "/locais.php";
 
-    //$dadosUser = database()->prepare('
-    //SELECT * FROM usuarios WHERE nome_usuario = :user');
-    //$dadosUser->execute(['user' => $user]);
+$user = $_GET['user'] ?? $_POST['user'] ?? '';
 
-    //$usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+if ($user === '') {
+    die("Usuário não identificado.");
+}
 
-    //$usuarios = readAll(database(), "usuarios");
+$pdo = database();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+// BUSCA OS DADOS DO USUÁRIO
+$dadosUser = $pdo->prepare('
+    SELECT * FROM usuarios
+    WHERE nome_usuario = :user
+');
 
-        if(!isset($_POST['nomeEx']) || $_POST['nomeEx'] == "" ||
-        !isset($_POST['email']) || $_POST['email'] == "" ||
-        !isset($_POST['data']) || $_POST['data'] == ""){
-            header('Location: perfil.php?erro=Espaço vazio');
+$dadosUser->execute(['user' => $user]);
+
+$usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+
+if (!$usuario) {
+    die("Usuário não encontrado.");
+}
+
+// BUSCA O AVATAR DO USUÁRIO
+$dadosAvatar = $pdo->prepare('
+    SELECT * FROM personagens
+    WHERE nome_usuario = :user
+');
+
+$dadosAvatar->execute(['user' => $user]);
+
+$avatar = $dadosAvatar->fetch(PDO::FETCH_ASSOC);
+
+// IMAGEM PADRÃO DO PERSONAGEM
+$imagemPerfil = "./imgs/avatarexemplo.png";
+
+// IDENTIFICA O PERSONAGEM
+if ($avatar) {
+
+    $personagemId = (string) $avatar['personagem'];
+
+    if (isset($personagens[$personagemId])) {
+        $imagemPerfil = $personagens[$personagemId];
+    }
+}
+
+// BUSCA TODOS OS USUÁRIOS PARA AS VALIDAÇÕES
+$usuarios = readAll($pdo, "usuarios");
+
+// ATUALIZAÇÃO DO PERFIL
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // VERIFICA CAMPOS VAZIOS
+    if (
+        !isset($_POST['nomeEx']) || trim($_POST['nomeEx']) === '' ||
+        !isset($_POST['email']) || trim($_POST['email']) === '' ||
+        !isset($_POST['data']) || trim($_POST['data']) === ''
+    ) {
+        header("Location: perfil.php?user=" . urlencode($user) . "&erro=Espaço vazio");
+        exit;
+    }
+
+    $nome = trim($_POST['nomeEx']);
+    $email = trim($_POST['email']);
+    $data = $_POST['data'];
+    $telefone = trim($_POST['telefone'] ?? '');
+
+    // VERIFICA EMAIL
+    if (strpos($email, ' ') !== false) {
+        header("Location: perfil.php?user=" . urlencode($user) . "&erro=O campo do email não pode conter espaços.");
+        exit;
+    }
+
+    if (strpos($email, '@') === false) {
+        header("Location: perfil.php?user=" . urlencode($user) . "&erro=Email inválido");
+        exit;
+    }
+
+    // VERIFICA EMAIL E TELEFONE DUPLICADOS
+    foreach ($usuarios as $u) {
+
+        if (
+            $email !== $usuario['email'] &&
+            $email === $u['email']
+        ) {
+            header("Location: perfil.php?user=" . urlencode($user) . "&erro=Esse email já está cadastrado");
             exit;
         }
 
-        foreach($usuarios as $u){
-            if($_POST['email'] != $usuario['email'] && $_POST['email'] == $u['email']){
-                header('Location: perfil.php?erro=Esse email já está cadastrado');
-                exit;
-            }
-            if (strpos($_POST['email'], ' ') !== false) {
-                header('Location: perfil.php?erro=O campo do email não pode conter espaços.');
-                exit;
-            }
-            if (strpos($_POST['email'], '@') === false) {
-                header('Location: perfil.php?erro=Email inválido');
-                exit;
-            }
-
-            //verificações telefone
-            if($_POST['telefone'] != $usuario['telefone'] && $_POST['telefone'] != "" && $_POST['telefone'] == $u['telefone']){
-                header('Location: perfil.php?erro=Esse telefone já está cadastrado');
-                exit;
-            }
-
-            //verificações data de nasc.   
-            date_default_timezone_set('America/Sao_Paulo');
-            $dataAtual = new DateTime();
-            $dataInformada = new DateTime($_POST['data']);
-            $idade = $dataAtual->diff($dataInformada);
-
-            if($dataAtual < $dataInformada){
-                header("Location: perfil.php?erro=Data incorreta");
-                exit;
-            }
-
-            if($idade->y < 9){
-                header("Location: perfil.php?erro=O usuário deve ter no mínimo 9 anos completos");
-                exit;
-            }
+        if (
+            $telefone !== '' &&
+            $telefone !== ($usuario['telefone'] ?? '') &&
+            $telefone === ($u['telefone'] ?? '')
+        ) {
+            header("Location: perfil.php?user=" . urlencode($user) . "&erro=Esse telefone já está cadastrado");
+            exit;
         }
-
-        $id = $_POST['id'];
-        $nome = $_POST['nomeEx'];
-        $email = $_POST['email'];
-        $data = $_POST['data'];
-        $telefone = $_POST['telefone'];
-
-        
-        //$consulta = database()->prepare('
-        //UPDATE usuarios SET nome = :nome, email = :email, data_nascimento = :data_nascimento, telefone = :telefone WHERE id_usuario = :id_usuario;
-        //');
-        //$consulta->execute(['nome' => $nome, 'email' => $email, 'data_nascimento' => $data, 'telefone' => $telefone, 'id_usuario' => $id]);
-        header("Location: perfil.php?user={$user}");
-        exit;
-
     }
 
+    // VERIFICA DATA DE NASCIMENTO
+    date_default_timezone_set('America/Sao_Paulo');
+
+    try {
+
+        $dataAtual = new DateTime();
+        $dataInformada = new DateTime($data);
+
+        if ($dataInformada > $dataAtual) {
+            header("Location: perfil.php?user=" . urlencode($user) . "&erro=Data incorreta");
+            exit;
+        }
+
+        $idade = $dataAtual->diff($dataInformada);
+
+        if ($idade->y < 9) {
+            header("Location: perfil.php?user=" . urlencode($user) . "&erro=O usuário deve ter no mínimo 9 anos completos");
+            exit;
+        }
+
+    } catch (Exception $e) {
+
+        header("Location: perfil.php?user=" . urlencode($user) . "&erro=Data inválida");
+        exit;
+    }
+
+    // IDENTIFICA O ID DO USUÁRIO
+    $id = $_POST['id'];
+
+    // ATUALIZA OS DADOS NO BANCO
+    $consulta = $pdo->prepare('
+        UPDATE usuarios
+        SET
+            nome = :nome,
+            email = :email,
+            data_nascimento = :data_nascimento,
+            telefone = :telefone
+        WHERE id_usuario = :id_usuario
+    ');
+
+    $consulta->execute([
+        'nome' => $nome,
+        'email' => $email,
+        'data_nascimento' => $data,
+        'telefone' => $telefone,
+        'id_usuario' => $id
+    ]);
+
+    header("Location: perfil.php?user=" . urlencode($user) . "&atualizado=1");
+    exit;
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>StudyMatch</title>
 
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/perfil.css?v=3">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,12 +182,15 @@
     <div class="cabecalho">
 
         <div class="img-cabecalho">
+
             <a href="homeperfil.php?user=<?= urlencode($user) ?>">
                 <img src="imgs/logo.png" alt="Logo StudyMatch">
             </a>
+
         </div>
 
         <nav>
+
             <ul>
 
                 <li>
@@ -127,6 +212,7 @@
                 </li>
 
             </ul>
+
         </nav>
 
         <!-- FOTO DE PERFIL DO CABEÇALHO -->
@@ -145,12 +231,6 @@
         </a>
 
     </div>
-        <div class="fundo">
-            <div class="perfilbox">
-                
-                <div class="bannerperfil"></div>
-                <div class="fotoperfil"></div>
-                <a href="editaravatar.php?user=<?= $user ?>"><div class="editarfoto"></div></a>
 
     <!-- ÁREA DO PERFIL -->
 
@@ -160,18 +240,19 @@
 
             <div class="bannerperfil"></div>
 
-            <!-- FOTO DO PERSONAGEM -->
+            <!-- AVATAR DO USUÁRIO -->
 
             <div class="fotoperfil">
 
                 <img
+                    class="personagemPerfil"
                     src="<?= htmlspecialchars($imagemPerfil, ENT_QUOTES, 'UTF-8') ?>"
                     alt="Personagem do perfil"
                 >
 
             </div>
 
-            <!-- BOTÃO DE EDITAR FOTO -->
+            <!-- BOTÃO PARA EDITAR AVATAR -->
 
             <a href="editaravatar.php?user=<?= urlencode($user) ?>">
                 <div class="editarfoto"></div>
@@ -189,6 +270,12 @@
                             type="hidden"
                             name="id"
                             value="<?= htmlspecialchars((string)$usuario['id_usuario'], ENT_QUOTES, 'UTF-8') ?>"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="user"
+                            value="<?= htmlspecialchars($user, ENT_QUOTES, 'UTF-8') ?>"
                         >
 
                         <label for="nomeEx"></label>
@@ -238,7 +325,7 @@
                             value="<?= htmlspecialchars($usuario['telefone'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
                         >
 
-                        <!-- MENSAGENS -->
+                        <!-- MENSAGENS DE ERRO -->
 
                         <div class="erro">
 
@@ -251,6 +338,8 @@
                             <?php endif; ?>
 
                         </div>
+
+                        <!-- MENSAGEM DE SUCESSO -->
 
                         <?php if (isset($_GET['atualizado'])): ?>
 
@@ -279,9 +368,11 @@
     <div class="rodape">
 
         <div class="img-rodape">
+
             <a href="homelogin.php">
                 <img src="/img-yasmin/logo.png" alt="">
             </a>
+
         </div>
 
         <table cellpadding="3">
@@ -333,6 +424,7 @@
         <div class="redesSociais">
 
             <nav>
+
                 <ul>
 
                     <li>
@@ -348,6 +440,7 @@
                     </li>
 
                 </ul>
+
             </nav>
 
         </div>
@@ -359,4 +452,5 @@
     </div>
 
 </body>
+
 </html>
