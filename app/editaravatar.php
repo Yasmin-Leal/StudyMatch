@@ -1,4 +1,44 @@
 
+<?php
+
+require_once __DIR__ . "/locais.php";
+
+// Identificação do usuário
+$user = $_GET['user'] ?? $_POST['user'] ?? '';
+
+if ($user === '') {
+    die("Usuário não identificado.");
+}
+
+// Valores iniciais
+$personagemSelecionado = "1";
+$acessorioSelecionado = "";
+
+// Verifica se o formulário foi enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Recupera o personagem escolhido
+    $personagem = $_POST['personagem'] ?? '';
+
+    if (isset($personagens[$personagem])) {
+        $personagemSelecionado = $personagem;
+    }
+
+    // Recupera o acessório escolhido
+    $acessorio = $_POST['acessorio'] ?? '';
+
+    if ($acessorio === '') {
+
+        $acessorioSelecionado = '';
+
+    } elseif (isset($acessorios[$acessorio])) {
+
+        $acessorioSelecionado = $acessorio;
+
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -6,207 +46,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>StudyMatch</title>
+
     <link rel="stylesheet" href="css/editaravatar.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-        <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
+
+    <!-- CABEÇALHO -->
+
+    <div class="cabecalho">
+
+        <div class="img-cabecalho">
+            <a href="homeperfil.php?user=<?= urlencode($user) ?>">
+                <img src="imgs/logo.png" alt="Logo StudyMatch">
+            </a>
+        </div>
+
         <nav>
             <ul>
-                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+
+                <li>
+                    <a href="selecionar-sala.php?user=<?= urlencode($user) ?>">
                         <p>Grupos de Estudo</p>
-                    </a></li>
-                <li><a href="login.php">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.php">
                         <p>Social</p>
-                    </a></li>
-                <li><a href="login.php">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.php">
                         <p>Progresso</p>
-                    </a></li>
+                    </a>
+                </li>
+
             </ul>
         </nav>
-        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
-        </div>
+
+        <!-- FOTO DE PERFIL -->
+
+        <a href="perfil.php?user=<?= urlencode($user) ?>">
+
+            <div class="fotoConta">
+
+                <img
+                    class="personagemCabecalho"
+                    src="<?= htmlspecialchars($personagens[$personagemSelecionado], ENT_QUOTES, 'UTF-8') ?>"
+                    alt="Foto de perfil"
+                >
+
+            </div>
+
+        </a>
+
     </div>
-    
+
+
+    <!-- TÍTULO -->
+
     <div class="editando">
         <p>Editando Personagem</p>
     </div>
-    <div class="caixaMaior">
-        <div class="caixaFundoAvatar">
-            <div class="fundoAvatar">
-                <div class="avatar">
-                    <img src="../app/imgs/dog-removebg-preview.png" width=780px>
+
+
+    <!-- FORMULÁRIO DE PERSONALIZAÇÃO -->
+
+    <form action="editaravatar.php?user=<?= urlencode($user) ?>" method="post">
+
+        <!-- IDENTIFICAÇÃO DO USUÁRIO -->
+
+        <input
+            type="hidden"
+            name="user"
+            value="<?= htmlspecialchars($user, ENT_QUOTES, 'UTF-8') ?>"
+        >
+
+
+        <!-- PRIMEIRA CAIXA -->
+
+        <div class="caixaMaior">
+
+
+            <!-- PRÉ-VISUALIZAÇÃO DO PERSONAGEM -->
+
+            <div class="caixaFundoAvatar">
+
+                <div class="fundoAvatar">
+
+                    <div class="avatar">
+
+                        <!-- PERSONAGEM ESCOLHIDO -->
+
+                        <img
+                            src="<?= htmlspecialchars($personagens[$personagemSelecionado], ENT_QUOTES, 'UTF-8') ?>"
+                            width="500"
+                            alt="Personagem selecionado"
+                        >
+
+                        <!-- ACESSÓRIO ESCOLHIDO -->
+
+                        <?php if ($acessorioSelecionado !== ''): ?>
+
+                            <img
+                                class="imagemAcessorioSelecionado"
+                                src="<?= htmlspecialchars($acessorios[$acessorioSelecionado], ENT_QUOTES, 'UTF-8') ?>"
+                                alt="Acessório selecionado"
+                            >
+
+                        <?php endif; ?>
+
+                    </div>
+
                 </div>
+
+
+                <!-- BOTÃO -->
+
+                <div class="salvar">
+
+                    <button type="submit">
+                        Atualizar prévia
+                    </button>
+
+                </div>
+
             </div>
-            <div class="salvar"><button type="submit">Salvar</button></div>
+
+
+            <!-- OPÇÕES DE ACESSÓRIOS -->
+
+            <div class="caixaAcessorios">
+
+                <div class="acessoriosTitulo">
+                    <p>Acessórios</p>
+                </div>
+
+
+                <!-- OPÇÃO SEM ACESSÓRIO -->
+
+                <label class="boxAcc">
+
+                    <input
+                        type="radio"
+                        name="acessorio"
+                        value=""
+                        <?= $acessorioSelecionado === '' ? 'checked' : '' ?>
+                    >
+
+                    <span>Sem acessório</span>
+
+                </label>
+
+
+                <!-- ACESSÓRIOS DO ARRAY -->
+
+                <?php foreach ($acessorios as $id => $imagem): ?>
+
+                    <label class="boxAcc">
+
+                        <input
+                            type="radio"
+                            name="acessorio"
+                            value="<?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
+                            <?= $acessorioSelecionado === (string)$id ? 'checked' : '' ?>
+                        >
+
+                        <div class="acessorio">
+
+                            <img
+                                src="<?= htmlspecialchars($imagem, ENT_QUOTES, 'UTF-8') ?>"
+                                width="220"
+                                alt="Acessório <?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
+                            >
+
+                        </div>
+
+                    </label>
+
+                <?php endforeach; ?>
+
+            </div>
+
         </div>
-        <div class="caixaAcessorios">
-            <div class="acessoriosTitulo"><p>Acessórios</p></div>
-            <div class="boxAcc">
-                <div class="acessorio"><img src="../app/imgs/gorro.png" width=220px></div>
+
+
+        <!-- SEGUNDA CAIXA -->
+
+        <div class="caixaMaior">
+
+
+            <!-- OPÇÕES DE PERSONAGENS -->
+
+            <div class="opcoesPerso">
+
+                <?php foreach ($personagens as $id => $imagem): ?>
+
+                    <label class="personagens">
+
+                        <input
+                            type="radio"
+                            name="personagem"
+                            value="<?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
+                            <?= $personagemSelecionado === (string)$id ? 'checked' : '' ?>
+                        >
+
+                        <img
+                            src="<?= htmlspecialchars($imagem, ENT_QUOTES, 'UTF-8') ?>"
+                            width="300"
+                            alt="Personagem <?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
+                        >
+
+                    </label>
+
+                <?php endforeach; ?>
 
             </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
 
-            </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
-
-            </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
-
-            </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
-
-            </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
-
-            </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
-                
-            </div>
-            <div class="boxAcc">
-                <div class="acessorio"></div>
-
-            </div>
-        </div>
-       
-    </div>
-    <div class="caixaMaior">
-        <div class="opcoesPerso">
-            <div class="personagens">
-                <img src="../app/imgs/bunny-removebg-preview.png" width="300" >
-                
-            </div>
-            <div class="personagens">
-                
-            </div>
-            <div class="personagens">
-                
-            </div>
-            <div class="personagens">
-                
-            </div>
-            <div class="personagens">
-                
-            </div>
-            <div class="personagens">
-                
-            </div>
         </div>
 
-    </div>
+    </form>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- RODAPÉ -->
 
     <div class="rodape">
-        <div class="img-rodape"><a href="homelogin.php"><img src="imgs/logo.png" alt=""></a></div>
+
+        <div class="img-rodape">
+            <a href="homelogin.php">
+                <img src="imgs/logo.png" alt="Logo StudyMatch">
+            </a>
+        </div>
+
         <table cellpadding="3">
+
             <tr>
+
                 <td><a href="materias.php"><p>Matérias</p></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
                 <td><a href="social.php"><p>Social</p></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
                 <td><a href="progresso.php"><p>Progresso</p></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
                 <td><a href="suporte.php"><p>Suporte</p></a></td>
+
             </tr>
+
             <tr>
+
                 <td><a href="termos.php"><p>Termos</p></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
                 <td><a href="contato.php"><p>Contato</p></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
                 <td><a href="customizacao.php"><p>Customização</p></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
                 <td><a href="configuracao.php"><p>Configuração</p></a></td>
+
             </tr>
-            </table>
-            <div class="redesSociais">
-                <nav>
+
+        </table>
+
+
+        <!-- REDES SOCIAIS -->
+
+        <div class="redesSociais">
+
+            <nav>
+
                 <ul>
-                    <li><a href=""><img src="imgs/git.png" alt=""></a></li>
-                    <li><a href=""><img src="imgs/insta.png" alt=""></a></li>
+
+                    <li>
+                        <a href="">
+                            <img src="imgs/git.png" alt="GitHub">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <img src="imgs/insta.png" alt="Instagram">
+                        </a>
+                    </li>
+
                 </ul>
-                </nav>
-            </div>
-            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+
+            </nav>
+
+        </div>
+
+
+        <p class="direitos">
+            © 2026 StudyMatch - Todos os direitos reservados
+        </p>
+
     </div>
+
 </body>
 </html>
