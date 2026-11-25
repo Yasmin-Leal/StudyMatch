@@ -68,22 +68,67 @@ $imagemAcessorio = $acessorioSelecionado !== ''
 
 <body>
     <div class="cabecalho">
-        <div class="img-cabecalho"><a href="homeperfil.php?user=<?= $user ?>"><img src="imgs/logo.png" alt=""></a></div>
+
+        <div class="img-cabecalho">
+            <a href="homeperfil.php?user=<?= urlencode($user) ?>">
+                <img src="imgs/logo.png" alt="Logo StudyMatch">
+            </a>
+        </div>
+
         <nav>
             <ul>
-                <li><a href="selecionar-sala.php?user=<?= $user ?>">
+
+                <li>
+                    <a href="selecionar-sala.php?user=<?= urlencode($user) ?>">
                         <p>Grupos de Estudo</p>
-                    </a></li>
-                <li><a href="social.php">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="social.php?user=<?= urlencode($user) ?>">
                         <p>Social</p>
-                    </a></li>
-                <li><a href="progresso.php">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="progresso.php?user=<?= urlencode($user) ?>">
                         <p>Progresso</p>
-                    </a></li>
+                    </a>
+                </li>
+
             </ul>
         </nav>
-        <a href="perfil.php?user=<?= $user ?>"><div class="fotoConta"></div></a>
-        </div>
+
+        <!-- AVATAR DO USUÁRIO -->
+
+        <a href="perfil.php?user=<?= urlencode($user) ?>">
+
+            <div class="fotoConta">
+
+                <!-- PERSONAGEM -->
+
+                <img
+                    class="personagemCabecalho"
+                    src="<?= htmlspecialchars($imagemPersonagem, ENT_QUOTES, 'UTF-8') ?>"
+                    alt="Personagem do perfil"
+                >
+
+                <!-- ACESSÓRIO -->
+
+                <?php if ($imagemAcessorio !== null): ?>
+
+                    <img
+                        class="acessorioCabecalho"
+                        src="<?= htmlspecialchars($imagemAcessorio, ENT_QUOTES, 'UTF-8') ?>"
+                        alt="Acessório do personagem"
+                    >
+
+                <?php endif; ?>
+
+            </div>
+
+        </a>
+
     </div>
        <div class="titulosSala">
         
