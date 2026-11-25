@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . "/locais.php";
@@ -26,8 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recupera o acessório escolhido
     $acessorio = $_POST['acessorio'] ?? '';
 
-    if ($acessorio !== '' && isset($acessorios[$acessorio])) {
+    if ($acessorio === '') {
+
+        $acessorioSelecionado = '';
+
+    } elseif (isset($acessorios[$acessorio])) {
+
         $acessorioSelecionado = $acessorio;
+
     }
 }
 
@@ -87,8 +94,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </ul>
         </nav>
 
+        <!-- FOTO DE PERFIL -->
+
         <a href="perfil.php?user=<?= urlencode($user) ?>">
-            <div class="fotoConta"></div>
+
+            <div class="fotoConta">
+
+                <img
+                    class="personagemCabecalho"
+                    src="<?= htmlspecialchars($personagens[$personagemSelecionado], ENT_QUOTES, 'UTF-8') ?>"
+                    alt="Foto de perfil"
+                >
+
+            </div>
+
         </a>
 
     </div>
@@ -103,9 +122,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- FORMULÁRIO DE PERSONALIZAÇÃO -->
 
-    <form action="" method="post">
+    <form action="editaravatar.php?user=<?= urlencode($user) ?>" method="post">
 
-        <!-- Identificação do usuário -->
+        <!-- IDENTIFICAÇÃO DO USUÁRIO -->
 
         <input
             type="hidden"
@@ -127,21 +146,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="avatar">
 
-                        <!-- Personagem escolhido -->
+                        <!-- PERSONAGEM ESCOLHIDO -->
 
                         <img
-                            src="<?= $personagens[$personagemSelecionado] ?>"
-                            width="500px"
+                            src="<?= htmlspecialchars($personagens[$personagemSelecionado], ENT_QUOTES, 'UTF-8') ?>"
+                            width="500"
                             alt="Personagem selecionado"
                         >
 
-                        <!-- Acessório escolhido -->
+                        <!-- ACESSÓRIO ESCOLHIDO -->
 
                         <?php if ($acessorioSelecionado !== ''): ?>
 
                             <img
                                 class="imagemAcessorioSelecionado"
-                                src="<?= $acessorios[$acessorioSelecionado] ?>"
+                                src="<?= htmlspecialchars($acessorios[$acessorioSelecionado], ENT_QUOTES, 'UTF-8') ?>"
                                 alt="Acessório selecionado"
                             >
 
@@ -199,16 +218,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input
                             type="radio"
                             name="acessorio"
-                            value="<?= $id ?>"
+                            value="<?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
                             <?= $acessorioSelecionado === (string)$id ? 'checked' : '' ?>
                         >
 
                         <div class="acessorio">
 
                             <img
-                                src="<?= $imagem ?>"
+                                src="<?= htmlspecialchars($imagem, ENT_QUOTES, 'UTF-8') ?>"
                                 width="220"
-                                alt="Acessório <?= $id ?>"
+                                alt="Acessório <?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
                             >
 
                         </div>
@@ -238,14 +257,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input
                             type="radio"
                             name="personagem"
-                            value="<?= $id ?>"
-                            <?= $personagemSelecionado === $id ? 'checked' : '' ?>
+                            value="<?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
+                            <?= $personagemSelecionado === (string)$id ? 'checked' : '' ?>
                         >
 
                         <img
-                            src="<?= $imagem ?>"
+                            src="<?= htmlspecialchars($imagem, ENT_QUOTES, 'UTF-8') ?>"
                             width="300"
-                            alt="Personagem <?= $id ?>"
+                            alt="Personagem <?= htmlspecialchars((string)$id, ENT_QUOTES, 'UTF-8') ?>"
                         >
 
                     </label>

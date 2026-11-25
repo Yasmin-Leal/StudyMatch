@@ -41,12 +41,31 @@ img {
     font-size: 30px;
 }
 
+/* FOTO DE PERFIL DO CABEÇALHO */
+
 .fotoConta {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #796761;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* PERSONAGEM NA FOTO DE PERFIL */
+
+.personagemCabecalho {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+/* OUTROS ELEMENTOS DO CABEÇALHO */
 
 .loginTitulo p {
     color: #796761;
