@@ -323,3 +323,34 @@ nav ul li a {
     border-style: hidden;
     color: #5a7e62;
 }
+
+.procurarPerfis a{
+    font-size: 40px;
+    
+
+}
+
+.procurarPerfis{
+    width: 500px;
+    height: 100px;
+    background-color:rgb(225, 255, 195);
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 10px;
+
+}
+
+.procurarPerfis a:link {
+  color: rgb(90, 82, 78);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.procurarPerfis a:visited {
+  color: rgb(100, 150, 98);
+  background-color: transparent;
+  text-decoration: none;
+}
