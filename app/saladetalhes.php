@@ -58,7 +58,7 @@ $imagemAcessorio = (
     : null;
 
 // VERIFICAÇÃO DA SENHA DO GRUPO
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'entrar') {
 
     if (strtolower($grupo['status_grupo']) === 'privado') {
 
@@ -81,6 +81,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 "&erro=" . urlencode("Senha incorreta")
             );
             exit;
+        }
+
+        if($grupo['nome_area'] == "Exatas"){
+        header("Location: salaexatas.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+        if($grupo['nome_area'] == "Ciências Naturais"){
+        header("Location: salanaturais.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+        if($grupo['nome_area'] == "Ciências Humanas"){
+        header("Location: salahumanas.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+        if($grupo['nome_area'] == "Linguagens"){
+        header("Location: salalinguagens.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+    }
+    if (strtolower($grupo['status_grupo']) === 'publico') {
+        if($grupo['nome_area'] == "Exatas"){
+        header("Location: salaexatas.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+        if($grupo['nome_area'] == "Ciências Naturais"){
+        header("Location: salanaturais.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+        if($grupo['nome_area'] == "Ciências Humanas"){
+        header("Location: salahumanas.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
+        }
+        if($grupo['nome_area'] == "Linguagens"){
+        header("Location: salalinguagens.php?user=" . urlencode($user) . "&grupo=" . urlencode($grupo['nome_grupo']));
+        exit;
         }
     }
 }
@@ -263,6 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 action="saladetalhes.php?user=<?= urlencode($user) ?>&id=<?= urlencode($idGrupo) ?>"
                 method="POST"
             >
+            <input type="hidden" name="acao" value="entrar">
 
                 <input
                     type="hidden"

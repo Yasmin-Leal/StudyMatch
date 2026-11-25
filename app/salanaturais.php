@@ -1,16 +1,57 @@
 <?php
-    require_once __DIR__ . "/banco/crud.php"; 
-    require_once __DIR__ . "/banco/database.php"; 
-    require_once __DIR__ . "/locais.php";
 
-    $user = $_GET['user'];
-    $nomeGrupo = $_GET['grupo'];
+require_once __DIR__ . "/banco/crud.php";
+require_once __DIR__ . "/banco/database.php";
+require_once __DIR__ . "/locais.php";
 
-    $dadosgrupo = database()->prepare('
-    SELECT * FROM grupos_estudos WHERE criador = :user nome_grupo = :grupo');
-    $dadosgrupo->execute(['user' => $user, 'grupo' => $nomeGrupo]);
+// IDENTIFICAÇÃO DO USUÁRIO E DO GRUPO
+$user = $_GET['user'] ?? '';
+$nomeGrupo = $_GET['grupo'] ?? '';
 
-    $grupo = $dadosgrupo->fetch(PDO::FETCH_ASSOC);
+if ($user === '') {
+    die("Usuário não identificado.");
+}
+
+// BUSCA O AVATAR SALVO NO BANCO
+$stmtAvatar = database()->prepare("
+    SELECT personagem, acessorio
+    FROM personagens
+    WHERE nome_usuario = :user
+");
+
+$stmtAvatar->execute([
+    ':user' => $user
+]);
+
+$avatarBanco = $stmtAvatar->fetch(PDO::FETCH_ASSOC);
+
+// VERIFICA SE EXISTE UM PERSONAGEM CADASTRADO
+if (!$avatarBanco) {
+    die("Não foi encontrado um personagem cadastrado para este usuário.");
+}
+
+// RECUPERA O PERSONAGEM
+$idPersonagem = (string) $avatarBanco['personagem'];
+
+$personagemSelecionado = isset($personagens[$idPersonagem])
+    ? $idPersonagem
+    : "1";
+
+// RECUPERA O ACESSÓRIO
+$idAcessorio = (string) ($avatarBanco['acessorio'] ?? '');
+
+$acessorioSelecionado = (
+    $idAcessorio !== '' &&
+    isset($acessorios[$idAcessorio])
+)
+    ? $idAcessorio
+    : '';
+
+$imagemPersonagem = $personagens[$personagemSelecionado];
+$imagemAcessorio = $acessorioSelecionado !== ''
+    ? $acessorios[$acessorioSelecionado]
+    : null;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -46,7 +87,7 @@
     </div>
        <div class="titulosSala">
         
-        <div class="materia"><p></p></div>
+        <div class="materia"><p>Ciências Naturais</p></div>
         
         <div class="tempo"><div class="css-stopwatch" role="img" aria-label="CSS timer counting from zero to five minutes">
   <div class="css-stopwatch__window">
