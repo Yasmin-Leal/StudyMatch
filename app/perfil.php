@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . "/banco/crud.php";
@@ -10,13 +11,15 @@ if ($user === '') {
     die("Usuário não identificado.");
 }
 
+// CONEXÃO COM O BANCO
 $pdo = database();
 
 // BUSCA OS DADOS DO USUÁRIO
-$dadosUser = $pdo->prepare('
-    SELECT * FROM usuarios
+$dadosUser = $pdo->prepare("
+    SELECT *
+    FROM usuarios
     WHERE nome_usuario = :user
-');
+");
 
 $dadosUser->execute(['user' => $user]);
 
@@ -27,25 +30,38 @@ if (!$usuario) {
 }
 
 // BUSCA O AVATAR DO USUÁRIO
-$dadosAvatar = $pdo->prepare('
-    SELECT * FROM personagens
+$dadosAvatar = $pdo->prepare("
+    SELECT personagem, acessorio
+    FROM personagens
     WHERE nome_usuario = :user
-');
+");
 
 $dadosAvatar->execute(['user' => $user]);
 
 $avatar = $dadosAvatar->fetch(PDO::FETCH_ASSOC);
 
 // IMAGEM PADRÃO DO PERSONAGEM
-$imagemPerfil = "./imgs/avatarexemplo.png";
+$imagemPersonagem = "./imgs/avatarexemplo.png";
 
-// IDENTIFICA O PERSONAGEM
+// IMAGEM DO ACESSÓRIO
+$imagemAcessorio = null;
+
+// IDENTIFICA O PERSONAGEM E O ACESSÓRIO
 if ($avatar) {
 
     $personagemId = (string) $avatar['personagem'];
 
     if (isset($personagens[$personagemId])) {
-        $imagemPerfil = $personagens[$personagemId];
+        $imagemPersonagem = $personagens[$personagemId];
+    }
+
+    if ($avatar['acessorio'] !== null) {
+
+        $acessorioId = (string) $avatar['acessorio'];
+
+        if (isset($acessorios[$acessorioId])) {
+            $imagemAcessorio = $acessorios[$acessorioId];
+        }
     }
 }
 
@@ -129,10 +145,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // IDENTIFICA O ID DO USUÁRIO
-    $id = $_POST['id'];
+    $id = $_POST['id'] ?? '';
+
+    if ($id === '' || $id != $usuario['id_usuario']) {
+        die("Identificação do usuário inválida.");
+    }
 
     // ATUALIZA OS DADOS NO BANCO
-    $consulta = $pdo->prepare('
+    $consulta = $pdo->prepare("
         UPDATE usuarios
         SET
             nome = :nome,
@@ -140,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             data_nascimento = :data_nascimento,
             telefone = :telefone
         WHERE id_usuario = :id_usuario
-    ');
+    ");
 
     $consulta->execute([
         'nome' => $nome,
@@ -166,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <title>StudyMatch</title>
 
-    <link rel="stylesheet" href="css/perfil.css?v=3">
+    <link rel="stylesheet" href="css/perfil.css?v=4">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,7 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </li>
 
                 <li>
-                    <a href="progresso.php">
+                    <a href="progresso.php?user=<?= urlencode($user) ?>">
                         <p>Progresso</p>
                     </a>
                 </li>
@@ -222,15 +242,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="fotoConta">
 
                 <img
-                    src="<?= htmlspecialchars($imagemPerfil, ENT_QUOTES, 'UTF-8') ?>"
+                    class="personagemCabecalho"
+                    src="<?= htmlspecialchars($imagemPersonagem, ENT_QUOTES, 'UTF-8') ?>"
                     alt="Foto de perfil"
                 >
+
+                <?php if ($imagemAcessorio !== null): ?>
+
+                    <img
+                        class="acessorioCabecalho"
+                        src="<?= htmlspecialchars($imagemAcessorio, ENT_QUOTES, 'UTF-8') ?>"
+                        alt=""
+                    >
+
+                <?php endif; ?>
 
             </div>
 
         </a>
 
     </div>
+
 
     <!-- ÁREA DO PERFIL -->
 
@@ -246,9 +278,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <img
                     class="personagemPerfil"
-                    src="<?= htmlspecialchars($imagemPerfil, ENT_QUOTES, 'UTF-8') ?>"
+                    src="<?= htmlspecialchars($imagemPersonagem, ENT_QUOTES, 'UTF-8') ?>"
                     alt="Personagem do perfil"
                 >
+
+                <?php if ($imagemAcessorio !== null): ?>
+
+                    <img
+                        class="acessorioPerfil"
+                        src="<?= htmlspecialchars($imagemAcessorio, ENT_QUOTES, 'UTF-8') ?>"
+                        alt=""
+                    >
+
+                <?php endif; ?>
 
             </div>
 
@@ -362,6 +404,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
     </div>
+
 
     <!-- RODAPÉ -->
 

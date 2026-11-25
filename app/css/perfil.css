@@ -1,3 +1,4 @@
+
 /* CONFIGURAÇÕES GERAIS */
 
 * {
@@ -53,13 +54,35 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
-.fotoConta img {
+/* PERSONAGEM DO CABEÇALHO */
+
+.fotoConta .personagemCabecalho {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
     border-radius: 50%;
+}
+
+/* ACESSÓRIO DO CABEÇALHO */
+
+.fotoConta .acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    border-radius: 0;
 }
 
 
@@ -157,15 +180,32 @@ nav ul li a {
     z-index: 1;
 }
 
+/* PERSONAGEM DO PERFIL */
 
-/* IMAGEM DO PERSONAGEM DENTRO DO CÍRCULO */
-
-.fotoperfil img {
+.fotoperfil .personagemPerfil {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
     border-radius: 50%;
+}
+
+/* ACESSÓRIO DO PERFIL */
+
+.fotoperfil .acessorioPerfil {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    border-radius: 0;
 }
 
 

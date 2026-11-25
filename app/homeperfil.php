@@ -1,16 +1,67 @@
+
 <?php
-    require_once __DIR__ . "/banco/crud.php"; 
-    require_once __DIR__ . "/banco/database.php"; 
+require_once __DIR__ . "/banco/database.php";
+require_once __DIR__ . "/locais.php";
 
-    //$user = $_GET['user'];
+// IDENTIFICAÇÃO DO USUÁRIO
+$user = $_GET['user'] ?? '';
 
-    //$dadosUser = database()->prepare('
-    //SELECT * FROM usuarios WHERE nome_usuario = :user');
-    //$dadosUser->execute(['user' => $user]);
+if ($user === '') {
+    die("Usuário não identificado.");
+}
 
-    //$usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+// BUSCA OS DADOS DO USUÁRIO
+$dadosUser = database()->prepare("
+    SELECT * FROM usuarios
+    WHERE nome_usuario = :user
+");
 
+$dadosUser->execute(['user' => $user]);
+
+$usuario = $dadosUser->fetch(PDO::FETCH_ASSOC);
+
+if (!$usuario) {
+    die("Usuário não encontrado.");
+}
+
+// BUSCA O AVATAR DO USUÁRIO
+$dadosAvatar = database()->prepare("
+    SELECT personagem, acessorio
+    FROM personagens
+    WHERE nome_usuario = :user
+");
+
+$dadosAvatar->execute(['user' => $user]);
+
+$avatar = $dadosAvatar->fetch(PDO::FETCH_ASSOC);
+
+// IMAGEM PADRÃO DO PERSONAGEM
+$imagemPersonagem = "./imgs/avatarexemplo.png";
+
+// IMAGEM PADRÃO DO ACESSÓRIO
+$imagemAcessorio = null;
+
+// IDENTIFICA O PERSONAGEM
+if ($avatar) {
+
+    $personagemId = (string) $avatar['personagem'];
+
+    if (isset($personagens[$personagemId])) {
+        $imagemPersonagem = $personagens[$personagemId];
+    }
+
+    // IDENTIFICA O ACESSÓRIO
+    if ($avatar['acessorio'] !== null) {
+
+        $acessorioId = (string) $avatar['acessorio'];
+
+        if (isset($acessorios[$acessorioId])) {
+            $imagemAcessorio = $acessorios[$acessorioId];
+        }
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -49,14 +100,17 @@
                 <li>
                     <a href="selecionar-sala.php?user=<?= urlencode($user) ?>">
                         <p>Grupos de Estudo</p>
-                    </a></li>
-                <li><a href="procuraperfis.php">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="procuraperfis.php">
                         <p>Social</p>
                     </a>
                 </li>
 
                 <li>
-                    <a href="progesso.php">
+                    <a href="progresso.php?user=<?= urlencode($user) ?>">
                         <p>Progresso</p>
                     </a>
                 </li>
