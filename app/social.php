@@ -314,7 +314,7 @@ if ($avatar) {
         </div>
 
         <div class="procurarPerfis">
-                <a href="procuraperfis.php">Procurar Perfis</a>
+                <a href="procuraperfis.php?user=<?= urlencode($user) ?>">Procurar Perfis</a>
             </div>
 
     </div>

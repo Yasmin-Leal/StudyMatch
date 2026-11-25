@@ -88,7 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':user' => $user
         ]);
 
-        header("Location: https://www.google.com");
+        // REDIRECIONA DEPOIS DE SALVAR
+        header("Location: editaravatar.php?user=" . urlencode($user) . "&salvo=1");
         exit;
     }
 }
