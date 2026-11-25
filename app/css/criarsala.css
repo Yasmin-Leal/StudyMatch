@@ -397,8 +397,8 @@ nav ul li a {
 
 .button {
     justify-content: center;
-    margin-left: 730px;
-    margin-top: 30px;
+    display: flex;
+    justify-self: center;
     border-radius: 30px;
     border: 2px solid #edd4c6;
     width: 140px;
