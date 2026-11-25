@@ -3,14 +3,14 @@
     require_once __DIR__ . "/banco/database.php"; 
     require_once __DIR__ . "/locais.php";
 
-    //$user = $_GET['user'];
-    //$nomeGrupo = $_GET['grupo'];
+    $user = $_GET['user'];
+    $nomeGrupo = $_GET['grupo'];
 
-    //$dadosgrupo = database()->prepare('
-    //SELECT * FROM grupos_estudos WHERE criador = :user nome_grupo = :grupo');
-    //$dadosgrupo->execute(['user' => $user, 'grupo' => $nomeGrupo]);
+    $dadosgrupo = database()->prepare('
+    SELECT * FROM grupos_estudos WHERE criador = :user nome_grupo = :grupo');
+    $dadosgrupo->execute(['user' => $user, 'grupo' => $nomeGrupo]);
 
-    //$grupo = $dadosgrupo->fetch(PDO::FETCH_ASSOC);
+    $grupo = $dadosgrupo->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
