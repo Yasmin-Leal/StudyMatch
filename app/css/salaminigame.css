@@ -1,4 +1,10 @@
 
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -11,6 +17,7 @@ body {
 
 img {
     display: block;
+    max-width: 100%;
 }
 
 /* CABEÇALHO */
@@ -19,94 +26,85 @@ img {
     display: flex;
     width: 100%;
     height: 150px;
-    padding: 0 30px;
     background-color: #796761;
+    justify-content: left;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
 }
 
 .cabecalho a {
     text-decoration: none;
 }
 
-/* LOGO */
-
-.img-cabecalho {
-    margin: 0;
-    flex-shrink: 0;
+.cabecalho p {
+    color: white;
+    font-size: 30px;
 }
 
-.img-cabecalho img {
-    width: 150px;
-    height: auto;
-    margin: 0;
-}
 
-/* MENU */
+/* FOTO DE PERFIL DO CABEÇALHO */
 
-.cabecalho nav {
-    flex: 1;
-}
-
-.cabecalho nav ul {
+.fotoConta {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    padding: 0;
-    margin: 0;
-}
-
-.cabecalho nav ul li {
-    list-style: none;
-    margin: 0;
-}
-
-.cabecalho nav ul li a {
-    text-decoration: none;
-}
-
-.cabecalho nav ul li p {
-    color: white;
-    font-size: 25px;
-    margin: 0;
-}
-
-/* AVATAR */
-
-.cabecalho > a {
-    margin: 0;
     flex-shrink: 0;
 }
 
-.fotoConta {
-    position: relative;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-color: white;
-    overflow: hidden;
-    flex-shrink: 0;
-}
+/* PERSONAGEM DO CABEÇALHO */
 
-.personagemCabecalho {
-    position: absolute;
+.fotoConta .personagemCabecalho {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     z-index: 1;
+    border-radius: 50%;
 }
 
-.acessorioCabecalho {
-    position: absolute;
-    width: 65%;
-    height: 65%;
+/* ACESSÓRIO DO CABEÇALHO */
+
+.fotoConta .acessorioCabecalho {
+    width: 55%;
+    height: 55%;
     object-fit: contain;
+    position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    border-radius: 0;
+}
+
+
+/* NAVEGAÇÃO */
+
+.loginTitulo p {
+    color: #796761;
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li {
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a {
+    text-decoration: none;
 }
 
 .login {
@@ -118,6 +116,13 @@ img {
     align-items: center;
     border-radius: 20px;
 }
+
+.img-cabecalho a img {
+    list-style: none;
+    margin-right: 700px;
+}
+
+
 
 /* RODAPÉ */
 
@@ -1433,7 +1438,8 @@ img {
     height: 300px;
     display: flex;
     justify-self: flex-end;
-    margin-top: -300px;
+    margin-top: -250px;
+    
 }
 
 .prof img {
