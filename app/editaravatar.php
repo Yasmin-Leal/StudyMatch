@@ -88,11 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':user' => $user
         ]);
 
-        if (headers_sent($arquivo, $linha)) {
-            die("REDIRECIONAMENTO BLOQUEADO! Arquivo: $arquivo | Linha: $linha");
-        }
-
-        header("Location: /editaravatar.php?user=" . urlencode($user) . "&salvo=1");
+        header("Location: https://www.google.com");
         exit;
     }
 }
