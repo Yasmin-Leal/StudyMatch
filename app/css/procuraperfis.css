@@ -1,25 +1,27 @@
-body{
-   margin: 0;
-   padding: 0;
-   font-family: "Arima", system-ui;
-   font-optical-sizing: auto;
-   font-weight: weight;
-   font-style: normal;
-   background-color: #f0d3c394;
+* {
+    box-sizing: border-box;
 }
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arima", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f7efeb;
+}
+
 
 img {
-  display: block;
+    display: block;
 }
 
-.fotoConta{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: #ffffff;
-}
 
-.cabecalho{
+/* CABEÇALHO */
+
+
+.cabecalho {
     display: flex;
     width: 100%;
     height: 150px;
@@ -28,187 +30,215 @@ img {
     align-items: center;
 }
 
-.cabecalho a{
+
+.cabecalho a {
     text-decoration: none;
 }
 
-.cabecalho p{
+
+.cabecalho p {
     color: white;
     font-size: 30px;
 }
 
 
-.loginTitulo p{
-    color: #796761;
-    font-size: 30px;
+.fotoConta {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
 }
 
-nav ul{
+
+nav ul {
     display: flex;
     padding-left: 0;
     margin-top: 25px;
 }
 
-nav ul li{
+
+nav ul li {
     list-style: none;
     margin-right: 130px;
 }
 
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
 }
 
-.login{
-    display: flex;
-    width: 90px;
-    height: 50px;
-    background-color: #edd4c6;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-}
 
-.img-cabecalho a img{
-    list-style: none;
+.img-cabecalho a img {
     margin-right: 700px;
 }
 
-.direitos {
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.733);
-    font-size: 11px;
-    margin-top: 20px;
+
+/* PESQUISA */
+
+
+.blocoPesquisa {
+    width: 80%;
+    max-width: 850px;
+    margin: 100px auto 20px;
 }
 
-.img-rodape a img{
-    list-style: none;
-    margin-right: 500px;
-}
 
-.center{
-    text-align: center;}
+/* BARRA DE PESQUISA */
 
-.fundo{
-    background-image: url("../imgs/background-perfil.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    padding: 30px;
+
+.barraPesquisa {
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-}
-
-.perfilbox{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgba(240, 211, 195, 0.6);
-    min-height: 700px;
-    width: min(800px, 100%);
-    box-sizing: border-box;
-}
-
-.bannerperfil{
-    background-color: #ffd998;
-    width: 100%;
-    height: 250px;
-}
-
-.fotoperfil{
-    margin-top: -200px;
-    width: 370px;
-    height: 370px;
-    border-radius: 50%;
-    background-color: #ffffff;
-}
-
-.editarfoto{
-    margin-top: -80px;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background-image: url("../imgs/7e57751c-5e8f-434e-9a72-0b0e23de43ec.png");
-    background-size: cover;
-    margin-left: 170px;
-}
-
-.infoperfil{
-    width: 100%;
-}
-
-.infoperfil .form{
-    margin: 50px auto 30px;
-    width: 70%;
-    max-width: none;
-    padding-left: 0;
-}
-
-.infoperfil form{
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-}
-
-.infoperfil form br{
-    display: none;
-}
-
-
-.infoperfil .form input{
-    display: block;
     width: 100%;
     height: 70px;
-    margin: 0;
-    margin-bottom: 20px;
-    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 2px solid #deaf5e;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.barraPesquisa input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    font-family: "Arima", system-ui;
+    background: transparent;
+    padding: 0 15px;
+    color: #927c78;
+}
+
+
+.barraPesquisa input::placeholder {
+    color: #927c78;
+    opacity: 1;
+}
+
+
+/* BOTÃO DA LUPA */
+
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    min-width: 85px;
+    height: 100%;
+    border-radius: 40px 0 0 40px;
+    border: none;
+    cursor: pointer;
+    background-color: #deaf5e;
+}
+
+
+.button img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+
+/* RESULTADOS */
+
+
+.listaUsuarios {
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+.usuario {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border-radius: 35px;
+}
+
+
+/* FOTO DE PERFIL DO USUÁRIO */
+
+
+.fotoUsuario {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #d8c7b7;
+}
+
+
+.fotoUsuario img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* NOME DO USUÁRIO */
+
+
+.nomeUsuario {
+    margin-left: 22px;
+    font-size: 16px;
+    color: #927c78;
+}
+
+
+/* BOTÃO ADICIONAR */
+
+
+.adicionarUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: 2px;
+    border: none;
+    border-radius: 50%;
+    background-color: #9edba5;
+    color: white;
     font-size: 24px;
-    font-family: "Arima", system-ui;
-    border-radius: 50px;
-    border-width: 4px;
-    border-color: #927c78;
-    padding-left: 30px;
-
+    line-height: 1;
+    cursor: pointer;
 }
 
 
-.infoperfil .form button{
-    background-color: #d9b27d;
-    border-style:hidden;
-    border-radius: 50px;
-    padding: 10px;
-    font-family: "Arima", system-ui;
-    color: #752325;
-    width: 40%;
-    height: 80px;
-    font-size:30px;
-    align-self: center;
-}
+/* PERSONAGENS DECORATIVOS */
 
-#nomeEx,
-#email{
+
+.personagens {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    margin: 50px auto;
 }
 
-#nomeUs{
-    width: 100%;
-    
+
+.personagens img {
+    width: 700px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
-#data{
-    width: 45%;
-}
 
-#telefone{
-    width: 60%;
-}
+/* RODAPÉ */
 
-.rodape{
+
+.rodape {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -219,42 +249,47 @@ nav ul li a{
 }
 
 
-.rodape table{
+.rodape table {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rodape table tr td a p{
+
+.rodape table tr td a p {
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.rodape table tr td a{
+
+.rodape table tr td a {
     text-decoration: none;
 }
 
-.espacamentoRodape{
-    width: 5px;
-    height: 100px;
-    background-color: white;
+
+.img-rodape a img {
+    margin-right: 500px;
 }
 
-.redesSociais{
+
+.redesSociais {
     display: flex;
     padding-left: 0;
     margin-left: 250px;
 }
 
-.redesSociais nav ul li{
+
+.redesSociais nav ul li {
     list-style: none;
     margin-right: 50px;
 }
 
-.redesSociais nav ul li a{
+
+.redesSociais nav ul li a {
     text-decoration: none;
 }
+
 
 .direitos {
     width: 100%;
@@ -264,63 +299,213 @@ nav ul li a{
     margin-top: 20px;
 }
 
-.blocoPesquisa{
-    width: 80%;
-    max-width: 850px;
-    margin: 20px auto;
-    margin-top: 100px;
-    margin-bottom: 20px;
+
+/* RESPONSIVIDADE */
+
+
+@media (max-width: 900px) {
+    .cabecalho {
+        height: auto;
+        min-height: 120px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+    }
+
+
+    .img-cabecalho a img {
+        margin-right: 0;
+    }
+
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    nav ul li {
+        margin: 10px 20px;
+    }
+
+
+    .blocoPesquisa {
+        width: 90%;
+        margin-top: 60px;
+    }
+
+
+    .img-rodape a img {
+        margin-right: 0;
+    }
+
+
+    .redesSociais {
+        margin-left: 20px;
+    }
 }
 
-.barraPesquisa{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 70px;
-    
-    background-color: #f5f3f3;
-    border: 1px solid #deaf5e;
-    border-radius: 30px;
-    
+
+@media (max-width: 550px) {
+    .cabecalho p {
+        font-size: 20px;
+    }
+
+
+    .blocoPesquisa {
+        margin-top: 40px;
+    }
+
+
+    .barraPesquisa {
+        height: 60px;
+    }
+
+
+    .barraPesquisa input {
+        font-size: 17px;
+    }
+
+
+    .button {
+        width: 65px;
+        min-width: 65px;
+    }
+
+
+    .button img {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .rodape {
+        height: auto;
+        min-height: 190px;
+    }
+}
+
+
+/* AVATAR DOS USUÁRIOS */
+.fotoUsuario {
+    position: relative;
     overflow: hidden;
-
-    box-shadow: 0px 3px 5px rgba(0,0,0,0.15);
+    display: block;
 }
 
-.barraPesquisa input{
-    flex: 1;
+.fotoUsuario .personagemUsuario {
+    width: 100%;
     height: 100%;
-    border: none;
-    outline: none;
-    font-size: 25px;
-    background: transparent;
-    padding: 0 35px;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
 }
 
-.button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
+.fotoUsuario .acessorioUsuario {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* AVATAR DO CABEÇALHO */
+.fotoConta {
+    position: relative;
+    overflow: hidden;
+}
+
+.fotoConta .personagemCabecalho {
+    width: 100%;
     height: 100%;
-    border-radius: 30px 0 0 30px;
-    border: none;
-    cursor: pointer;
-    background-color: #deaf5e;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
 }
 
-.usuarios{
+.fotoConta .acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+
+/* ESPAÇAMENTO ENTRE OS PERFIS */
+.listaUsuarios {
     display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-bottom: 60px;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.usuario{
-    text-align: center;
-    background-color: #ffffff63;
-    border-radius: 30px;
-    width: 200px;
+.usuario {
+    margin-bottom: 10px;
+}
 
+
+/* AVATAR DOS USUÁRIOS */
+.fotoUsuario {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.fotoUsuario .personagemUsuario {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.fotoUsuario .acessorioUsuario {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+
+/* AVATAR DO CABEÇALHO */
+.fotoConta {
+    position: relative;
+    overflow: hidden;
+}
+
+.fotoConta .personagemCabecalho {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.fotoConta .acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 }
