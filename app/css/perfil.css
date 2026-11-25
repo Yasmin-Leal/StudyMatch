@@ -1,18 +1,29 @@
-body{
-   margin: 0;
-   padding: 0;
-   font-family: "Arima", system-ui;
-   font-optical-sizing: auto;
-   font-weight: weight;
-   font-style: normal;
-   background-color: #f0d3c394;
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f0d3c394;
 }
 
 img {
-  display: block;
+    display: block;
+    max-width: 100%;
 }
 
-.cabecalho{
+
+/* CABEÇALHO */
+
+.cabecalho {
     display: flex;
     width: 100%;
     height: 150px;
@@ -21,43 +32,61 @@ img {
     align-items: center;
 }
 
-.cabecalho a{
+.cabecalho a {
     text-decoration: none;
 }
 
-.cabecalho p{
+.cabecalho p {
     color: white;
     font-size: 30px;
 }
 
-.fotoConta{
+
+/* FOTO DE PERFIL DO CABEÇALHO */
+
+.fotoConta {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.loginTitulo p{
+.fotoConta img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+
+/* NAVEGAÇÃO */
+
+.loginTitulo p {
     color: #796761;
     font-size: 30px;
 }
 
-nav ul{
+nav ul {
     display: flex;
     padding-left: 0;
     margin-top: 25px;
 }
 
-nav ul li{
+nav ul li {
     list-style: none;
     margin-right: 130px;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
 }
 
-.login{
+.login {
     display: flex;
     width: 90px;
     height: 50px;
@@ -67,28 +96,15 @@ nav ul li a{
     border-radius: 20px;
 }
 
-.img-cabecalho a img{
+.img-cabecalho a img {
     list-style: none;
     margin-right: 700px;
 }
 
-.direitos {
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.733);
-    font-size: 11px;
-    margin-top: 20px;
-}
 
-.img-rodape a img{
-    list-style: none;
-    margin-right: 500px;
-}
+/* FUNDO DA PÁGINA */
 
-.center{
-    text-align: center;}
-
-.fundo{
+.fundo {
     background-image: url("../imgs/background-perfil.png");
     background-size: cover;
     background-position: center;
@@ -101,7 +117,10 @@ nav ul li a{
     box-sizing: border-box;
 }
 
-.perfilbox{
+
+/* CAIXA DO PERFIL */
+
+.perfilbox {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -113,53 +132,89 @@ nav ul li a{
     box-sizing: border-box;
 }
 
-.bannerperfil{
+
+/* BANNER */
+
+.bannerperfil {
     background-color: #ffd998;
     width: 100%;
     height: 250px;
 }
 
-.fotoperfil{
+
+/* FOTO DE PERFIL PRINCIPAL */
+
+.fotoperfil {
     margin-top: -200px;
     width: 370px;
     height: 370px;
     border-radius: 50%;
     background-color: #ffffff;
+
+    /* Centraliza e recorta a imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    position: relative;
+    z-index: 1;
 }
 
-.editarfoto{
+/* IMAGEM DO PERSONAGEM DENTRO DO CÍRCULO */
+
+.fotoperfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 50%;
+}
+
+
+/* BOTÃO DE EDITAR FOTO */
+
+.editarfoto {
     margin-top: -80px;
     width: 90px;
     height: 90px;
     border-radius: 50%;
     background-image: url("../imgs/7e57751c-5e8f-434e-9a72-0b0e23de43ec.png");
     background-size: cover;
+    background-position: center;
     margin-left: 170px;
+    position: relative;
+    z-index: 2;
 }
 
-.infoperfil{
+
+/* INFORMAÇÕES DO PERFIL */
+
+.infoperfil {
     width: 100%;
 }
 
-.infoperfil .form{
+.infoperfil .form {
     margin: 50px auto 30px;
     width: 70%;
     max-width: none;
     padding-left: 0;
 }
 
-.infoperfil form{
+.infoperfil form {
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
 
-.infoperfil form br{
+.infoperfil form br {
     display: none;
 }
 
 
-.infoperfil .form input{
+/* CAMPOS DO FORMULÁRIO */
+
+.infoperfil .form input {
     display: block;
     width: 100%;
     height: 70px;
@@ -172,43 +227,63 @@ nav ul li a{
     border-width: 4px;
     border-color: #927c78;
     padding-left: 30px;
+}
 
+#nomeEx,
+#email {
+    width: 100%;
+}
+
+#nomeUs {
+    width: 100%;
+}
+
+#data {
+    width: 45%;
+}
+
+#telefone {
+    width: 60%;
 }
 
 
+/* BOTÃO DO FORMULÁRIO */
 
-.infoperfil .form button{
+.infoperfil .form button {
     background-color: #d9b27d;
-    border-style:hidden;
+    border-style: hidden;
     border-radius: 50px;
     padding: 10px;
     font-family: "Arima", system-ui;
     color: #752325;
     width: 40%;
     height: 80px;
-    font-size:30px;
+    font-size: 30px;
     align-self: center;
 }
 
-#nomeEx,
-#email{
-    width: 100%;
+
+/* MENSAGENS */
+
+.erro {
+    color: red;
 }
 
-#nomeUs{
-    width: 100%;
-    
+.sucesso {
+    color: #3d7538;
+    text-align: center;
+    font-size: 20px;
 }
 
-#data{
-    width: 45%;
+
+/* RODAPÉ */
+
+.img-rodape a img {
+    list-style: none;
+    margin-right: 500px;
 }
 
-#telefone{
-    width: 60%;
-}
-
-.rodape{
+.rodape {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -218,41 +293,40 @@ nav ul li a{
     align-items: center;
 }
 
-
-.rodape table{
+.rodape table {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rodape table tr td a p{
+.rodape table tr td a p {
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.rodape table tr td a{
+.rodape table tr td a {
     text-decoration: none;
 }
 
-.espacamentoRodape{
+.espacamentoRodape {
     width: 5px;
     height: 100px;
     background-color: white;
 }
 
-.redesSociais{
+.redesSociais {
     display: flex;
     padding-left: 0;
     margin-left: 250px;
 }
 
-.redesSociais nav ul li{
+.redesSociais nav ul li {
     list-style: none;
     margin-right: 50px;
 }
 
-.redesSociais nav ul li a{
+.redesSociais nav ul li a {
     text-decoration: none;
 }
 
@@ -264,6 +338,40 @@ nav ul li a{
     margin-top: 20px;
 }
 
-.erro{
-    color: red;
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    .fundo {
+        padding: 15px;
+    }
+
+    .fotoperfil {
+        width: 250px;
+        height: 250px;
+        margin-top: -150px;
+    }
+
+    .editarfoto {
+        width: 70px;
+        height: 70px;
+        margin-top: -60px;
+        margin-left: 120px;
+    }
+
+    .infoperfil .form {
+        width: 90%;
+    }
+
+    .infoperfil .form button {
+        width: 70%;
+        font-size: 23px;
+    }
+
+    #data,
+    #telefone {
+        width: 100%;
+    }
+
 }
