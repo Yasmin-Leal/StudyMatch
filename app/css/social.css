@@ -1,0 +1,303 @@
+body{
+   margin: 0;
+   padding: 0;
+   font-family: "Arima", system-ui;
+   font-optical-sizing: auto;
+   font-weight: weight;
+   font-style: normal;
+   background-color: #f0d3c394;
+}
+
+img {
+  display: block;
+}
+
+.cabecalho{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.cabecalho a{
+    text-decoration: none;
+}
+
+.cabecalho p{
+    color: white;
+    font-size: 30px;
+}
+
+.fotoConta{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.loginTitulo p{
+    color: #796761;
+    font-size: 30px;
+}
+
+nav ul{
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li{
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+.login{
+    display: flex;
+    width: 90px;
+    height: 50px;
+    background-color: #edd4c6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.img-cabecalho a img{
+    list-style: none;
+    margin-right: 700px;
+}
+
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+.img-rodape a img{
+    list-style: none;
+    margin-right: 500px;
+}
+
+.center{
+    text-align: center;}
+
+
+
+.rodape{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 190px;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+
+.rodape table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape table tr td a p{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.rodape table tr td a{
+    text-decoration: none;
+}
+
+.espacamentoRodape{
+    width: 5px;
+    height: 100px;
+    background-color: white;
+}
+
+.redesSociais{
+    display: flex;
+    padding-left: 0;
+    margin-left: 250px;
+}
+
+.redesSociais nav ul li{
+    list-style: none;
+    margin-right: 50px;
+}
+
+.redesSociais nav ul li a{
+    text-decoration: none;
+}
+
+.direitos {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+.erro{
+    color: red;
+}
+
+.tituloGrupos{
+    color: #8f7152;
+    font-size: 50px;
+    text-align: center;
+    width: 600px;
+    height: 200px;
+    background-color: #fffef1;
+    border-radius: 50px;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: -100px;
+    position: relative;
+    z-index: 10;
+    margin-top: 40px;
+}
+
+.caixaGrupos{
+    width: 85%;
+    height: 1350px;
+    background-color: #e9c4ab;
+    justify-self: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.areaFotos{
+    display:flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.areaLinhas{
+    display:flex;
+    justify-content: center;}
+
+.fotoGrupos{
+    width: 450px;
+    height: 350px;
+    margin: 20px;
+   
+    
+}
+
+.fotoGrupos img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 25px;
+    margin-top: 0;
+}
+
+.linhaUsers{
+    width: 450px;
+    height: 70px;
+    background-color: #fffef1;
+    border-radius: 30px;
+    display: flex;
+    margin: 20px;
+}
+
+.fotoUsers{
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotoUsers img{
+    
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    object-fit: cover;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+.tituloAmizades{
+    color: #8f7152;
+    font-size: 50px;
+    text-align: center;
+    width: 600px;
+    height: 100px;
+    background-color: #fffef1;
+    border-radius: 70px;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: -100px;
+    position: relative;
+    z-index: 10;
+    margin-top: 40px;
+
+}
+
+.caixaAmizades{
+   
+    width:97%;
+    height: 470px;
+    background-color:#fffef1;
+    margin-top: 50px;
+    border-radius: 50px;
+    display: flex;
+}
+
+.fotoAmizades{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px 0 0 40px;
+}
+
+.fotoAmizades img{
+    
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    object-fit: cover;
+}
+
+.nomeAmizades{
+    margin: 12px 0 0;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botaoPerfil button{
+    margin-top: 20px;
+    width: 200px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: #baffc9;
+    font-family: "Arima", system-ui;
+    font-size: 40px;
+    border-style: hidden;
+    color:#5a7e62;
+}
+
+
