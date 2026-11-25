@@ -1,7 +1,10 @@
 
 <?php
 
+require_once __DIR__ . "/banco/crud.php";
+require_once __DIR__ . "/banco/database.php";
 require_once __DIR__ . "/locais.php";
+
 
 // Identificação do usuário
 $user = $_GET['user'] ?? $_POST['user'] ?? '';
@@ -13,15 +16,49 @@ if ($user === '') {
 // Valores iniciais
 $personagemSelecionado = "1";
 $acessorioSelecionado = "";
+$mensagem = "";
 
-// Verifica se o formulário foi enviado
+// Busca o avatar salvo no banco
+$stmt = database()->prepare("
+    SELECT personagem, acessorio
+    FROM personagens
+    WHERE nome_usuario = :user
+");
+
+$stmt->execute([
+    ':user' => $user
+]);
+
+$avatarSalvo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Verifica se existe um registro para o usuário
+if (!$avatarSalvo) {
+    die("Não foi encontrado um personagem cadastrado para este usuário.");
+}
+
+// Recupera o personagem salvo
+if (isset($personagens[(string)$avatarSalvo['personagem']])) {
+    $personagemSelecionado = (string)$avatarSalvo['personagem'];
+}
+
+// Recupera o acessório salvo
+if (
+    $avatarSalvo['acessorio'] !== null &&
+    isset($acessorios[(string)$avatarSalvo['acessorio']])
+) {
+    $acessorioSelecionado = (string)$avatarSalvo['acessorio'];
+}
+
+
+// VERIFICA SE O FORMULÁRIO FOI ENVIADO
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Recupera o personagem escolhido
     $personagem = $_POST['personagem'] ?? '';
 
     if (isset($personagens[$personagem])) {
-        $personagemSelecionado = $personagem;
+        $personagemSelecionado = (string)$personagem;
     }
 
     // Recupera o acessório escolhido
@@ -33,9 +70,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } elseif (isset($acessorios[$acessorio])) {
 
-        $acessorioSelecionado = $acessorio;
+        $acessorioSelecionado = (string)$acessorio;
 
     }
+
+
+    // SALVAR NO BANCO DE DADOS
+
+    if (isset($_POST['salvar_avatar'])) {
+
+        $personagemBanco = (int)$personagemSelecionado;
+
+        // Sem acessório: salva NULL
+        $acessorioBanco = $acessorioSelecionado === ''
+            ? null
+            : (int)$acessorioSelecionado;
+
+        // Atualiza o registro existente
+        $stmt = database()->prepare("
+            UPDATE personagens
+            SET personagem = :personagem,
+                acessorio = :acessorio
+            WHERE nome_usuario = :user
+        ");
+
+        $stmt->execute([
+            ':personagem' => $personagemBanco,
+            ':acessorio' => $acessorioBanco,
+            ':user' => $user
+        ]);
+
+        // Redireciona depois de salvar
+        header(
+            "Location: editaravatar.php?user=" .
+            urlencode($user) .
+            "&salvo=1"
+        );
+
+        exit;
+    }
+}
+
+
+// MENSAGEM DE SUCESSO
+
+if (isset($_GET['salvo'])) {
+    $mensagem = "Personagem salvo com sucesso!";
 }
 
 ?>
@@ -55,7 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -97,7 +176,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- FOTO DE PERFIL -->
 
         <a href="perfil.php?user=<?= urlencode($user) ?>">
-
             <div class="fotoConta">
 
                 <img
@@ -107,7 +185,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 >
 
             </div>
-
         </a>
 
     </div>
@@ -120,11 +197,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
 
+    <!-- MENSAGEM DE SUCESSO -->
+
+    <?php if ($mensagem !== ''): ?>
+
+        <p class="sucesso">
+            <?= htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8') ?>
+        </p>
+
+    <?php endif; ?>
+
+
     <!-- FORMULÁRIO DE PERSONALIZAÇÃO -->
 
     <form action="editaravatar.php?user=<?= urlencode($user) ?>" method="post">
-
-        <!-- IDENTIFICAÇÃO DO USUÁRIO -->
 
         <input
             type="hidden"
@@ -137,8 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="caixaMaior">
 
-
-            <!-- PRÉ-VISUALIZAÇÃO DO PERSONAGEM -->
+            <!-- PRÉ-VISUALIZAÇÃO -->
 
             <div class="caixaFundoAvatar">
 
@@ -146,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="avatar">
 
-                        <!-- PERSONAGEM ESCOLHIDO -->
+                        <!-- PERSONAGEM -->
 
                         <img
                             src="<?= htmlspecialchars($personagens[$personagemSelecionado], ENT_QUOTES, 'UTF-8') ?>"
@@ -154,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             alt="Personagem selecionado"
                         >
 
-                        <!-- ACESSÓRIO ESCOLHIDO -->
+                        <!-- ACESSÓRIO -->
 
                         <?php if ($acessorioSelecionado !== ''): ?>
 
@@ -171,7 +256,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
 
-                <!-- BOTÃO -->
+                <!-- BOTÕES -->
 
                 <div class="salvar">
 
@@ -179,12 +264,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         Atualizar prévia
                     </button>
 
+                    <button
+                        type="submit"
+                        name="salvar_avatar"
+                        value="1"
+                    >
+                        Salvar personagem
+                    </button>
+
                 </div>
 
             </div>
 
 
-            <!-- OPÇÕES DE ACESSÓRIOS -->
+            <!-- ACESSÓRIOS -->
 
             <div class="caixaAcessorios">
 
@@ -193,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
 
-                <!-- OPÇÃO SEM ACESSÓRIO -->
+                <!-- SEM ACESSÓRIO -->
 
                 <label class="boxAcc">
 
@@ -209,7 +302,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </label>
 
 
-                <!-- ACESSÓRIOS DO ARRAY -->
+                <!-- LISTA DE ACESSÓRIOS -->
 
                 <?php foreach ($acessorios as $id => $imagem): ?>
 
@@ -241,12 +334,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
 
-        <!-- SEGUNDA CAIXA -->
+        <!-- SEGUNDA CAIXA: PERSONAGENS -->
 
         <div class="caixaMaior">
-
-
-            <!-- OPÇÕES DE PERSONAGENS -->
 
             <div class="opcoesPerso">
 
@@ -338,7 +428,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="redesSociais">
 
             <nav>
-
                 <ul>
 
                     <li>
@@ -354,7 +443,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
 
                 </ul>
-
             </nav>
 
         </div>
