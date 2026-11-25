@@ -30,17 +30,14 @@ $stmt->execute([
 
 $avatarSalvo = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// VERIFICA SE EXISTE UM PERSONAGEM CADASTRADO
 if (!$avatarSalvo) {
     die("Não foi encontrado um personagem cadastrado para este usuário.");
 }
 
-// RECUPERA O PERSONAGEM SALVO
 if (isset($personagens[(string)$avatarSalvo['personagem']])) {
     $personagemSelecionado = (string)$avatarSalvo['personagem'];
 }
 
-// RECUPERA O ACESSÓRIO SALVO
 if (
     $avatarSalvo['acessorio'] !== null &&
     isset($acessorios[(string)$avatarSalvo['acessorio']])
@@ -48,18 +45,14 @@ if (
     $acessorioSelecionado = (string)$avatarSalvo['acessorio'];
 }
 
-
-// VERIFICA SE O FORMULÁRIO FOI ENVIADO
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // RECUPERA O PERSONAGEM ESCOLHIDO
     $personagem = $_POST['personagem'] ?? '';
 
     if (isset($personagens[$personagem])) {
         $personagemSelecionado = (string)$personagem;
     }
 
-    // RECUPERA O ACESSÓRIO ESCOLHIDO
     $acessorio = $_POST['acessorio'] ?? '';
 
     if ($acessorio === '') {
@@ -96,9 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':user' => $user
         ]);
 
-        $destino = "editaravatar.php?user=" . urlencode($user) . "&salvo=1";
-
-        header("Location: " . $destino);
+        // REDIRECIONA DEPOIS DE SALVAR
+        header("Location: studymatch/app/editaravatar.php?user=" . urlencode($user) . "&salvo=1");
         exit;
     }
 }
