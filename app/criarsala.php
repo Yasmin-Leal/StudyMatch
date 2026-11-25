@@ -71,7 +71,7 @@
             "id_imagem" => $ambiente,
             "criador" => $criador,
         ]);
-        header("Location: selecionar-sala.php?user=" . urlencode($user));
+        header("Location: salaminigame.php?user=" . urlencode($user) . "&grupo=" . urlencode($nome_sala));
         exit;
     }
 
