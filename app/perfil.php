@@ -112,7 +112,7 @@
                 
                 <div class="bannerperfil"></div>
                 <div class="fotoperfil"></div>
-                <div class="editarfoto"></div>
+                <a href="editarperfil.php?user=<?= $user ?>"><div class="editarfoto"></div></a>
 
                 <div class="infoperfil">
                     <div class="form">
