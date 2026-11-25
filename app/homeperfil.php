@@ -32,7 +32,6 @@
                 <li><a href="selecionar-sala.php?user=<?= $user ?>">
                         <p>Grupos de Estudo</p>
                     </a></li>
-
                 <li><a href="procuraperfis.php">
                         <p>Social</p>
                     </a></li>

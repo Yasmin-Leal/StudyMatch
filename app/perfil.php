@@ -145,6 +145,12 @@
         </a>
 
     </div>
+        <div class="fundo">
+            <div class="perfilbox">
+                
+                <div class="bannerperfil"></div>
+                <div class="fotoperfil"></div>
+                <a href="editaravatar.php?user=<?= $user ?>"><div class="editarfoto"></div></a>
 
     <!-- ÁREA DO PERFIL -->
 
