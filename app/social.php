@@ -307,9 +307,15 @@ if ($avatar) {
                 </div>
 
             </div>
+            
 
+            
 
         </div>
+
+        <div class="procurarPerfis">
+                <a href="procuraperfis.php">Procurar Perfis</a>
+            </div>
 
     </div>
 
