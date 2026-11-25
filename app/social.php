@@ -210,36 +210,19 @@ if ($avatar) {
             <div class="linhaUsers">
 
                 <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                    <img src="imgs/pfp1.png" alt="Foto de perfil">
                 </div>
 
                 <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                    <img src="imgs/pfp3.png" alt="Foto de perfil">
                 </div>
 
                 <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                    <img src="imgs/pfp5.png" alt="Foto de perfil">
                 </div>
 
                 <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
-                </div>
-
-            </div>
-
-
-            <div class="linhaUsers">
-
-                <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
-                </div>
-
-                <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
-                </div>
-
-                <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                    <img src="imgs/pfp4.png" alt="Foto de perfil">
                 </div>
 
             </div>
@@ -248,11 +231,28 @@ if ($avatar) {
             <div class="linhaUsers">
 
                 <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                    <img src="imgs/pfp2.png" alt="Foto de perfil">
                 </div>
 
                 <div class="fotoUsers">
-                    <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                    <img src="imgs/pfp1.png" alt="Foto de perfil">
+                </div>
+
+                <div class="fotoUsers">
+                    <img src="imgs/pfp3.png" alt="Foto de perfil">
+                </div>
+
+            </div>
+
+
+            <div class="linhaUsers">
+
+                <div class="fotoUsers">
+                    <img src="imgs/pfp3.png" alt="Foto de perfil">
+                </div>
+
+                <div class="fotoUsers">
+                    <img src="imgs/pfp5.png" alt="Foto de perfil">
                 </div>
 
             </div>
@@ -272,22 +272,9 @@ if ($avatar) {
 
             <div class="fotoAmizades">
 
-                <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                <img src="imgs/pfp3.png" alt="Foto de perfil">
 
-                <p class="nomeAmizades">placeholder</p>
-
-                <div class="botaoPerfil">
-                    <button type="button">Perfil</button>
-                </div>
-
-            </div>
-
-
-            <div class="fotoAmizades">
-
-                <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
-
-                <p class="nomeAmizades">placeholder</p>
+                <p class="nomeAmizades">Waddles</p>
 
                 <div class="botaoPerfil">
                     <button type="button">Perfil</button>
@@ -298,9 +285,22 @@ if ($avatar) {
 
             <div class="fotoAmizades">
 
-                <img src="imgs/fotoperfilex.png" alt="Foto de perfil">
+                <img src="imgs/pfp4.png" alt="Foto de perfil">
 
-                <p class="nomeAmizades">placeholder</p>
+                <p class="nomeAmizades">Pinnut$</p>
+
+                <div class="botaoPerfil">
+                    <button type="button">Perfil</button>
+                </div>
+
+            </div>
+
+
+            <div class="fotoAmizades">
+
+                <img src="imgs/pfp2.png" alt="Foto de perfil">
+
+                <p class="nomeAmizades">P0pC0rn</p>
 
                 <div class="botaoPerfil">
                     <button type="button">Perfil</button>
