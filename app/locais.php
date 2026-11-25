@@ -11,11 +11,11 @@ $locais = [
 
 $personagens = [
     "1" => "./imgs/dog-removebg-preview.png",
-    "2" => "./imgs/Esquilo.png",
+    "2" => "./imgs/esquilo.png",
     "3" => "./imgs/cat-removebg-preview.png",
     "4" => "./imgs/bunny-removebg-preview.png",
     "5" => "./imgs/avatarexemplo.png",
-    "6" => "./imgs/Porco.png",
+    "6" => "./imgs/porco.png",
 ];
 
 $acessorios = [
