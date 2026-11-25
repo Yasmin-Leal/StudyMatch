@@ -44,15 +44,16 @@ img {
 /* FOTO DE PERFIL DO CABEÇALHO */
 
 .fotoConta {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background-color: #796761;
+    background-color: #ffffff;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 /* PERSONAGEM NA FOTO DE PERFIL */
@@ -60,9 +61,27 @@ img {
 .personagemCabecalho {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-width: none;
+    object-fit: contain;
     object-position: center;
-    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* ACESSÓRIO NA FOTO DE PERFIL */
+
+.acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    max-width: none;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 }
 
 /* OUTROS ELEMENTOS DO CABEÇALHO */

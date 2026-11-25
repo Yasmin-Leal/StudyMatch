@@ -1,18 +1,19 @@
-body{
-   margin: 0;
-   padding: 0;
-   font-family: "Arima", system-ui;
-   font-optical-sizing: auto;
-   font-weight: weight;
-   font-style: normal;
-   background-color: #f0d3c394;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f0d3c394;
 }
 
 img {
-  display: block;
+    display: block;
 }
 
-.cabecalho{
+.cabecalho {
     display: flex;
     width: 100%;
     height: 150px;
@@ -21,43 +22,77 @@ img {
     align-items: center;
 }
 
-.cabecalho a{
+.cabecalho a {
     text-decoration: none;
 }
 
-.cabecalho p{
+.cabecalho p {
     color: white;
     font-size: 30px;
 }
 
-.fotoConta{
+/* FOTO DE PERFIL DO CABEÇALHO */
+.fotoConta {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: #ffffff;
+
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
-.loginTitulo p{
+/* PERSONAGEM DO AVATAR */
+.fotoConta .personagemCabecalho {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+/* ACESSÓRIO DO AVATAR */
+.fotoConta .acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+}
+
+.loginTitulo p {
     color: #796761;
     font-size: 30px;
 }
 
-nav ul{
+nav ul {
     display: flex;
     padding-left: 0;
     margin-top: 25px;
 }
 
-nav ul li{
+nav ul li {
     list-style: none;
     margin-right: 130px;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
 }
 
-.login{
+.login {
     display: flex;
     width: 90px;
     height: 50px;
@@ -67,7 +102,7 @@ nav ul li a{
     border-radius: 20px;
 }
 
-.img-cabecalho a img{
+.img-cabecalho a img {
     list-style: none;
     margin-right: 700px;
 }
@@ -80,17 +115,17 @@ nav ul li a{
     margin-top: 20px;
 }
 
-.img-rodape a img{
+.img-rodape a img {
     list-style: none;
     margin-right: 500px;
 }
 
-.center{
-    text-align: center;}
+.center {
+    text-align: center;
+}
 
-
-
-.rodape{
+/* RODAPÉ */
+.rodape {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -100,57 +135,49 @@ nav ul li a{
     align-items: center;
 }
 
-
-.rodape table{
+.rodape table {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rodape table tr td a p{
+.rodape table tr td a p {
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.rodape table tr td a{
+.rodape table tr td a {
     text-decoration: none;
 }
 
-.espacamentoRodape{
+.espacamentoRodape {
     width: 5px;
     height: 100px;
     background-color: white;
 }
 
-.redesSociais{
+.redesSociais {
     display: flex;
     padding-left: 0;
     margin-left: 250px;
 }
 
-.redesSociais nav ul li{
+.redesSociais nav ul li {
     list-style: none;
     margin-right: 50px;
 }
 
-.redesSociais nav ul li a{
+.redesSociais nav ul li a {
     text-decoration: none;
 }
 
-.direitos {
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.733);
-    font-size: 11px;
-    margin-top: 20px;
-}
-
-.erro{
+.erro {
     color: red;
 }
 
-.tituloGrupos{
+/* TÍTULO DOS GRUPOS */
+.tituloGrupos {
     color: #8f7152;
     font-size: 50px;
     text-align: center;
@@ -168,7 +195,8 @@ nav ul li a{
     margin-top: 40px;
 }
 
-.caixaGrupos{
+/* CAIXA DOS GRUPOS */
+.caixaGrupos {
     width: 85%;
     height: 1350px;
     background-color: #e9c4ab;
@@ -179,28 +207,27 @@ nav ul li a{
     align-items: center;
     border-radius: 50px;
     margin-bottom: 50px;
-    
 }
 
-.areaFotos{
-    display:flex;
+/* FOTOS DOS GRUPOS */
+.areaFotos {
+    display: flex;
     justify-content: center;
     margin-top: 150px;
 }
 
-.areaLinhas{
-    display:flex;
-    justify-content: center;}
+.areaLinhas {
+    display: flex;
+    justify-content: center;
+}
 
-.fotoGrupos{
+.fotoGrupos {
     width: 450px;
     height: 350px;
     margin: 20px;
-   
-    
 }
 
-.fotoGrupos img{
+.fotoGrupos img {
     width: 100%;
     height: 350px;
     object-fit: cover;
@@ -208,7 +235,8 @@ nav ul li a{
     margin-top: 0;
 }
 
-.linhaUsers{
+/* FOTOS DOS USUÁRIOS */
+.linhaUsers {
     width: 450px;
     height: 70px;
     background-color: #fffef1;
@@ -217,14 +245,13 @@ nav ul li a{
     margin: 20px;
 }
 
-.fotoUsers{
+.fotoUsers {
     justify-self: center;
     align-items: center;
     justify-content: center;
 }
 
-.fotoUsers img{
-    
+.fotoUsers img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -234,8 +261,8 @@ nav ul li a{
     margin-top: 5px;
 }
 
-
-.tituloAmizades{
+/* TÍTULO DAS AMIZADES */
+.tituloAmizades {
     color: #8f7152;
     font-size: 50px;
     text-align: center;
@@ -251,29 +278,26 @@ nav ul li a{
     position: relative;
     z-index: 10;
     margin-top: 40px;
-
 }
 
-.caixaAmizades{
-   
-    width:97%;
+/* CAIXA DAS AMIZADES */
+.caixaAmizades {
+    width: 97%;
     height: 470px;
-    background-color:#fffef1;
+    background-color: #fffef1;
     margin-top: 50px;
     border-radius: 50px;
     display: flex;
 }
 
-.fotoAmizades{
-    
+.fotoAmizades {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 60px 0 0 40px;
 }
 
-.fotoAmizades img{
-    
+.fotoAmizades img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -281,14 +305,14 @@ nav ul li a{
     object-fit: cover;
 }
 
-.nomeAmizades{
+.nomeAmizades {
     margin: 12px 0 0;
     font-size: 30px;
     text-align: center;
     margin-top: 20px;
 }
 
-.botaoPerfil button{
+.botaoPerfil button {
     margin-top: 20px;
     width: 200px;
     height: 70px;
@@ -297,7 +321,5 @@ nav ul li a{
     font-family: "Arima", system-ui;
     font-size: 40px;
     border-style: hidden;
-    color:#5a7e62;
+    color: #5a7e62;
 }
-
-

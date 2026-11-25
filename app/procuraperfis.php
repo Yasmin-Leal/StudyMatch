@@ -108,35 +108,33 @@ $linkPerfilAtual = "perfil.php?user=" . urlencode($user);
 
 
     <!-- CABEÇALHO -->
+
     <div class="cabecalho">
 
         <div class="img-cabecalho">
-
             <a href="homeperfil.php?user=<?= urlencode($user) ?>">
                 <img src="imgs/logo.png" alt="Logo StudyMatch">
             </a>
-
         </div>
-
 
         <nav>
 
             <ul>
 
                 <li>
-                    <a href="login.php">
+                    <a href="selecionar-sala.php?user=<?= urlencode($user) ?>">
                         <p>Grupos de Estudo</p>
                     </a>
                 </li>
 
                 <li>
-                    <a href="login.php">
+                    <a href="social.php?user=<?= urlencode($user) ?>">
                         <p>Social</p>
                     </a>
                 </li>
 
                 <li>
-                    <a href="login.php">
+                    <a href="progresso.php?user=<?= urlencode($user) ?>">
                         <p>Progresso</p>
                     </a>
                 </li>
@@ -145,16 +143,16 @@ $linkPerfilAtual = "perfil.php?user=" . urlencode($user);
 
         </nav>
 
+        <!-- FOTO DE PERFIL DO CABEÇALHO -->
 
-        <!-- FOTO DA CONTA -->
-        <a href="<?= htmlspecialchars($linkPerfilAtual, ENT_QUOTES, 'UTF-8') ?>">
+        <a href="perfil.php?user=<?= urlencode($user) ?>">
 
             <div class="fotoConta">
 
                 <img
                     class="personagemCabecalho"
                     src="<?= htmlspecialchars($imagemAtual, ENT_QUOTES, 'UTF-8') ?>"
-                    alt="Avatar do usuário"
+                    alt="Foto de perfil"
                 >
 
                 <?php if ($acessorioAtual !== null): ?>

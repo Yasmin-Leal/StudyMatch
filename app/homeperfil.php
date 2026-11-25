@@ -1,5 +1,6 @@
 
 <?php
+require_once __DIR__ . "/banco/crud.php";
 require_once __DIR__ . "/banco/database.php";
 require_once __DIR__ . "/locais.php";
 
@@ -104,7 +105,7 @@ if ($avatar) {
                 </li>
 
                 <li>
-                    <a href="procuraperfis.php">
+                    <a href="social.php?user=<?= urlencode($user) ?>">
                         <p>Social</p>
                     </a>
                 </li>

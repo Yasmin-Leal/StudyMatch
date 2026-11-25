@@ -5,20 +5,19 @@ require_once __DIR__ . "/banco/crud.php";
 require_once __DIR__ . "/banco/database.php";
 require_once __DIR__ . "/locais.php";
 
-
-// Identificação do usuário
+// IDENTIFICAÇÃO DO USUÁRIO
 $user = $_GET['user'] ?? $_POST['user'] ?? '';
 
 if ($user === '') {
     die("Usuário não identificado.");
 }
 
-// Valores iniciais
+// VALORES INICIAIS
 $personagemSelecionado = "1";
 $acessorioSelecionado = "";
 $mensagem = "";
 
-// Busca o avatar salvo no banco
+// BUSCA O AVATAR SALVO NO BANCO
 $stmt = database()->prepare("
     SELECT personagem, acessorio
     FROM personagens
@@ -31,17 +30,17 @@ $stmt->execute([
 
 $avatarSalvo = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Verifica se existe um registro para o usuário
+// VERIFICA SE EXISTE UM PERSONAGEM CADASTRADO
 if (!$avatarSalvo) {
     die("Não foi encontrado um personagem cadastrado para este usuário.");
 }
 
-// Recupera o personagem salvo
+// RECUPERA O PERSONAGEM SALVO
 if (isset($personagens[(string)$avatarSalvo['personagem']])) {
     $personagemSelecionado = (string)$avatarSalvo['personagem'];
 }
 
-// Recupera o acessório salvo
+// RECUPERA O ACESSÓRIO SALVO
 if (
     $avatarSalvo['acessorio'] !== null &&
     isset($acessorios[(string)$avatarSalvo['acessorio']])
@@ -51,17 +50,16 @@ if (
 
 
 // VERIFICA SE O FORMULÁRIO FOI ENVIADO
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Recupera o personagem escolhido
+    // RECUPERA O PERSONAGEM ESCOLHIDO
     $personagem = $_POST['personagem'] ?? '';
 
     if (isset($personagens[$personagem])) {
         $personagemSelecionado = (string)$personagem;
     }
 
-    // Recupera o acessório escolhido
+    // RECUPERA O ACESSÓRIO ESCOLHIDO
     $acessorio = $_POST['acessorio'] ?? '';
 
     if ($acessorio === '') {
@@ -74,19 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
-
     // SALVAR NO BANCO DE DADOS
-
     if (isset($_POST['salvar_avatar'])) {
 
         $personagemBanco = (int)$personagemSelecionado;
 
-        // Sem acessório: salva NULL
+        // SEM ACESSÓRIO: SALVA NULL
         $acessorioBanco = $acessorioSelecionado === ''
             ? null
             : (int)$acessorioSelecionado;
 
-        // Atualiza o registro existente
+        // ATUALIZA O REGISTRO EXISTENTE
         $stmt = database()->prepare("
             UPDATE personagens
             SET personagem = :personagem,
@@ -100,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':user' => $user
         ]);
 
-        // Redireciona depois de salvar
+        // REDIRECIONA DEPOIS DE SALVAR
         header(
             "Location: editaravatar.php?user=" .
             urlencode($user) .
@@ -113,7 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 // MENSAGEM DE SUCESSO
-
 if (isset($_GET['salvo'])) {
     $mensagem = "Personagem salvo com sucesso!";
 }
@@ -159,13 +154,13 @@ if (isset($_GET['salvo'])) {
                 </li>
 
                 <li>
-                    <a href="login.php">
+                    <a href="social.php?user=<?= urlencode($user) ?>">
                         <p>Social</p>
                     </a>
                 </li>
 
                 <li>
-                    <a href="login.php">
+                    <a href="progresso.php?user=<?= urlencode($user) ?>">
                         <p>Progresso</p>
                     </a>
                 </li>
@@ -173,18 +168,34 @@ if (isset($_GET['salvo'])) {
             </ul>
         </nav>
 
-        <!-- FOTO DE PERFIL -->
+        <!-- AVATAR DO CABEÇALHO -->
 
         <a href="perfil.php?user=<?= urlencode($user) ?>">
+
             <div class="fotoConta">
+
+                <!-- PERSONAGEM -->
 
                 <img
                     class="personagemCabecalho"
                     src="<?= htmlspecialchars($personagens[$personagemSelecionado], ENT_QUOTES, 'UTF-8') ?>"
-                    alt="Foto de perfil"
+                    alt="Personagem do perfil"
                 >
 
+                <!-- ACESSÓRIO -->
+
+                <?php if ($acessorioSelecionado !== ''): ?>
+
+                    <img
+                        class="acessorioCabecalho"
+                        src="<?= htmlspecialchars($acessorios[$acessorioSelecionado], ENT_QUOTES, 'UTF-8') ?>"
+                        alt="Acessório do personagem"
+                    >
+
+                <?php endif; ?>
+
             </div>
+
         </a>
 
     </div>
@@ -386,12 +397,12 @@ if (isset($_GET['salvo'])) {
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="social.php"><p>Social</p></a></td>
+                <td><a href="social.php?user=<?= urlencode($user) ?>"><p>Social</p></a></td>
 
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="progresso.php"><p>Progresso</p></a></td>
+                <td><a href="progresso.php?user=<?= urlencode($user) ?>"><p>Progresso</p></a></td>
 
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
@@ -411,7 +422,7 @@ if (isset($_GET['salvo'])) {
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="customizacao.php"><p>Customização</p></a></td>
+                <td><a href="customizacao.php?user=<?= urlencode($user) ?>"><p>Customização</p></a></td>
 
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
