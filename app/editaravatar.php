@@ -1,4 +1,3 @@
-
 <?php
 
 require_once __DIR__ . "/banco/crud.php";
@@ -89,8 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':user' => $user
         ]);
 
-        // REDIRECIONA DEPOIS DE SALVAR
-        header("Location: editaravatar.php?user=" . urlencode($user) . "&salvo=1");
+        if (headers_sent($arquivo, $linha)) {
+            die("REDIRECIONAMENTO BLOQUEADO! Arquivo: $arquivo | Linha: $linha");
+        }
+
+        header("Location: /editaravatar.php?user=" . urlencode($user) . "&salvo=1");
         exit;
     }
 }
