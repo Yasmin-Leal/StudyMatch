@@ -503,3 +503,22 @@ nav ul li a {
         font-size: 23px;
     }
 }
+
+/* BOTÕES DE PERSONALIZAÇÃO */
+
+.salvar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* MENSAGEM DE SUCESSO */
+
+.sucesso {
+    text-align: center;
+    color: #3d7538;
+    font-size: 22px;
+    margin: 15px auto;
+}
