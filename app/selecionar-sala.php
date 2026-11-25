@@ -5,7 +5,6 @@ require_once __DIR__ . "/banco/crud.php";
 require_once __DIR__ . "/banco/database.php";
 require_once __DIR__ . "/locais.php";
 
-$pdo = database();
 
 // IDENTIFICAÇÃO DO USUÁRIO
 $user = $_GET['user'] ?? '';
@@ -15,7 +14,7 @@ if ($user === '') {
 }
 
 // BUSCA OS DADOS DO USUÁRIO
-$dadosUser = $pdo->prepare("
+$dadosUser = database()->prepare("
     SELECT *
     FROM usuarios
     WHERE nome_usuario = :user
@@ -33,7 +32,7 @@ if (!$usuario) {
 
 
 // BUSCA O PERSONAGEM E O ACESSÓRIO
-$consultaAvatar = $pdo->prepare("
+$consultaAvatar = database()->prepare("
     SELECT personagem, acessorio
     FROM personagens
     WHERE nome_usuario = :user
