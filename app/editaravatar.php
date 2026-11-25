@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 
         // REDIRECIONA DEPOIS DE SALVAR
-        header("Location: /editaravatar.php?user=" . urlencode($user) . "&salvo=1");
+        header("Location: editaravatar.php?user=" . urlencode($user) . "&salvo=1");
         exit;
     }
 }
