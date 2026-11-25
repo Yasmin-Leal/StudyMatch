@@ -4,6 +4,7 @@
 
     $usuarios = readAll(database(), "usuarios");
     $anos = readAll(database(), "escolaridade");
+    $personagens = readAll(database(), "escolaridade");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -90,6 +91,10 @@
             "ano_escolar" => $_POST['ano'],
             "senha" => $_POST['senha'],
             "data_nascimento" => $_POST['data'],
+        ]);
+        create(database(), "personagens", [
+            "nome_usuario" => $_POST['nomeUs'],
+            "personagem" => 1,
         ]);
         header('Location: login.php');
         exit;

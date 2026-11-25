@@ -20,11 +20,10 @@ $personagens = [
 
 $acessorios = [
     "1" => "./imgs/gorro.png",
-    "2" => "./imgs/bigode.png",
+    "2" => "./imgs/polvo.png",
     "3" => "./imgs/boina.png",
     "4" => "./imgs/chapeu marrom.png",
     "5" => "./imgs/laço.png",
     "6" => "./imgs/laço branco.png",
     "7" => "./imgs/óculos.png",
-    "8" => "./imgs/polvo.png",
 ];

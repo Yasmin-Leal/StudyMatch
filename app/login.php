@@ -1,8 +1,8 @@
 <?php
-    //require_once __DIR__ . "/banco/crud.php"; 
-    //require_once __DIR__ . "/banco/database.php";
+    require_once __DIR__ . "/banco/crud.php"; 
+    require_once __DIR__ . "/banco/database.php";
 
-    //$usuarios = readAll(database(), "usuarios");
+    $usuarios = readAll(database(), "usuarios");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if(!isset($_POST['email']) || $_POST['email'] == "" ||

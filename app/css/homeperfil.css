@@ -1,18 +1,27 @@
-body{
-   margin: 0;
-   padding: 0;
-   font-family: "Arima", system-ui;
-   font-optical-sizing: auto;
-   font-weight: weight;
-   font-style: normal;
-   background-color: #f0d3c394;
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f0d3c394;
 }
 
 img {
-  display: block;
+    display: block;
+    max-width: 100%;
 }
 
-.cabecalho{
+/* CABEÇALHO */
+
+.cabecalho {
     display: flex;
     width: 100%;
     height: 150px;
@@ -21,43 +30,71 @@ img {
     align-items: center;
 }
 
-.cabecalho a{
+.cabecalho a {
     text-decoration: none;
 }
 
-.cabecalho p{
+.cabecalho p {
     color: white;
     font-size: 30px;
 }
 
-.fotoConta{
+.fotoConta {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-.loginTitulo p{
+/* PERSONAGEM NO CABEÇALHO */
+
+.personagemCabecalho {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+}
+
+/* ACESSÓRIO NO CABEÇALHO */
+
+.acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginTitulo p {
     color: #796761;
     font-size: 30px;
 }
 
-nav ul{
+nav ul {
     display: flex;
     padding-left: 0;
     margin-top: 25px;
 }
 
-nav ul li{
+nav ul li {
     list-style: none;
     margin-right: 130px;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
 }
 
-.login{
+.login {
     display: flex;
     width: 90px;
     height: 50px;
@@ -67,10 +104,12 @@ nav ul li a{
     border-radius: 20px;
 }
 
-.img-cabecalho a img{
+.img-cabecalho a img {
     list-style: none;
     margin-right: 700px;
 }
+
+/* DIREITOS */
 
 .direitos {
     width: 100%;
@@ -80,115 +119,146 @@ nav ul li a{
     margin-top: 20px;
 }
 
-.img-rodape a img{
+/* LOGO DO RODAPÉ */
+
+.img-rodape a img {
     list-style: none;
     margin-right: 500px;
 }
 
-.center{
-    text-align: center;}
-
-
-.banner{
-    width: 100%;
-    height: 400px;
-    
+.center {
+    text-align: center;
 }
 
-.bannerimg{
+/* BANNER */
+
+.banner {
+    width: 100%;
+    height: 400px;
+}
+
+.bannerimg {
     background-image: url("../imgs/bannerhomepageresize.png");
     background-repeat: no-repeat;
     width: 100%;
     height: 500px;
-   
 }
 
-.bolhaSaudacao{
-    width:350px;
+/* SAUDAÇÃO */
+
+.bolhaSaudacao {
+    width: 350px;
     height: 300px;
     background-image: url("../imgs/bolhaverde.png");
     background-repeat: no-repeat;
     margin-top: -50px;
     margin-left: 30px;
-    
-
 }
 
-.saudacao{
-    width:300px;
+.saudacao {
+    width: 300px;
     height: 250px;
 }
 
 .saudacao p {
     margin-top: -230px;
     font-size: 30px;
-    color:white;
+    color: white;
     margin-left: 120px;
 }
 
-.caixaMetas{
-    background-color:#f7d1c6;
+/* CAIXA DE METAS */
+
+.caixaMetas {
+    background-color: #f7d1c6;
     width: 90%;
     justify-self: center;
     height: 600px;
     margin-bottom: 50px;
     margin-top: -70px;
-    padding-top:30px;
-    display:flex;
+    padding-top: 30px;
+    display: flex;
 }
 
-.fotoUserGrande{
-    
+/* FOTO GRANDE DO AVATAR */
+
+.fotoUserGrande {
     width: 400px;
     height: 400px;
-    
     border-radius: 50%;
     background-color: #ffffff;
     margin-left: 50px;
-
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-.nomeUser p{
+/* PERSONAGEM DENTRO DO CÍRCULO GRANDE */
+
+.personagemPerfil {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+}
+
+/* ACESSÓRIO DENTRO DO CÍRCULO GRANDE */
+
+.acessorioPerfil {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* NOME DO USUÁRIO */
+
+.nomeUser p {
     margin-top: -200px;
     font-size: 40px;
-    color:rgb(109, 87, 87);
+    color: rgb(109, 87, 87);
     margin-left: 220px;
 }
 
-.metas p{
-    
+/* METAS */
+
+.metas p {
     font-size: 40px;
-    color:rgb(109, 87, 87);
+    color: rgb(109, 87, 87);
     margin-left: 200px;
     justify-self: flex-start;
     margin-top: -10px;
 }
 
-.listaMetas{
+.listaMetas {
     display: block;
     justify-content: center;
     padding-left: 100px;
-
 }
 
-.fundoMetas{
+.fundoMetas {
     height: 100px;
     width: 500px;
     border-radius: 50px;
     background-color: #f5c7bf;
     margin-bottom: 20px;
     display: flex;
-
 }
 
-.fundoMetas p{
+.fundoMetas p {
     font-size: 30px;
-    color:rgb(109, 87, 87);
-    margin-left: 30px;   
-
+    color: rgb(109, 87, 87);
+    margin-left: 30px;
 }
 
-.fundoMetas button{
+.fundoMetas button {
     margin-left: 60px;
     border-radius: 50px;
     background-color: #e7bbb3;
@@ -197,27 +267,84 @@ nav ul li a{
     width: 150px;
     margin-top: 25px;
     font-size: 30px;
-    color:rgb(109, 87, 87);
-    margin-left: 70px;  
+    color: rgb(109, 87, 87);
+    margin-left: 70px;
     font-family: "Arima", system-ui;
-
 }
 
-.areaCalendario{
+/* CALENDÁRIO */
+
+.areaCalendario {
     height: 500px;
     width: 500px;
-    
     margin-left: 70px;
 }
 
-.tituloMaterias p{
+.calendario {
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #ffe9e7;
+    font-family: "Arima", system-ui;
+    margin-left: 40px;
+}
+
+.mes {
+    text-align: center;
+    color: #5b4636;
+}
+
+.dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.dias span {
+    padding: 8px 0;
+    border-radius: 8px;
+    background: #e7e7ab;
+}
+
+.lembrete-form {
+    margin-top: 16px;
+}
+
+.lembrete-form input {
+    font-family: "Arima", system-ui;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 50px;
+    border-color: #e7bbb3;
+}
+
+.lembrete-form button {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    font-family: "Arima", system-ui;
+    background-color: #ececae;
+    border-radius: 50px;
+    border-style: hidden;
+    font-size: 20px;
+}
+
+/* TÍTULO DAS MATÉRIAS */
+
+.tituloMaterias p {
     margin-top: 200px;
     justify-self: center;
     font-size: 50px;
-    color:#796761;
+    color: #796761;
 }
 
-.listaMaterias{
+/* LISTA DE MATÉRIAS */
+
+.listaMaterias {
     display: flex;
 }
 
@@ -228,54 +355,45 @@ nav ul li a{
     width: 400px;
     margin-right: 60px;
     margin-left: 60px;
-   
 }
 
-.iconMateriaE{
+.iconMateriaE {
     background-image: url("../imgs/iconexatas.png");
     background-repeat: no-repeat;
     height: 250px;
     width: 300px;
-    
     margin-top: -330px;
     margin-left: 50px;
-    
 }
 
-.iconMateriaN{
+.iconMateriaN {
     background-image: url("../imgs/iconnaturais.png");
     background-repeat: no-repeat;
     height: 250px;
     width: 300px;
-    
     margin-top: -330px;
     margin-left: 50px;
-    
 }
 
-.iconMateriaL{
+.iconMateriaL {
     background-image: url("../imgs/iconlinguagens.png");
     background-repeat: no-repeat;
     height: 250px;
     width: 300px;
-    
     margin-top: -330px;
     margin-left: 50px;
-    
 }
-.iconMateriaH{
+
+.iconMateriaH {
     background-image: url("../imgs/iconhumanas.png");
     background-repeat: no-repeat;
     height: 250px;
     width: 300px;
-    
     margin-top: -330px;
     margin-left: 50px;
-    
 }
 
-
-.blocoExatas p{
+.blocoExatas p {
     color: white;
     font-size: 30px;
     justify-self: center;
@@ -289,10 +407,9 @@ nav ul li a{
     width: 400px;
     margin-right: 60px;
     margin-left: 60px;
-    
 }
 
-.blocoNaturais p{
+.blocoNaturais p {
     color: white;
     font-size: 30px;
     justify-self: center;
@@ -308,7 +425,7 @@ nav ul li a{
     margin-left: 60px;
 }
 
-.blocoLinguagens p{
+.blocoLinguagens p {
     color: white;
     font-size: 30px;
     justify-self: center;
@@ -322,36 +439,34 @@ nav ul li a{
     width: 400px;
     margin-right: 60px;
     margin-left: 60px;
-   
 }
 
-.blocoHumanas p{
+.blocoHumanas p {
     color: white;
     font-size: 30px;
     justify-self: center;
     margin-top: 280px;
 }
 
+/* PROFESSORES */
 
-.areaProf{
+.areaProf {
     display: flex;
     background-color: #eccbbc;
     width: 95%;
     height: 500px;
     justify-self: center;
     margin-top: 100px;
-
 }
 
-.profYas{
+.profYas {
     background-image: url("../imgs/yas.png");
     height: 250px;
     width: 100%;
     background-repeat: no-repeat;
-    
 }
 
-.profLe{
+.profLe {
     background-image: url("../imgs/le.png");
     height: 250px;
     width: 100%;
@@ -359,7 +474,7 @@ nav ul li a{
     margin-left: 70px;
 }
 
-.profMaia{
+.profMaia {
     background-image: url("../imgs/maia.png");
     height: 250px;
     width: 100%;
@@ -367,7 +482,7 @@ nav ul li a{
     margin-left: 50px;
 }
 
-.profGi{
+.profGi {
     background-image: url("../imgs/gi.png");
     height: 250px;
     width: 100%;
@@ -375,89 +490,83 @@ nav ul li a{
     margin-left: 50px;
 }
 
-.nomesProf{
+/* NOMES DOS PROFESSORES */
+
+.nomesProf {
     display: flex;
     width: 95%;
     height: 500px;
     justify-self: center;
     margin-top: -200px;
-
 }
 
-.nomeYas{
-    width:350px;
+.nomeYas {
+    width: 350px;
     height: 300px;
     background-image: url("../imgs/bolhaverde.png");
     background-repeat: no-repeat;
     margin-top: -50px;
     margin-left: 50px;
-    
 }
 
-.nomeYas p{
+.nomeYas p {
     margin-top: 100px;
     font-size: 40px;
-    color:white;
+    color: white;
     margin-left: 100px;
-
 }
 
-.nomeLe{
-    width:350px;
+.nomeLe {
+    width: 350px;
     height: 300px;
     background-image: url("../imgs/bolhaverde.png");
     background-repeat: no-repeat;
     margin-top: -50px;
     margin-left: 100px;
-    
 }
 
-.nomeLe p{
+.nomeLe p {
     margin-top: 100px;
     font-size: 40px;
-    color:white;
+    color: white;
     margin-left: 100px;
-
 }
 
-.nomeMaia{
-    width:350px;
+.nomeMaia {
+    width: 350px;
     height: 300px;
     background-image: url("../imgs/bolhaverde.png");
     background-repeat: no-repeat;
     margin-top: -50px;
     margin-left: 100px;
-    
 }
 
-.nomeMaia p{
+.nomeMaia p {
     margin-top: 100px;
     font-size: 40px;
-    color:white;
+    color: white;
     margin-left: 100px;
-
 }
 
-.nomeGi{
-    width:350px;
+.nomeGi {
+    width: 350px;
     height: 300px;
     background-image: url("../imgs/bolhaverde.png");
     background-repeat: no-repeat;
     margin-top: -50px;
     margin-left: 100px;
-    
 }
 
-.nomeGi p{
+.nomeGi p {
     margin-top: 100px;
     font-size: 40px;
-    color:white;
+    color: white;
     margin-left: 100px;
-
 }
 
+/* RODAPÉ */
 
-.rodape{
+.rodape {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -467,108 +576,43 @@ nav ul li a{
     align-items: center;
 }
 
-
-.rodape table{
+.rodape table {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rodape table tr td a p{
+.rodape table tr td a p {
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.rodape table tr td a{
+.rodape table tr td a {
     text-decoration: none;
 }
 
-.espacamentoRodape{
+.espacamentoRodape {
     width: 5px;
     height: 100px;
     background-color: white;
 }
 
-.redesSociais{
+.redesSociais {
     display: flex;
     padding-left: 0;
     margin-left: 250px;
 }
 
-.redesSociais nav ul li{
+.redesSociais nav ul li {
     list-style: none;
     margin-right: 50px;
 }
 
-.redesSociais nav ul li a{
+.redesSociais nav ul li a {
     text-decoration: none;
 }
 
-.direitos {
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.733);
-    font-size: 11px;
-    margin-top: 20px;
-}
-
-.erro{
+.erro {
     color: red;
-}
-
-.calendario {
-
-  width: 400px;
-  padding: 10px;
-  border-radius: 20px;
-  background: #ffe9e7;
-  font-family: "Arima", system-ui;
-  margin-left: 40px;
-}
-
-.mes {
-  text-align: center;
-  color: #5b4636;
-}
-
-.dias {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-  text-align: center;
-}
-
-.dias span {
-  padding: 8px 0;
-  border-radius: 8px;
-  background: #e7e7ab;
-}
-
-.lembrete-form {
-  margin-top: 16px;
-}
-
-.lembrete-form input{
-    font-family: "Arima", system-ui;
-    box-sizing: border-box;
-     width: 100%;
-    margin-top: 8px;
-    padding: 10px;
-     border-radius: 50px;
-  border-color:#e7bbb3
-
-}
-.lembrete-form button {
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 8px;
-  padding: 10px;
-  font-family: "Arima", system-ui;
-  background-color: #ececae;
-  border-radius: 50px;
-  border-style: hidden;
-  font-size: 20px;
-  
-
 }
