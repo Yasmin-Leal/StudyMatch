@@ -1,88 +1,120 @@
+
 :root {
-  --marrom: #987f7b;
-  --creme: #f7e6d8;
-  --texto: #75583f;
-  --rosa: #e9adb1;
-  --branco: #fff;
+    --marrom: #987f7b;
+    --creme: #f7e6d8;
+    --texto: #75583f;
+    --rosa: #e9adb1;
+    --branco: #fff;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
+    margin: 0;
     padding: 0;
     font-family: "Arima", system-ui;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     background-color: #f0d3c394;
-  
-}
-
-
-.cabecalho{
-    display: flex;
-    width: 100%;
-    height: 140px;
-    background-color: #796761;
-    justify-content: left;
-    align-items: center;
-}
-
-.cabecalho a{
-    text-decoration: none;
-}
-
-.cabecalho p{
-    color: white;
-    font-size: 30px;
-}
-
-.loginTitulo p{
-    color: #796761;
-    font-size: 30px;
-}
-
-nav ul{
-    display: flex;
-    padding-left: 0;
-    margin-top: 25px;
-}
-
-nav ul li{
-    list-style: none;
-    margin-right: 130px;
-}
-
-nav ul li a{
-    text-decoration: none;
-}
-
-.login{
-    display: flex;
-    width: 90px;
-    height: 50px;
-    background-color: #edd4c6;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-}
-
-.img-cabecalho a img{
-    list-style: none;
-    margin-right: 700px;
-}
-
-.img-rodape a img{
-    list-style: none;
-    margin-right: 500px;
 }
 
 img {
     display: block;
 }
 
-.rodape{
+/* CABEÇALHO */
+
+.cabecalho {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: #796761;
+    justify-content: left;
+    align-items: center;
+}
+
+.cabecalho a {
+    text-decoration: none;
+}
+
+.cabecalho p {
+    color: white;
+    font-size: 30px;
+}
+
+.fotoConta {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* PERSONAGEM NO CABEÇALHO */
+
+.personagemCabecalho {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+}
+
+/* ACESSÓRIO NO CABEÇALHO */
+
+.acessorioCabecalho {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginTitulo p {
+    color: #796761;
+    font-size: 30px;
+}
+
+/* NAVEGAÇÃO */
+
+nav ul {
+    display: flex;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+nav ul li {
+    list-style: none;
+    margin-right: 130px;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+.img-cabecalho a img {
+    list-style: none;
+    margin-right: 700px;
+}
+
+/* RODAPÉ */
+
+.img-rodape a img {
+    list-style: none;
+    margin-right: 500px;
+}
+
+.rodape {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -92,40 +124,40 @@ img {
     align-items: center;
 }
 
-.rodape table{
+.rodape table {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rodape table tr td a p{
+.rodape table tr td a p {
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.rodape table tr td a{
+.rodape table tr td a {
     text-decoration: none;
 }
 
-.espacamentoRodape{
+.espacamentoRodape {
     width: 5px;
     height: 100px;
     background-color: white;
 }
 
-.redesSociais{
+.redesSociais {
     display: flex;
     padding-left: 0;
     margin-left: 250px;
 }
 
-.redesSociais nav ul li{
+.redesSociais nav ul li {
     list-style: none;
     margin-right: 50px;
 }
 
-.redesSociais nav ul li a{
+.redesSociais nav ul li a {
     text-decoration: none;
 }
 
@@ -137,10 +169,9 @@ img {
     margin-top: 20px;
 }
 
+/* CONTAINER PRINCIPAL */
 
-/*---------------------------------------------------------------------------------------------------*/
-/* Container Principal */
-.card-principal{
+.card-principal {
     background-color: #ECD6C7;
     width: 1000px;
     height: 900px;
@@ -150,11 +181,12 @@ img {
     margin-top: 40px;
     margin-bottom: 40px;
 }
-p{
+
+p {
     font-size: 20px;
 }
 
-h1{
+h1 {
     font-size: 28px;
     font-weight: 400;
     margin-left: 125px;
@@ -162,15 +194,14 @@ h1{
     color: #7A5C43;
 }
 
-
 h2 {
     font-size: 28px;
     font-weight: 400;
     margin-bottom: 14px;
     color: #7A5C43;
-    
 }
 
+/* ÁREA SUPERIOR */
 
 .secao-top {
     display: flex;
@@ -179,13 +210,49 @@ h2 {
     margin-bottom: 32px;
 }
 
+/* AVATAR DO PERFIL */
+
 .avatar {
-    width: 145px;
-    height: 145px;
+    position: relative;
+    width: 200px;
+    height: 200px;
     background-color: #F7EFEA;
     border-radius: 50%;
-    flex-shrink: 0; /* Impede o círculo de amassar */
+    flex-shrink: 0;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* PERSONAGEM DO PERFIL */
+
+.personagemPerfil {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* ACESSÓRIO DO PERFIL */
+
+.acessorioPerfil {
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ATIVIDADE */
 
 .atividade {
     flex: 1;
@@ -217,8 +284,10 @@ h2 {
     flex: 1;
 }
 
+/* METAS */
+
 .metas {
-    padding-left: 48px; 
+    padding-left: 48px;
 }
 
 .metas-container {
@@ -234,7 +303,7 @@ h2 {
     height: 58px;
     padding: 10px 16px;
     display: flex;
-    justify-content: flex-end; /*end = final, posiciona no final da caixa*/
+    justify-content: flex-end;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -246,6 +315,7 @@ h2 {
     border-radius: 18px;
 }
 
+/* DIAS */
 
 .grade-dias {
     display: grid;
@@ -280,7 +350,8 @@ h2 {
     font-size: 0.85rem;
 }
 
-/* Ícones de Relógio */
+/* ÍCONES */
+
 .clock-icon {
     width: 16px;
     height: 16px;
@@ -293,19 +364,19 @@ h2 {
     height: 34px;
 }
 
-.img-perfil{
+.img-perfil {
     margin-top: 32px;
     width: 125px;
     margin-left: 10px;
-    position:absolute;
-    
-   
+    position: absolute;
 }
-.horas{
+
+.horas {
     font-size: 24px;
     margin-left: -150px;
 }
-.materias-mais{
+
+.materias-mais {
     font-size: 30px;
     width: 50px;
     color: #ffffff;
@@ -313,39 +384,42 @@ h2 {
     margin-top: -45px;
     margin-left: 50px;
 }
-.day-horas{
+
+.day-horas {
     background-color: #f5f2f0;
     width: 90px;
     height: 35px;
     border-radius: 30px;
-    
 }
-.day-horas p{
+
+.day-horas p {
     margin-left: 45px;
 }
 
-.relogio{
+.relogio {
     margin-bottom: -50px;
     margin-left: 13px;
     width: 20px;
 }
 
-.sequencia{
+.sequencia {
     color: #ffffff;
     margin-right: 380px;
     font-size: 28px;
 }
-.seque-porcentagem{
+
+.seque-porcentagem {
     position: absolute;
     margin-right: 20px;
     font-size: 25px;
 }
-.icons{
+
+.icons {
     width: 100px;
 }
-.patas{
+
+.patas {
     position: absolute;
     margin-top: 25px;
     margin-left: 10px;
-    
 }
