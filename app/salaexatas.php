@@ -266,7 +266,7 @@ $imagemAcessorio = $acessorioSelecionado !== ''
                     data-name="username"
                     data-talk="Estudando...Tempo na sala: 01:02:32"
                 >
-                    <img src="imgs/Esquilo.png" alt="Estudante">
+                    <img src="imgs/esquilo.png" alt="Estudante">
                 </div>
 
                 <div class="book b1">📗</div>
