@@ -212,6 +212,13 @@ nav ul li a {
 
 /* RODAPÉ */
 
+/* RODAPÉ */
+
+.img-rodape a img {
+    list-style: none;
+    margin-right: 500px;
+}
+
 .rodape {
     display: flex;
     flex-wrap: wrap;

@@ -342,70 +342,82 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'entrar'
     </div>
 
 
-    <!-- RODAPÉ -->
     <div class="rodape">
 
         <div class="img-rodape">
+
             <a href="homelogin.php">
-                <img src="/img-yasmin/logo.png" alt="Logo StudyMatch">
+                <img src="/img-yasmin/logo.png" alt="">
             </a>
+
         </div>
 
         <table cellpadding="3">
 
             <tr>
+
                 <td><a href="materias.php"><p>Matérias</p></a></td>
+                <td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+
+                <td><a href="social.php"><p>Social</p></a></td>
+
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="social.php?user=<?= urlencode($user) ?>"><p>Social</p></a></td>
-                <td></td><td></td><td></td><td></td><td></td>
-                <td></td><td></td><td></td><td></td><td></td>
+                <td><a href="progresso.php"><p>Progresso</p></a></td>
 
-                <td><a href="progresso.php?user=<?= urlencode($user) ?>"><p>Progresso</p></a></td>
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
                 <td><a href="suporte.php"><p>Suporte</p></a></td>
+
             </tr>
 
             <tr>
+
                 <td><a href="termos.php"><p>Termos</p></a></td>
-                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
                 <td><a href="contato.php"><p>Contato</p></a></td>
+
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="customizacao.php?user=<?= urlencode($user) ?>"><p>Customização</p></a></td>
+                <td><a href="customizacao.php"><p>Customização</p></a></td>
+
                 <td></td><td></td><td></td><td></td><td></td>
                 <td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="configuracao.php?user=<?= urlencode($user) ?>"><p>Configuração</p></a></td>
+                <td><a href="configuracao.php"><p>Configuração</p></a></td>
+
             </tr>
 
         </table>
 
+        <!-- REDES SOCIAIS -->
 
         <div class="redesSociais">
 
             <nav>
+
                 <ul>
 
                     <li>
                         <a href="">
-                            <img src="/img-yasmin/git.png" alt="GitHub">
+                            <img src="/img-yasmin/git.png" alt="">
                         </a>
                     </li>
 
                     <li>
                         <a href="">
-                            <img src="/img-yasmin/insta.png" alt="Instagram">
+                            <img src="/img-yasmin/insta.png" alt="">
                         </a>
                     </li>
 
                 </ul>
+
             </nav>
 
         </div>
@@ -417,4 +429,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'entrar'
     </div>
 
 </body>
+
 </html>
