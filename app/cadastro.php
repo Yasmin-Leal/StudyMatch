@@ -201,7 +201,7 @@
         <div class="img-rodape"><a href="index.php"><img src="imgs/logo.png" alt=""></a></div>
         <table cellpadding="3">
             <tr>
-                <td><a href="login.php"><p>Matérias</p></a></td>
+                <td><a href="login.php"><p>Salas</p></a></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -234,7 +234,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><a href="login.php"><p>Suporte</p></a></td>
+                <td><a href="login.php"><p>Home</p></a></td>
             </tr>
             <tr>
                 <td><a href="login.php"><p>Termos</p></a></td>
@@ -248,7 +248,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><a href="login.php"><p>Contato</p></a></td>
+                <td><a href="login.php"><p>Pesquisar</p></a></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -270,7 +270,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><a href="login.php"><p>Configuração</p></a></td>
+                <td><a href="login.php"><p>Criar Sala</p></a></td>
             </tr>
         </table>
         <div class="redesSociais">
