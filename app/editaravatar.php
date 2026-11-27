@@ -369,7 +369,17 @@ if (isset($_GET['salvo'])) {
 
     <!-- RODAPÉ -->
 
-      <table cellpadding="3">
+        <div class="rodape">
+
+        <div class="img-rodape">
+
+            <a href="homelogin.php">
+                <img src="/img-yasmin/logo.png" alt="">
+            </a>
+
+        </div>
+
+          <table cellpadding="3">
 
             <tr>
 
@@ -404,31 +414,29 @@ if (isset($_GET['salvo'])) {
 
         </table>
 
-
-        <!-- REDES SOCIAIS -->
-
         <div class="redesSociais">
 
             <nav>
+
                 <ul>
 
                     <li>
                         <a href="">
-                            <img src="imgs/git.png" alt="GitHub">
+                            <img src="/img-yasmin/git.png" alt="">
                         </a>
                     </li>
 
                     <li>
                         <a href="">
-                            <img src="imgs/insta.png" alt="Instagram">
+                            <img src="/img-yasmin/insta.png" alt="">
                         </a>
                     </li>
 
                 </ul>
+
             </nav>
 
         </div>
-
 
         <p class="direitos">
             © 2026 StudyMatch - Todos os direitos reservados

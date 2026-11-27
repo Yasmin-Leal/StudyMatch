@@ -447,33 +447,15 @@ $imagemAcessorio = $acessorioSelecionado !== ''
 
   <div class="prof"><img src="imgs/prof_le-removebg-preview.png"></div>
 
+    <div class="rodape">
 
+        <div class="img-rodape">
+            <a href="homelogin.php">
+                <img src="/img-yasmin/logo.png" alt="">
+            </a>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-      <table cellpadding="3">
+         <table cellpadding="3">
 
             <tr>
 
@@ -507,15 +489,26 @@ $imagemAcessorio = $acessorioSelecionado !== ''
             </tr>
 
         </table>
-            <div class="redesSociais">
-                <nav>
+
+        <div class="redesSociais">
+
+            <nav>
                 <ul>
-                    <li><a href=""><img src="imgs/git.png" alt=""></a></li>
-                    <li><a href=""><img src="imgs/insta.png" alt=""></a></li>
+
+                    <li><a href=""><img src="/img-yasmin/git.png" alt=""></a></li>
+
+                    <li><a href=""><img src="/img-yasmin/insta.png" alt=""></a></li>
+
                 </ul>
-                </nav>
-            </div>
-            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+            </nav>
+
+        </div>
+
+        <p class="direitos">
+            © 2026 StudyMatch - Todos os direitos reservados
+        </p>
+
     </div>
+
 </body>
 </html>
