@@ -13,7 +13,6 @@ if ($user === '') {
     die("Usuário não identificado.");
 }
 
-
 // BUSCA OS DADOS DO USUÁRIO
 $dadosUser = $pdo->prepare("
     SELECT *
@@ -31,7 +30,6 @@ if (!$usuario) {
     die("Usuário não encontrado.");
 }
 
-
 // BUSCA O PERSONAGEM E O ACESSÓRIO
 $consultaAvatar = $pdo->prepare("
     SELECT personagem, acessorio
@@ -45,11 +43,9 @@ $consultaAvatar->execute([
 
 $avatar = $consultaAvatar->fetch(PDO::FETCH_ASSOC);
 
-
 // IMAGENS PADRÃO
 $imagemPersonagem = "./imgs/avatarexemplo.png";
 $imagemAcessorio = null;
-
 
 // IDENTIFICA O PERSONAGEM
 if ($avatar) {
@@ -61,7 +57,7 @@ if ($avatar) {
     }
 
     // IDENTIFICA O ACESSÓRIO
-    if ($avatar['acessorio'] !== null) {
+    if ($avatar['acessorio'] !== null && $avatar['acessorio'] !== '') {
 
         $acessorioId = (string) $avatar['acessorio'];
 
@@ -71,33 +67,22 @@ if ($avatar) {
     }
 }
 
-
 // BUSCA AS INFORMAÇÕES PARA O CADASTRO DA SALA
-$materias = readAll(database(), "materias");
-$area = readAll(database(), "area_conhecimento");
-$grupo = readAll(database(), "grupos_estudos");
-
+$materias = readAll($pdo, "materias");
+$area = readAll($pdo, "area_conhecimento");
+$grupo = readAll($pdo, "grupos_estudos");
 
 // CADASTRO DA SALA
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $areaSelecionada = $_POST['area'] ?? '';
-    $materia = $_POST['materias'] ?? '';
+    $areaSelecionada = trim($_POST['area'] ?? '');
+    $materia = trim($_POST['materias'] ?? '');
     $ambiente = $_POST['ambiente'] ?? '';
-    $nome_sala = $_POST['nome_sala'] ?? '';
+    $nome_sala = trim($_POST['nome_sala'] ?? '');
     $status = $_POST['status'] ?? '';
     $senha = $_POST['senha'] ?? '';
     $criador = $usuario['nome_usuario'];
     $data = $_POST['data'] ?? date('Y-m-d');
-
-
-    $materiasPorArea = [
-        "Exatas" => ["Matemática", "Física", "Química"],
-        "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
-        "Ciências Humanas" => ["História", "Geografia", "Filosofia", "Sociologia"],
-        "Linguagens" => ["Língua Portuguesa", "Línguas Estrangeiras", "Literatura"]
-    ];
-
 
     // VERIFICA CAMPOS VAZIOS
     if (
@@ -112,14 +97,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-
     // VERIFICA SENHA DO GRUPO PRIVADO
-    if ($status == "privado" && $senha == "") {
+    if ($status === "privado" && $senha === "") {
 
         header("Location: criarsala.php?user=" . urlencode($user) . "&erro=" . urlencode("Espaço vazio"));
         exit;
     }
-
 
     // VERIFICA TAMANHO DA SENHA
     if (strlen($senha) > 20) {
@@ -128,28 +111,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-
-    // VERIFICA SE A MATÉRIA PERTENCE À ÁREA
-    if (
-        !in_array(
-            $materia,
-            $materiasPorArea[$areaSelecionada] ?? [],
-            true
-        )
-    ) {
-
-        header("Location: criarsala.php?user=" . urlencode($user) . "&erro=" . urlencode("A matéria selecionada não faz parte dessa área de conhecimento"));
-        exit;
-    }
-
-
     // VERIFICA SENHA EM GRUPO PÚBLICO
-    if ($status == "publico" && $senha != "") {
+    if ($status === "publico" && $senha !== "") {
 
         header("Location: criarsala.php?user=" . urlencode($user) . "&erro=" . urlencode("Só é possível cadastrar uma senha caso o grupo seja privado"));
         exit;
     }
-
 
     // CADASTRA A SALA
     create(database(), "grupos_estudos", [
@@ -185,7 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -208,7 +174,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 
-
     <!-- CABEÇALHO -->
 
     <div class="cabecalho">
@@ -220,7 +185,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
 
         </div>
-
 
         <nav>
 
@@ -247,7 +211,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </ul>
 
         </nav>
-
 
         <!-- AVATAR COM PERSONAGEM E ACESSÓRIO -->
 
@@ -277,8 +240,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     </div>
 
-
-
     <!-- TÍTULO -->
 
     <div class="bloco1">
@@ -286,8 +247,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>Crie sua própria sala de estudos!</p>
 
     </div>
-
-
 
     <!-- FORMULÁRIO PRINCIPAL -->
 
@@ -303,9 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     value="<?= htmlspecialchars($user, ENT_QUOTES, 'UTF-8') ?>"
                 >
 
-
                 <p>Escolha um ambiente:</p>
-
 
                 <!-- PRIMEIRA LINHA DE AMBIENTES -->
 
@@ -319,7 +276,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     </div>
 
-
                     <div class="card">
 
                         <img src="<?= $locais['2'] ?>" alt="Ambiente 2" width="400">
@@ -327,7 +283,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="radio" class="checkbox" name="ambiente" value="2">
 
                     </div>
-
 
                     <div class="card">
 
@@ -338,8 +293,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                 </div>
-
-
 
                 <!-- SEGUNDA LINHA DE AMBIENTES -->
 
@@ -353,7 +306,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     </div>
 
-
                     <div class="card">
 
                         <img src="<?= $locais['5'] ?>" alt="Ambiente 5" width="400">
@@ -361,7 +313,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="radio" class="checkbox" name="ambiente" value="5">
 
                     </div>
-
 
                     <div class="card">
 
@@ -373,11 +324,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </div>
 
-
-
                 <p>Preencha as informações a seguir:</p>
-
-
 
                 <!-- CAMPOS -->
 
@@ -389,7 +336,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         placeholder="Nome da sala"
                     >
 
-
                     <input
                         type="text"
                         name="criador"
@@ -397,14 +343,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         readonly
                     >
 
-
                     <input
                         type="date"
                         name="data"
                         value="<?= date('Y-m-d') ?>"
                         readonly
                     >
-
 
                     <select name="area">
 
@@ -421,8 +365,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <?php endforeach; ?>
 
                     </select>
-
-
 
                     <select name="materias">
 
@@ -442,8 +384,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </div>
 
-
-
                 <!-- STATUS DA SALA -->
 
                 <div class="status">
@@ -460,8 +400,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </div>
 
-
-
                 <!-- SENHA -->
 
                 <div class="campos">
@@ -473,8 +411,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     >
 
                 </div>
-
-
 
                 <!-- ERRO -->
 
@@ -492,8 +428,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </div>
 
-
-
                 <button type="submit" class="button">
                     Criar Sala
                 </button>
@@ -503,8 +437,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
     </div>
-
-
 
     <!-- RODAPÉ -->
 
@@ -517,7 +449,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
 
         </div>
-
 
         <table cellpadding="3">
 
@@ -536,7 +467,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             </tr>
 
-
             <tr>
 
                 <td><a href="termos.php"><p>Termos</p></a></td>
@@ -553,8 +483,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </tr>
 
         </table>
-
-
 
         <div class="redesSociais">
 
@@ -579,7 +507,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </nav>
 
         </div>
-
 
         <p class="direitos">
             © 2026 StudyMatch - Todos os direitos reservados

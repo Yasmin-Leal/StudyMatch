@@ -1,4 +1,3 @@
-
 <?php
 
 require_once __DIR__ . "/banco/crud.php";
@@ -77,33 +76,21 @@ $areaConhecimento = readAll(database(), "area_conhecimento");
 $materias = readAll(database(), "materias");
 
 
-// FILTRO DAS SALAS
+
+ // FILTRO DAS SALAS
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $area = $_POST['areaConhecimento'] ?? '';
-    $materia = $_POST['materias'] ?? '';
+    $area = trim($_POST['areaConhecimento'] ?? '');
+    $materia = trim($_POST['materias'] ?? '');
 
-    if (empty($area)) {
+    if ($area === '') {
+
         header("Location: selecionar-sala.php?user=" . urlencode($user) . "&erro=" . urlencode("Selecione uma área de conhecimento."));
         exit;
     }
 
-    $materiasPorArea = [
-        "Exatas" => ["Matemática", "Física", "Química"],
-        "Ciências Naturais" => ["Biologia", "Geologia", "Astronomia", "Ecologia"],
-        "Ciências Humanas" => ["História", "Geografia", "Filosofia", "Sociologia"],
-        "Linguagens" => ["Língua Português", "Línguas Estrangeiras", "Literatura"]
-    ];
-
-    if (
-        !empty($materia) &&
-        !in_array($materia, $materiasPorArea[$area] ?? [], true)
-    ) {
-        header("Location: selecionar-sala.php?user=" . urlencode($user) . "&erro=" . urlencode("A matéria selecionada não faz parte dessa área de conhecimento."));
-        exit;
-    }
-
-    if (!empty($materia)) {
+    // FILTRA POR ÁREA E MATÉRIA
+    if ($materia !== '') {
 
         $grupos = readAll(
             database(),
@@ -114,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     } else {
 
+        // FILTRA SOMENTE PELA ÁREA
         $grupos = readAll(
             database(),
             "grupos_estudos",
@@ -122,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         );
     }
 }
+
 
 ?>
 
