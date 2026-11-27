@@ -349,11 +349,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         </div>
 
-        <table cellpadding="3">
+          <table cellpadding="3">
 
             <tr>
 
-                <td><a href="materias.php"><p>Matérias</p></a></td>
+                <td><a href="selecionar-sala.php?user=<?= urlencode($user) ?>"><p>Salas</p></a></td>
                 <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
                 <td><a href="social.php?user=<?= urlencode($user) ?>"><p>Social</p></a></td>
@@ -362,27 +362,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <td><a href="progresso.php?user=<?= urlencode($user) ?>"><p>Progresso</p></a></td>
                 <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="suporte.php"><p>Suporte</p></a></td>
+                <td><a href="homeperfil.php?user=<?= urlencode($user) ?>"><p>Home</p></a></td>
 
             </tr>
+
 
             <tr>
 
                 <td><a href="termos.php"><p>Termos</p></a></td>
                 <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="contato.php"><p>Contato</p></a></td>
+                <td><a href="procuraperfis.php?user=<?= urlencode($user) ?>"><p>Pesquisar</p></a></td>
                 <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="customizacao.php?user=<?= urlencode($user) ?>"><p>Customização</p></a></td>
+                <td><a href="editaravatar.php?user=<?= urlencode($user) ?>"><p>Customização</p></a></td>
                 <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 
-                <td><a href="configuracao.php"><p>Configuração</p></a></td>
+                <td><a href="criarsala.php?user=<?= urlencode($user) ?>"><p>Criar Sala</p></a></td>
 
             </tr>
 
         </table>
-
 
         <div class="redesSociais">
 
