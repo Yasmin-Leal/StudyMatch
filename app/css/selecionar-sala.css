@@ -197,6 +197,7 @@ nav ul li a {
 .criarSala a:focus,
 .criarSala a:visited {
   text-decoration: none;
+  
 }
 
 .criarSala .plus {
