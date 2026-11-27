@@ -1,5 +1,8 @@
 
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once __DIR__ . "/banco/crud.php";
 require_once __DIR__ . "/banco/database.php";
@@ -169,8 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'telefone' => $telefone,
         'id_usuario' => $id
     ]);
-    
-    header("Location: /perfil.php?user=" . urlencode($user) . "&atualizado=1");
+
+    header("Location: perfil.php?user=" . urlencode($user) . "&atualizado=1");
     exit;
 }
 
