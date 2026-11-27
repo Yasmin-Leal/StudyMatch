@@ -338,7 +338,7 @@ $imagemAcessorio = $acessorioSelecionado !== ''
     </main>
 
 
-    <!-- JAVASCRIPT DO MINIGAME -->
+    <!-- MINIGAME -->
 
     <script>
 

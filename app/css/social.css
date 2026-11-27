@@ -1,4 +1,8 @@
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -11,7 +15,10 @@ body {
 
 img {
     display: block;
+    max-width: 100%;
 }
+
+/* CABEÇALHO */
 
 .cabecalho {
     display: flex;
@@ -31,46 +38,52 @@ img {
     font-size: 30px;
 }
 
+
 /* FOTO DE PERFIL DO CABEÇALHO */
+
 .fotoConta {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: #ffffff;
-
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
-/* PERSONAGEM DO AVATAR */
+/* PERSONAGEM DO CABEÇALHO */
+
 .fotoConta .personagemCabecalho {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
-
     position: absolute;
     bottom: 0;
     left: 0;
-
     z-index: 1;
+    border-radius: 50%;
 }
 
-/* ACESSÓRIO DO AVATAR */
+/* ACESSÓRIO DO CABEÇALHO */
+
 .fotoConta .acessorioCabecalho {
     width: 55%;
     height: 55%;
     object-fit: contain;
-
     position: absolute;
     top: 0;
     left: 50%;
-
     transform: translateX(-50%);
-
     z-index: 2;
+    border-radius: 0;
 }
+
+
+/* NAVEGAÇÃO */
 
 .loginTitulo p {
     color: #796761;
@@ -107,6 +120,10 @@ nav ul li a {
     margin-right: 700px;
 }
 
+
+
+/* RODAPÉ */
+
 .direitos {
     width: 100%;
     text-align: center;
@@ -120,11 +137,6 @@ nav ul li a {
     margin-right: 500px;
 }
 
-.center {
-    text-align: center;
-}
-
-/* RODAPÉ */
 .rodape {
     display: flex;
     flex-wrap: wrap;
@@ -175,6 +187,7 @@ nav ul li a {
 .erro {
     color: red;
 }
+
 
 /* TÍTULO DOS GRUPOS */
 .tituloGrupos {

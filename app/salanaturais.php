@@ -664,10 +664,11 @@ $imagemAcessorio = $acessorioSelecionado !== ''
         <img src="imgs/prof_le-removebg-preview.png" alt="Professora">
     </div>
 
+    <div class="rodape">
 
     <!-- RODAPÉ -->
 
-    <div class="rodape">
+  
 
         <div class="img-rodape">
 
@@ -739,7 +740,6 @@ $imagemAcessorio = $acessorioSelecionado !== ''
             </nav>
 
         </div>
-
 
         <p class="direitos">
             © 2026 StudyMatch - Todos os direitos reservados
