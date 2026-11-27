@@ -255,7 +255,7 @@ if ($avatar) {
 
                 </div>
 
-                <form class="lembrete-form" action="/reminders" method="post">
+                <form class="lembrete-form" action="homeperfil.php?user=<?= urlencode($user) ?>" method="post">
 
                     <label for="date">Data do Lembrete</label>
 
@@ -276,7 +276,7 @@ if ($avatar) {
                         required
                     >
 
-                    <button type="submit">Salvar</button>
+                    <button type="submit" >Salvar</button>
 
                 </form>
 
