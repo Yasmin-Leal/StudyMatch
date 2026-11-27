@@ -169,8 +169,10 @@ nav ul li a {
     margin-top: 20px;
     margin-bottom: 70px;
     align-items: center;
-    
+    text-decoration: none;
 }
+    
+
 
 .criarSala button {
     background-color: #e8b2b4;
@@ -187,6 +189,14 @@ nav ul li a {
     text-align: center;
     justify-content: center;
     margin-left: 15px;
+    text-decoration: none !important;
+}
+
+.criarSala a,
+.criarSala a:hover,
+.criarSala a:focus,
+.criarSala a:visited {
+  text-decoration: none;
 }
 
 .criarSala .plus {
@@ -196,8 +206,10 @@ nav ul li a {
     width: 50px;
     display: inline;
     margin-left: -320px;
-    margin-top: 6px;
+    margin-top: 12px;
+
 }
+
 
 /* RODAPÉ */
 .rodape {
