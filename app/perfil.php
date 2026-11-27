@@ -169,8 +169,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'telefone' => $telefone,
         'id_usuario' => $id
     ]);
-
-    header("Location: perfil.php?user=" . urlencode($user) . "&atualizado=1");
+    
+    header("Location: /perfil.php?user=" . urlencode($user) . "&atualizado=1");
     exit;
 }
 
