@@ -321,11 +321,22 @@ if ($avatar) {
 
 
 
+   <div class="rodape">
+
     <!-- RODAPÉ -->
 
-    
+  
 
-      <table cellpadding="3">
+        <div class="img-rodape">
+
+            <a href="homelogin.php">
+                <img src="imgs/logo.png" alt="Logo StudyMatch">
+            </a>
+
+        </div>
+
+
+         <table cellpadding="3">
 
             <tr>
 
@@ -359,15 +370,39 @@ if ($avatar) {
             </tr>
 
         </table>
-            <div class="redesSociais">
-                <nav>
+
+
+        <!-- REDES SOCIAIS -->
+
+        <div class="redesSociais">
+
+            <nav>
+
                 <ul>
-                    <li><a href=""><img src="imgs/git.png" alt=""></a></li>
-                    <li><a href=""><img src="imgs/insta.png" alt=""></a></li>
+
+                    <li>
+                        <a href="">
+                            <img src="imgs/git.png" alt="GitHub">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <img src="imgs/insta.png" alt="Instagram">
+                        </a>
+                    </li>
+
                 </ul>
-                </nav>
-            </div>
-            <p class="direitos">© 2026 StudyMatch - Todos os direitos reservados</p>
+
+            </nav>
+
+        </div>
+
+        <p class="direitos">
+            © 2026 StudyMatch - Todos os direitos reservados
+        </p>
+
     </div>
+
 </body>
 </html>
